@@ -1,0 +1,38 @@
+{
+  "required": true,
+  "package": "carpet_cuo.mixins",
+  "mixins": [
+    "AbstractBlockStateMixin",
+    "AnvilScreenHandlerMixin",
+    "BlockMixin",
+    "ItemMixin",
+    "PistonBlockMixin",
+    "BlockEntitySwapReintroducedMixin.BlockEntityMixin",
+    "BlockEntitySwapReintroducedMixin.WorldChunkMixin",
+    "ComparatorDupeFixMixin.ComparatorBlockMixin",
+    "CopperGolemMixin.CopperGolemEntityMixin",
+    "InfinitelyTotemMixin.LivingEntityMixin",
+    "InfinitelyVaultMixin.VaultServerDateMixin",
+    "instantDispenserAndDropperMixin.DispenserBlockMixin",
+    "instantScheduleMixin.AbstractBlockMixin",
+    "instantScheduleMixin.AbstractRedstoneGateBlockMixin",
+    "instantScheduleMixin.ChunkTickSchedulerMixin",
+    "instantScheduleMixin.CrafterBlockMixin",
+    "MaxChainDepthMixin.ChainRestrictedNeighborUpdaterMixin",
+    "MaxUpdateDepthMixin.WorldMixin",
+    "PiglinTradeInstantlyMixin.PiglinBrainMixin",
+    "UseLeavesAndMossAsFuleMixin.FurnaceBlockMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "overwrites": {
+    "requireAnnotations": true
+  },
+  "client": [
+    "AnvilScreenMixin"
+  ],
+  "server": [
+    "instantScheduleMixin.ObserverBlockMixin"
+  ]
+}

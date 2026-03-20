@@ -1,0 +1,27 @@
+{
+	"schemaVersion": 1,
+	"id": "carpet_cuo_addition",
+	"version": "${version}",
+	"name": "${name}",
+	"description": "一个简单的carpet扩展",
+	"authors": [
+		"XM_QWQ_"
+	],
+	"icon": "assets/carpet_cuo/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+          "carpet_cuo.Carpet_CuOMod"
+		]
+	},
+	"mixins": [
+		"carpet_cuo.mixins.json"
+	],
+	"depends": {
+		"fabricloader": "*",
+		"minecraft": "${minecraft_dependency}",
+		"fabric-api": "*",
+		"carpet": "*"
+	},
+	"license": "MIT"
+}
