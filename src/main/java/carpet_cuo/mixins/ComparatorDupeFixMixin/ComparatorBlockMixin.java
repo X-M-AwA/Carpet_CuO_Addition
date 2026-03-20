@@ -22,6 +22,6 @@ public abstract class ComparatorBlockMixin {
             cancellable = true
     )
     private void ComparatorDupeFix(World world, BlockPos pos, BlockState state, CallbackInfo ci){
-        if (Carpet_CuOSettings.comparatorDupeFix && world.isAir(pos))ci.cancel();
+        if (Carpet_CuOSettings.comparatorDupeFix && world.isAir(pos) && world.isClient())ci.cancel();
     }
 }

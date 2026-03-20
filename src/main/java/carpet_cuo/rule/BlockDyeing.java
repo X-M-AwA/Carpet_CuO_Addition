@@ -35,7 +35,7 @@ public class BlockDyeing {
             ItemStack stack = player.getMainHandStack();
             BlockState state = world.getBlockState(hitResult.getBlockPos());
 
-            if (Carpet_CuOSettings.blockDyeing && stack.getItem() instanceof DyeItem dyeItem && isDyeableBlock(state) && !player.isSpectator()){
+            if (Carpet_CuOSettings.blockDyeing && stack.getItem() instanceof DyeItem dyeItem && isDyeableBlock(state) && !player.isSpectator() && !world.isClient()){
                 Block targetBlock = getDyedBlock(state, dyeItem);
                 if (targetBlock != null) {
                     BlockState newState = inheritBlockProperties(state, targetBlock.getDefaultState());

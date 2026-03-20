@@ -23,7 +23,7 @@ public abstract class PistonBlockMixin {
             cancellable = true
     )
     private static void injectCheck(BlockState state, World world, BlockPos pos, Direction direction, boolean canBreak, Direction pistonDir, CallbackInfoReturnable<Boolean> cir) {
-        if (state.isOf(Blocks.END_PORTAL_FRAME) || state.isOf(Blocks.BEDROCK)) cir.setReturnValue(false);
+        if (state.isOf(Blocks.END_PORTAL_FRAME) || state.isOf(Blocks.BEDROCK) && world.isClient()) cir.setReturnValue(false);
     }
 }
 

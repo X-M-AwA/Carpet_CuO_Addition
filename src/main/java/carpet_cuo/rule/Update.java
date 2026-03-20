@@ -9,7 +9,7 @@ public class Update {
         UseBlockCallback.EVENT.register((player, world, hand, hitResult) -> {
             if (player.isSneaking()) return ActionResult.PASS;
 
-            if (Carpet_CuOSettings.rightClickBlockUpdate) {
+            if (Carpet_CuOSettings.rightClickBlockUpdate && !world.isClient()) {
                 BlockState state = world.getBlockState(hitResult.getBlockPos());
                 world.updateNeighbors(hitResult.getBlockPos(), state.getBlock());
 
@@ -19,4 +19,3 @@ public class Update {
         });
     }
 }
-

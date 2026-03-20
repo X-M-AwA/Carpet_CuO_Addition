@@ -17,6 +17,6 @@ public abstract class FurnaceBlockMixin {
             at = @At(value = "HEAD")
     )
     private void setFuel(World world, BlockPos pos, PlayerEntity player, CallbackInfo ci){
-        UseLeavesAndMossAsFuel.registerFuels();
+        UseLeavesAndMossAsFuel.registerFuels(world);
     }
 }

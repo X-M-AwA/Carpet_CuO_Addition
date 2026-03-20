@@ -31,14 +31,14 @@ public abstract class BlockMixin {
     //#elseif MC <= 12002
     //$$private void onBreak(World world, BlockPos pos, BlockState state, PlayerEntity player, CallbackInfo ci) {
     //#endif
-        if (Carpet_CuOSettings.endPortalFrameCanBeMined && !world.isClient() && state.isOf(Blocks.END_PORTAL_FRAME) && !player.isCreative() && TheRightTool(player)) {
+        if (Carpet_CuOSettings.endPortalFrameCanBeMined && !world.isClient() && state.isOf(Blocks.END_PORTAL_FRAME) && !player.isCreative() && TheRightTool(player) && world.isClient()) {
             ItemStack portalFrameStack = new ItemStack(Items.END_PORTAL_FRAME);
             ItemEntity itemEntity = new ItemEntity(
                     world, pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5,
                     portalFrameStack
             );
             world.spawnEntity(itemEntity);
-        } else if (Carpet_CuOSettings.bedrockCanBeMined && !world.isClient() && state.isOf(Blocks.BEDROCK) && !player.isCreative() && TheRightTool(player)) {
+        } else if (Carpet_CuOSettings.bedrockCanBeMined && !world.isClient() && state.isOf(Blocks.BEDROCK) && !player.isCreative() && TheRightTool(player) && world.isClient()) {
             ItemStack portalFrameStack = new ItemStack(Items.BEDROCK);
             ItemEntity itemEntity = new ItemEntity(
                     world, pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5,

@@ -7,11 +7,12 @@ import net.fabricmc.fabric.api.registry.FuelRegistryEvents;
 //$$import net.fabricmc.fabric.api.registry.FuelRegistry;
 //#endif
 import net.minecraft.item.Items;
+import net.minecraft.world.World;
 
 public class UseLeavesAndMossAsFuel {
-    public static void registerFuels(){
+    public static void registerFuels(World world){
         //#if MC >= 12102
-        if (Carpet_CuOSettings.useLeavesAndMossAsFuel){
+        if (Carpet_CuOSettings.useLeavesAndMossAsFuel && !world.isClient()){
             FuelRegistryEvents.BUILD.register((builder, context) -> {
                 builder.add(Items.SPRUCE_LEAVES,300);
                 builder.add(Items.FLOWERING_AZALEA_LEAVES,300);
@@ -28,7 +29,7 @@ public class UseLeavesAndMossAsFuel {
             });
         }
 //#elseif MC < 12102
-//$$        if (Carpet_CuOSettings.useLeavesAndMossAsFuel){
+//$$        if (Carpet_CuOSettings.useLeavesAndMossAsFuel && !world.isClient()){
 //$$            FuelRegistry.INSTANCE.add(Items.SPRUCE_LEAVES,300);
 //$$            FuelRegistry.INSTANCE.add(Items.FLOWERING_AZALEA_LEAVES,300);
 //$$            FuelRegistry.INSTANCE.add(Items.DARK_OAK_LEAVES,300);

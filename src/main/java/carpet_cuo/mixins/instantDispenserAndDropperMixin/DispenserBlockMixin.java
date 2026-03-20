@@ -9,7 +9,9 @@ import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.world.World;
+//#if MC >= 12102
 import net.minecraft.world.block.WireOrientation;
+//#endif
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -34,8 +36,14 @@ public abstract class DispenserBlockMixin {
             ),
             cancellable = true
     )
-    private void neighborUpdate(BlockState state, World world, BlockPos pos, Block sourceBlock, WireOrientation wireOrientation, boolean notify, CallbackInfo ci){
-        if (Carpet_CuOSettings.instantDispenserAndDropper){
+    private void neighborUpdate(BlockState state, World world, BlockPos pos, Block sourceBlock,
+                                //#if MC < 12102
+                                //$$BlockPos sourcePos,
+                                //#else
+                                WireOrientation wireOrientation,
+                                //#endif
+                                boolean notify, CallbackInfo ci){
+        if (Carpet_CuOSettings.instantDispenserAndDropper && !world.isClient()){
             scheduledTick(state, (ServerWorld) world, pos, Random.create());
             world.setBlockState(pos, state.with(TRIGGERED, true), 2);
             ci.cancel();
