@@ -148,7 +148,9 @@
 * 分类：`CuO`，`CREATIVE`，`EXPERIMENTAL`
 ### (竹子崩溃修复)bambooBlockCrashFix
 修复了因竹子在调用grow时未添加边界检查而导致错误的获取void_air方块的stage属性
+
 ~~该bug配合instantDispenserAndDropper可用作更新抑制器~~
+
 26.1snapshot8修复
 
 * 类型：`boolean`
