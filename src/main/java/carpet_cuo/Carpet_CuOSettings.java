@@ -73,4 +73,7 @@ public class Carpet_CuOSettings {
 
     @Rule(categories = {CuO,CREATIVE,EXPERIMENTAL})
     public static boolean instantDispenserAndDropper = false;
+
+    @Rule(categories = {CuO,BUGFIX})
+    public static boolean bambooBlockCrashFix = false;
 }

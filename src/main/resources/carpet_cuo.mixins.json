@@ -4,6 +4,7 @@
   "mixins": [
     "AbstractBlockStateMixin",
     "AnvilScreenHandlerMixin",
+    "BambooBlockMixin",
     "BlockMixin",
     "ItemMixin",
     "PistonBlockMixin",
@@ -29,6 +30,5 @@
     "AnvilScreenMixin"
   ],
   "server": [
-    "instantScheduleMixin.ObserverBlockMixin"
   ]
 }
