@@ -1,15 +1,15 @@
 package carpet_cuo.mixins.PiglinTradeInstantlyMixin;
 
 import carpet_cuo.Carpet_CuOSettings;
-import net.minecraft.entity.mob.PiglinBrain;
+import net.minecraft.world.entity.monster.piglin.PiglinAi;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.Constant;
 import org.spongepowered.asm.mixin.injection.ModifyConstant;
 
-@Mixin(PiglinBrain.class)
+@Mixin(PiglinAi.class)
 public abstract class PiglinBrainMixin {
     @ModifyConstant(
-            method = "setAdmiringItem",
+            method = "admireGoldItem",
             constant = @Constant(longValue = 119L)
     )
     private static long setExpiry(long original){

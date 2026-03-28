@@ -7,7 +7,7 @@ package carpet_cuo.mixins.InfinitelyVaultMixin;
 //$$public abstract class VaultServerDateMixin {}
 //#elseif MC >=12100
 import carpet_cuo.Carpet_CuOSettings;
-import net.minecraft.block.vault.VaultServerData;
+import net.minecraft.world.level.block.entity.vault.VaultServerData;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.Constant;
 import org.spongepowered.asm.mixin.injection.ModifyConstant;
@@ -15,7 +15,7 @@ import org.spongepowered.asm.mixin.injection.ModifyConstant;
 @Mixin(VaultServerData.class)
 public abstract class VaultServerDateMixin {
     @ModifyConstant(
-            method = "markPlayerAsRewarded",
+            method = "addToRewardedPlayers",
             constant = @Constant(intValue = 128)
     )
     private int modifyRewardedPlayersSize(int original){

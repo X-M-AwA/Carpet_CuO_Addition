@@ -2,19 +2,19 @@ package carpet_cuo.mixins;
 
 import carpet_cuo.Carpet_CuOSettings;
 import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
-import net.minecraft.screen.AnvilScreenHandler;
+import net.minecraft.world.inventory.AnvilMenu;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Constant;
 import org.spongepowered.asm.mixin.injection.ModifyConstant;
 
-@Mixin(AnvilScreenHandler.class)
+@Mixin(AnvilMenu.class)
 public abstract class AnvilScreenHandlerMixin {
     @ModifyExpressionValue(
-            method = "updateResult",
+            method = "createResult",
             at = @At(
                     value = "INVOKE",
-                    target = "Lnet/minecraft/enchantment/Enchantment;getMaxLevel()I",
+                    target = "Lnet/minecraft/world/item/enchantment/Enchantment;getMaxLevel()I",
                     ordinal = 0
             )
     )
@@ -23,7 +23,7 @@ public abstract class AnvilScreenHandlerMixin {
         else return original;
     }
     @ModifyConstant(
-            method = "updateResult",
+            method = "createResult",
             constant = @Constant(intValue = 40,ordinal = 2)
     )
     private int setLevelCost(int original){

@@ -8,17 +8,17 @@ package carpet_cuo.mixins.BlockEntitySwapReintroducedMixin;
 //#elseif MC >= 12101
 import carpet_cuo.Carpet_CuOSettings;
 import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
-import net.minecraft.world.chunk.WorldChunk;
+import net.minecraft.world.level.chunk.LevelChunk;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 
-@Mixin(WorldChunk.class)
+@Mixin(LevelChunk.class)
 public abstract class WorldChunkMixin {
     @ModifyExpressionValue(
             method = "setBlockState",
             at = @At(
                     value = "INVOKE",
-                    target = "Lnet/minecraft/block/entity/BlockEntity;supports(Lnet/minecraft/block/BlockState;)Z"
+                    target = "Lnet/minecraft/world/level/block/entity/BlockEntity;isValidBlockState(Lnet/minecraft/world/level/block/state/BlockState;)Z"
             )
     )
     private boolean conditionalSupportsCheck(boolean original) {
