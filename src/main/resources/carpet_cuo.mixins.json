@@ -4,12 +4,12 @@
   "mixins": [
     "AbstractBlockStateMixin",
     "AnvilScreenHandlerMixin",
-    "BambooBlockMixin",
     "BlockMixin",
     "ItemMixin",
     "PistonBlockMixin",
     "BlockEntitySwapReintroducedMixin.BlockEntityMixin",
     "BlockEntitySwapReintroducedMixin.WorldChunkMixin",
+    "BambooBlockCrashFixMixin.BambooBlockCrashFixMixin",
     "ComparatorDupeFixMixin.ComparatorBlockMixin",
     "CopperGolemMixin.CopperGolemEntityMixin",
     "InfinitelyTotemMixin.LivingEntityMixin",
