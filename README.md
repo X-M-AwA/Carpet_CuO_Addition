@@ -157,3 +157,10 @@
 * 默认值：`false`
 * 选项：`false`，`true`
 * 分类：`CuO`,`BUGFIX`
+### (活塞破坏方块产生更新)pistonBreakingBlockProducesUpdate
+活塞推动时破坏方块将会产生更新
+
+* 类型：`boolean`
+* 默认值：`false`
+* 选项：`false`，`true`
+* 分类：`CuO`，`CREATIVE`，`NOT_VANILLA`
