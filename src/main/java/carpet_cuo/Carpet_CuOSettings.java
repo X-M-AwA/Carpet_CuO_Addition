@@ -16,7 +16,7 @@ public class Carpet_CuOSettings {
             strict = false,
             categories = {CuO,CREATIVE,NOT_VANILLA}
     )
-    public static int maxChainDepth=1000000;
+    public static int maxChainDepth = 1000000;
 
     //#if MC >= 12100
     @Rule(categories = {CuO,CREATIVE,FEATURE,NOT_VANILLA})
@@ -32,7 +32,7 @@ public class Carpet_CuOSettings {
             strict = false,
             categories = {CuO,CREATIVE,NOT_VANILLA}
     )
-    public static int maxUpdateDepth=512;
+    public static int maxUpdateDepth = 512;
 
     @Rule(categories = {CuO,CREATIVE,FEATURE,NOT_VANILLA})
     public static boolean useLeavesAndMossAsFuel = false;
@@ -68,7 +68,7 @@ public class Carpet_CuOSettings {
     @Rule(categories = {CuO,FEATURE,CREATIVE})
     public static boolean blockDyeing = false;
 
-    @Rule(categories = {CuO,CREATIVE,EXPERIMENTAL})
+    @Rule(categories = {CuO,CREATIVE,FEATURE})
     public static boolean rightClickBlockUpdate = false;
 
     @Rule(categories = {CuO,CREATIVE,EXPERIMENTAL})
