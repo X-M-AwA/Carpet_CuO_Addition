@@ -32,7 +32,7 @@ dependencies {
         }
         return dep
     }
-    def autoImplementation = { Object... args -> processDependency(unobfuscated ? implementation(*args) : modImplementation(*args)) }
+	def autoImplementation = { Object... args -> processDependency(unobfuscated ? implementation(*args) : modImplementation(*args)) }
 
     // Minecraft
     minecraft "com.mojang:minecraft:${project.minecraft_version}"
@@ -44,7 +44,7 @@ dependencies {
     // Mixin Extras
 	include(implementation(annotationProcessor("io.github.llamalad7:mixinextras-fabric:0.2.2")))
 	autoImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
-	autoImplementation ("net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}")
+	autoImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}"
 
     // Carpet
 	autoImplementation "carpet:fabric-carpet:${project.carpet_version}"

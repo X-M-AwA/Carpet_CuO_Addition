@@ -1,13 +1,5 @@
 package carpet_cuo.mixins.UseLeavesAndMossAsFuleMixin;
 
-//#if MC >= 260100
-//$$
-//$$ import org.spongepowered.asm.mixin.Mixin;
-//$$ import carpet_cuo.utils.compat.DummyClass;
-//$$
-//$$ @Mixin(DummyClass.class)
-//$$ public abstract class FurnaceBlockMixin {}
-//#else
 import carpet_cuo.rule.UseLeavesAndMossAsFuel;
 import net.minecraft.world.level.block.FurnaceBlock;
 import net.minecraft.world.level.Level;
@@ -28,4 +20,3 @@ public abstract class FurnaceBlockMixin {
         UseLeavesAndMossAsFuel.registerFuels(world);
     }
 }
-//#endif

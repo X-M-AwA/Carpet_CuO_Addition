@@ -1,15 +1,17 @@
 {
   "required": true,
+  "minVersion": "0.8",
   "package": "carpet_cuo.mixins",
   "mixins": [
+    "a",
     "AbstractBlockStateMixin",
     "AnvilScreenHandlerMixin",
     "BlockMixin",
     "ItemMixin",
     "PistonBlockMixin",
+    "BambooBlockCrashFixMixin.BambooBlockMixin",
     "BlockEntitySwapReintroducedMixin.BlockEntityMixin",
     "BlockEntitySwapReintroducedMixin.WorldChunkMixin",
-    "BambooBlockCrashFixMixin.BambooBlockCrashFixMixin",
     "ComparatorDupeFixMixin.ComparatorBlockMixin",
     "CopperGolemMixin.CopperGolemEntityMixin",
     "InfinitelyTotemMixin.LivingEntityMixin",

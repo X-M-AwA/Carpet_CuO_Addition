@@ -1,4 +1,4 @@
-package carpet_cuo.mixins;
+package carpet_cuo.mixins.BambooBlockCrashFixMixin;
 
 import carpet_cuo.Carpet_CuOSettings;
 import net.minecraft.world.level.block.BambooStalkBlock;

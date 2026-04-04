@@ -34,10 +34,8 @@ public class Carpet_CuOSettings {
     )
     public static int maxUpdateDepth=512;
 
-    //#if MC < 260100
     @Rule(categories = {CuO,CREATIVE,FEATURE,NOT_VANILLA})
     public static boolean useLeavesAndMossAsFuel = false;
-    //#endif
 
     @Rule(categories = {CuO,CREATIVE,FEATURE,NOT_VANILLA})
     public static boolean infinitelyTotem = false;
@@ -78,4 +76,7 @@ public class Carpet_CuOSettings {
 
     @Rule(categories = {CuO,BUGFIX})
     public static boolean bambooBlockCrashFix = false;
+
+    @Rule(categories = {CuO,CREATIVE,NOT_VANILLA})
+    public static boolean pistonBreakingBlockProducesUpdate = false;
 }

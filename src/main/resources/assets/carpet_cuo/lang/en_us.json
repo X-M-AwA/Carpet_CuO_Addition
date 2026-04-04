@@ -16,6 +16,7 @@
   "carpet.rule.rightClickBlockUpdate.name": "rightClickBlockUpdate",
   "carpet.rule.instantDispenserAndDropper.name": "instantDispenserAndDropper",
   "carpet.rule.bambooBlockCrashFix.name": "bambooBlockCrashFix",
+  "carpet.rule.pistonBreakingBlockProducesUpdate.name": "pistonBreakingBlockProducesUpdate",
 
   "carpet.rule.maxChainDepth.desc": "max chain depth",
   "carpet.rule.infinitelyVault.desc": "Players can open vaults an unlimited number of times",
@@ -34,6 +35,7 @@
   "carpet.rule.rightClickBlockUpdate.desc": "Right-click on the block to emit an update(I don't know what good it is)",
   "carpet.rule.instantDispenserAndDropper.desc": "Instant dispenser and dropper",
   "carpet.rule.bambooBlockCrashFix.desc": "Fix bamboo blocks crashing with no boundary detection",
+  "carpet.rule.pistonBreakingBlockProducesUpdate.desc": "piston breaking block produces update",
 
   "carpet.rule.infinitelyVault.extra.0": "This only applies to vaults that the player has not yet opened",
   "carpet.rule.infinitelyTotem.extra.0": "When a totem is used,it is not consumed",

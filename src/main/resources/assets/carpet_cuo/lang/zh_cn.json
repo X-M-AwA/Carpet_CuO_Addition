@@ -18,6 +18,7 @@
   "carpet.rule.rightClickBlockUpdate.name": "右键方块发出更新",
   "carpet.rule.instantDispenserAndDropper.name": "瞬时发射器&投掷器",
   "carpet.rule.bambooBlockCrashFix.name": "竹子崩溃修复",
+  "carpet.rule.pistonBreakingBlockProducesUpdate.name": "活塞破坏方块产生方块更新",
 
   "carpet.rule.maxChainDepth.desc": "最大连锁更新深度",
   "carpet.rule.infinitelyVault.desc": "玩家可以无限开宝库",
@@ -36,6 +37,7 @@
   "carpet.rule.rightClickBlockUpdate.desc": "右键一个方块会发出nc更新(我也不知道有什么用)",
   "carpet.rule.instantDispenserAndDropper.desc": "瞬时发射器&投掷器",
   "carpet.rule.bambooBlockCrashFix.desc": "修复因生长时超出世界边界而崩溃",
+  "carpet.rule.pistonBreakingBlockProducesUpdate.desc": "活塞破坏方块产生方块更新",
 
   "carpet.rule.infinitelyVault.extra.0": "只对该玩家未开启过的宝库有效",
   "carpet.rule.infinitelyTotem.extra.0": "不会消耗图腾",

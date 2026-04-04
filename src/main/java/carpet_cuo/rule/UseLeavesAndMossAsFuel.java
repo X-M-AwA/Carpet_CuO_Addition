@@ -1,12 +1,11 @@
 package carpet_cuo.rule;
 
-//#if MC >= 260100
-//$$ public class UseLeavesAndMossAsFuel{}
-//#else
 import carpet_cuo.Carpet_CuOSettings;
-//#if MC >= 12102
+//#if MC >= 260100
+//$$import net.fabricmc.fabric.api.registry.FuelValueEvents;
+//#elseif MC >= 12102
 import net.fabricmc.fabric.api.registry.FuelRegistryEvents;
-//#elseif MC < 102102
+//#elseif MC < 12102
 //$$import net.fabricmc.fabric.api.registry.FuelRegistry;
 //#endif
 import net.minecraft.world.item.Items;
@@ -16,7 +15,11 @@ public class UseLeavesAndMossAsFuel {
     public static void registerFuels(Level world){
         //#if MC >= 12102
         if (Carpet_CuOSettings.useLeavesAndMossAsFuel && !world.isClientSide()){
+            //#if MC >= 260100
+            //$$FuelValueEvents.BUILD.register((builder, context) -> {
+            //#elseif MC >= 12102
             FuelRegistryEvents.BUILD.register((builder, context) -> {
+            //#endif
                 builder.add(Items.SPRUCE_LEAVES,300);
                 builder.add(Items.FLOWERING_AZALEA_LEAVES,300);
                 builder.add(Items.DARK_OAK_LEAVES,300);
@@ -62,4 +65,3 @@ public class UseLeavesAndMossAsFuel {
 //#endif
     }
 }
-//#endif
