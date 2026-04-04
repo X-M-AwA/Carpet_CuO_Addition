@@ -3,7 +3,6 @@
   "minVersion": "0.8",
   "package": "carpet_cuo.mixins",
   "mixins": [
-    "a",
     "AbstractBlockStateMixin",
     "AnvilScreenHandlerMixin",
     "BlockMixin",
