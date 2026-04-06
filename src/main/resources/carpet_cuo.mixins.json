@@ -11,6 +11,7 @@
     "BambooBlockCrashFixMixin.BambooBlockMixin",
     "BlockEntitySwapReintroducedMixin.BlockEntityMixin",
     "BlockEntitySwapReintroducedMixin.WorldChunkMixin",
+    "carpet.HUDControllerMixin",
     "ComparatorDupeFixMixin.ComparatorBlockMixin",
     "CopperGolemMixin.CopperGolemEntityMixin",
     "InfinitelyTotemMixin.LivingEntityMixin",

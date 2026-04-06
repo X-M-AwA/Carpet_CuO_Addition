@@ -4,6 +4,7 @@ import carpet.CarpetExtension;
 import carpet.CarpetServer;
 import carpet.api.settings.SettingsManager;
 import carpet.utils.Translations;
+import carpet_cuo.Logging.CuOAdditionLoggerRegistry;
 
 import java.util.Map;
 
@@ -11,6 +12,8 @@ public class Carpet_CuOServer implements CarpetExtension {
 
     private static final CarpetExtension INSTANCE = new Carpet_CuOServer();
     private SettingsManager CarpetExtension;
+    public static final String MOD_ID = Carpet_CuOMod.MOD_ID;
+    public static final String compactName = MOD_ID.replace("-", "");
 
     public static void init(){
         CarpetServer.manageExtension(INSTANCE);
@@ -34,5 +37,10 @@ public class Carpet_CuOServer implements CarpetExtension {
     @Override
     public Map<String,String> canHasTranslations(String lang){
         return Translations.getTranslationFromResourcePath("assets/carpet_cuo/lang/%s.json".formatted(lang));
+    }
+
+    @Override
+    public void registerLoggers() {
+        CuOAdditionLoggerRegistry.registerLoggers();
     }
 }
