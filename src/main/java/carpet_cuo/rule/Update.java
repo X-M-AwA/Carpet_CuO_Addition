@@ -10,10 +10,9 @@ public class Update {
         UseBlockCallback.EVENT.register((player, world, hand, hitResult) -> {
             if (player.isShiftKeyDown()) return InteractionResult.PASS;
 
-            if (Carpet_CuOSettings.rightClickBlockUpdate && !world.isClientSide()) {
+            if (Carpet_CuOSettings.rightClickBlockUpdate) {
                 BlockState state = world.getBlockState(hitResult.getBlockPos());
                 world.updateNeighborsAt(hitResult.getBlockPos(), state.getBlock());
-
                 return InteractionResult.SUCCESS;
             }
             return InteractionResult.PASS;

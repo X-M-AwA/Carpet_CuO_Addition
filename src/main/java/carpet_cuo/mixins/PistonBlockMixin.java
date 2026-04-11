@@ -30,7 +30,7 @@ public abstract class PistonBlockMixin {
             cancellable = true
     )
     private static void injectCheck(BlockState state, Level world, BlockPos pos, Direction direction, boolean canBreak, Direction pistonDir, CallbackInfoReturnable<Boolean> cir) {
-        if (state.is(Blocks.END_PORTAL_FRAME) || state.is(Blocks.BEDROCK) && !world.isClientSide()) cir.setReturnValue(false);
+        if (state.is(Blocks.END_PORTAL_FRAME) || state.is(Blocks.BEDROCK)) cir.setReturnValue(false);
     }
 
     @ModifyConstant(

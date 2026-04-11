@@ -118,14 +118,14 @@
 * 类型：`boolean`
 * 默认值：`false`
 * 选项：`false`，`true`
-* 分类：`CuO`，`FEATURE`，`CREATIVE`
+* 分类：`CuO`，`FEATURE`，`CREATIVE`，`EXPERIMENTAL`
 ### (右键方块发出方块更新)rightClickBlockUpdate
 右键方块可以发出nc更新(不知道有什么用)
 
 * 类型：`boolean`
 * 默认值：`false`
 * 选项：`false`，`true`
-* 分类：`CuO`，`CREATIVE`，`EXPERIMENTAL`
+* 分类：`CuO`，`FEATURE`，`CREATIVE`，`EXPERIMENTAL`
 ### (瞬时发射器&投掷器)instantDispenserAndDropper
 发射器和投掷器不再添加4gt计划刻，而是立即执行
 
@@ -151,3 +151,10 @@
 * 默认值：`false`
 * 选项：`false`，`true`
 * 分类：`CuO`，`CREATIVE`，`NOT_VANILLA`
+### (实体高亮)entityHighLight
+手持染料右键可以高亮该实体
+
+* 类型：`boolean`
+* 默认值：`false`
+* 选项：`false`，`true`
+* 分类：`CuO`，`FEATURE`，`CREATIVE`，`EXPERIMENTAL`

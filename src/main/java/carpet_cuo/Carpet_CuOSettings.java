@@ -65,10 +65,10 @@ public class Carpet_CuOSettings {
     @Rule(categories = {CuO,EXPERIMENTAL,FEATURE})
     public static boolean piglinTradeInstantly = false;
 
-    @Rule(categories = {CuO,FEATURE,CREATIVE})
+    @Rule(categories = {CuO,FEATURE,CREATIVE,EXPERIMENTAL})
     public static boolean blockDyeing = false;
 
-    @Rule(categories = {CuO,CREATIVE,FEATURE})
+    @Rule(categories = {CuO,CREATIVE,FEATURE,EXPERIMENTAL})
     public static boolean rightClickBlockUpdate = false;
 
     @Rule(categories = {CuO,CREATIVE,EXPERIMENTAL})
@@ -79,4 +79,7 @@ public class Carpet_CuOSettings {
 
     @Rule(categories = {CuO,CREATIVE,NOT_VANILLA})
     public static boolean pistonBreakingBlockProducesUpdate = false;
+
+    @Rule(categories = {CuO,FEATURE,CREATIVE,EXPERIMENTAL})
+    public static boolean entityHighLight = false;
 }

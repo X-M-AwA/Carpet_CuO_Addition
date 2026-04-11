@@ -33,11 +33,11 @@ public class ScheduleQueueHUDLogger extends AbstractHUDLogger {
         return new MutableComponent[]{
                 Messenger.c(
                         Messenger.f(Messenger.s("S: "), LayOut.GRAY),
-                        Messenger.f(Messenger.s(ScheduleTicks), LayOut.DARK_AQUA),
+                        Messenger.f(Messenger.s(ScheduleTicks), LayOut.DARK_GREEN),
                         Messenger.f(Messenger.s(" B: "), LayOut.GRAY),
                         Messenger.f(Messenger.s(BlockTicks), LayOut.DARK_AQUA),
                         Messenger.f(Messenger.s(" F: "), LayOut.GRAY),
-                        Messenger.f(Messenger.s(FluidTicks), LayOut.DARK_AQUA)
+                        Messenger.f(Messenger.s(FluidTicks), LayOut.DARK_PURPLE)
                 )
         };
     }

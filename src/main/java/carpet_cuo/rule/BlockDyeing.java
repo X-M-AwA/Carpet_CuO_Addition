@@ -34,10 +34,12 @@ public class BlockDyeing {
 
     public static void init(){
         UseBlockCallback.EVENT.register((player, world, hand, hitResult) -> {
+            if (player.isShiftKeyDown()) return InteractionResult.PASS;
+
             ItemStack stack = player.getMainHandItem();
             BlockState state = world.getBlockState(hitResult.getBlockPos());
 
-            if (Carpet_CuOSettings.blockDyeing && stack.getItem() instanceof DyeItem dyeItem && isDyeableBlock(state) && !player.isSpectator() && !world.isClientSide()){
+            if (Carpet_CuOSettings.blockDyeing && stack.getItem() instanceof DyeItem dyeItem && isDyeableBlock(state) && !player.isSpectator()){
                 Block targetBlock = getDyedBlock(state, dyeItem
                         //#if MC >= 260100
                         //$$ , stack

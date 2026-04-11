@@ -14,7 +14,7 @@ import net.minecraft.world.level.Level;
 public class UseLeavesAndMossAsFuel {
     public static void registerFuels(Level world){
         //#if MC >= 12102
-        if (Carpet_CuOSettings.useLeavesAndMossAsFuel && !world.isClientSide()){
+        if (Carpet_CuOSettings.useLeavesAndMossAsFuel){
             //#if MC >= 260100
             //$$FuelValueEvents.BUILD.register((builder, context) -> {
             //#elseif MC >= 12102
@@ -35,7 +35,7 @@ public class UseLeavesAndMossAsFuel {
             });
         }
 //#elseif MC < 12102
-//$$        if (Carpet_CuOSettings.useLeavesAndMossAsFuel && !world.isClientSide()){
+//$$        if (Carpet_CuOSettings.useLeavesAndMossAsFuel){
 //$$            FuelRegistry.INSTANCE.add(Items.SPRUCE_LEAVES,300);
 //$$            FuelRegistry.INSTANCE.add(Items.FLOWERING_AZALEA_LEAVES,300);
 //$$            FuelRegistry.INSTANCE.add(Items.DARK_OAK_LEAVES,300);

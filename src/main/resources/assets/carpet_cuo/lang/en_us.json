@@ -17,6 +17,7 @@
   "carpet.rule.instantDispenserAndDropper.name": "instantDispenserAndDropper",
   "carpet.rule.bambooBlockCrashFix.name": "bambooBlockCrashFix",
   "carpet.rule.pistonBreakingBlockProducesUpdate.name": "pistonBreakingBlockProducesUpdate",
+  "carpet.rule.entityHighLight.name": "entityHighLight",
 
   "carpet.rule.maxChainDepth.desc": "max chain depth",
   "carpet.rule.infinitelyVault.desc": "Players can open vaults an unlimited number of times",
@@ -36,6 +37,7 @@
   "carpet.rule.instantDispenserAndDropper.desc": "Instant dispenser and dropper",
   "carpet.rule.bambooBlockCrashFix.desc": "Fix bamboo blocks crashing with no boundary detection",
   "carpet.rule.pistonBreakingBlockProducesUpdate.desc": "piston breaking block produces update",
+  "carpet.rule.entityHighLight.desc": "Right-click on the entity with a dye to highlight it",
 
   "carpet.rule.infinitelyVault.extra.0": "This only applies to vaults that the player has not yet opened",
   "carpet.rule.infinitelyTotem.extra.0": "When a totem is used,it is not consumed",

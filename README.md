@@ -13,5 +13,5 @@
 | fabric-api | 必须 |
 
 ## 文档
-* [Rules](docs/Rule.md)
-* [Loggers](docs/loggers.md)
+* [Rules](docs/Rules.md)
+* [Loggers](docs/Loggers.md)

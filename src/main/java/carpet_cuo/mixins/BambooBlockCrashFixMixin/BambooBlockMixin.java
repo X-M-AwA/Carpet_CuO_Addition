@@ -23,7 +23,7 @@ public abstract class BambooBlockMixin {
             cancellable = true
     )
     private void isFertilizable(ServerLevel world, RandomSource random, BlockPos pos, BlockState state, CallbackInfo ci){
-        if (Carpet_CuOSettings.bambooBlockCrashFix && !world.isClientSide()){
+        if (Carpet_CuOSettings.bambooBlockCrashFix){
             int i = this.getHeightAboveUpToMax(world, pos);
             BlockPos blockPos = pos.above(i);
             if (blockPos.getY() >= world.getMaxY()) {

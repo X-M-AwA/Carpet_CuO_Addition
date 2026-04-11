@@ -44,7 +44,7 @@ public abstract class DispenserBlockMixin {
                                 //#endif
                                 boolean bl, CallbackInfo ci
     ){
-        if (Carpet_CuOSettings.instantDispenserAndDropper && !world.isClientSide()){
+        if (Carpet_CuOSettings.instantDispenserAndDropper){
             tick(state, (ServerLevel) world, pos, RandomSource.create());
             world.setBlock(pos, state.setValue(TRIGGERED, true), 2);
             ci.cancel();
