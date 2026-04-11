@@ -50,8 +50,6 @@ dependencies {
 	autoImplementation "carpet:fabric-carpet:${project.carpet_version}"
 }
 
-String MIXIN_CONFIG_PATH = 'carpet_cuo.mixins.json'
-String LANG_DIR = 'assets/carpet_cuo/lang'
 JavaVersion JAVA_COMPATIBILITY
 if (mcVersion >= 26_00_00){
     JAVA_COMPATIBILITY = JavaVersion.VERSION_25
@@ -60,8 +58,6 @@ if (mcVersion >= 26_00_00){
 }else if (mcVersion >= 1_18_00){
 	JAVA_COMPATIBILITY = JavaVersion.VERSION_17
 }
-
-JavaVersion MIXIN_COMPATIBILITY_LEVEL = JAVA_COMPATIBILITY
 
 loom {
     accessWidenerPath = file("src/main/resources/carpet_cuo_addition.accesswidener")
@@ -110,10 +106,6 @@ processResources {
 				"minecraft_dependency": project.minecraft_dependency,
 		]
 		expand valueMap
-	}
-
-	filesMatching(MIXIN_CONFIG_PATH) {
-		filter { s -> s.replace('{{COMPATIBILITY_LEVEL}}', "JAVA_${MIXIN_COMPATIBILITY_LEVEL.ordinal() + 1}") }
 	}
 }
 
