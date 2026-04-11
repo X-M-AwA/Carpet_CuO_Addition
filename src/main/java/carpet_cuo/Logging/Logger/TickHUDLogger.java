@@ -5,6 +5,7 @@ import carpet_cuo.utils.LayOut;
 import carpet_cuo.utils.Messenger;
 import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.server.MinecraftServer;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.player.Player;
 
 public class TickHUDLogger extends AbstractHUDLogger {
@@ -21,11 +22,9 @@ public class TickHUDLogger extends AbstractHUDLogger {
 
     @Override
     public MutableComponent[] onHudUpdate(String option, Player player) {
-        MinecraftServer minecraftServer = player.getServer();
-        int tick = 0;
-        if (minecraftServer != null) {
-            tick = minecraftServer.getTickCount();
-        }
+        ServerLevel level = (ServerLevel) player.level();
+        MinecraftServer minecraftServer = level.getServer();
+        int tick = minecraftServer.getTickCount();
 
         return new MutableComponent[]{
                 Messenger.c(

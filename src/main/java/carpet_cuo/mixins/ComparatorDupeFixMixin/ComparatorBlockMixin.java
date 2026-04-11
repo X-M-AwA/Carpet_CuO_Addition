@@ -1,5 +1,14 @@
 package carpet_cuo.mixins.ComparatorDupeFixMixin;
 
+//#if MC > 260102
+//$$import carpet_cuo.utils.compat.DummyClass;
+//$$import org.spongepowered.asm.mixin.Mixin;
+//$$
+//$$@Mixin(DummyClass.class)
+//$$public class ComparatorBlockMixin {
+//$$}
+//#else
+
 import carpet_cuo.Carpet_CuOSettings;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.ComparatorBlock;
@@ -24,3 +33,4 @@ public abstract class ComparatorBlockMixin {
         if (Carpet_CuOSettings.comparatorDupeFix && world.isEmptyBlock(pos)) ci.cancel();
     }
 }
+//#endif

@@ -23,8 +23,10 @@ public class Carpet_CuOSettings {
     public static boolean infinitelyVault = false;
     //#endif
 
+    //#if MC <= 260102
     @Rule(categories = {CuO,BUGFIX})
     public static boolean comparatorDupeFix = false;
+    //#endif
 
     @Rule(
             validators = Validators.NonNegativeNumber.class,

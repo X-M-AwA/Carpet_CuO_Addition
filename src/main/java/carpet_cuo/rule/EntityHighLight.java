@@ -3,6 +3,9 @@ package carpet_cuo.rule;
 import carpet_cuo.Carpet_CuOMod;
 import carpet_cuo.Carpet_CuOSettings;
 import net.fabricmc.fabric.api.event.player.UseEntityCallback;
+//#if MC >= 260100
+//$$ import net.minecraft.core.component.DataComponents;
+//#endif
 import net.minecraft.ChatFormatting;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.Entity;
@@ -31,11 +34,15 @@ public class EntityHighLight {
     private static InteractionResult setColor(ItemStack stack, Scoreboard scoreboard, Entity entity, Level level){
         if (stack.getItem() instanceof DyeItem dyeItem){
             String ID = entity.getStringUUID();
+            //#if MC < 260100
             DyeColor color = dyeItem.getDyeColor();
+            //#else
+            //$$ DyeColor color = (DyeColor) stack.get(DataComponents.DYE);
+            //#endif
             ChatFormatting formatting = COLOR_MAP.getOrDefault(color, ChatFormatting.WHITE);
             String Name = Carpet_CuOMod.MOD_ID+ ":" + formatting.name();
             PlayerTeam playerTeam = scoreboard.getPlayerTeam(Name);
-            PlayerTeam oldTeam = entity.getTeam();
+            PlayerTeam oldTeam = (PlayerTeam) entity.getTeam();
 
             if (playerTeam != null && playerTeam.getName().equals(Name)){
                 if (playerTeam.getPlayers().contains(ID)){
