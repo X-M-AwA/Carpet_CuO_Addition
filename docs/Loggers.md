@@ -6,7 +6,7 @@
 
 可用于辅助计划刻阻塞
 
-![picture](..\.\src\main\resources\assets\carpet_cuo\ScheduleQueue.png)
+![picture](.././src/main/resources/assets/carpet_cuo/ScheduleQueue.png)
 * `S`总计划刻数
 * `B`方块计划刻数
 * `F`流体计划刻数
@@ -19,7 +19,7 @@
 
 记录当前游戏tick计数器的值
 
-![picture](..\.\src\main\resources\assets\carpet_cuo\Tick.png)
+![picture](.././src/main/resources/assets/carpet_cuo/Tick.png)
 * `Tick`当前tick计数器的值
 
 属性:
