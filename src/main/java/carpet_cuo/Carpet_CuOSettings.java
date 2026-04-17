@@ -1,7 +1,6 @@
 package carpet_cuo;
 
 import carpet.api.settings.Rule;
-import carpet.api.settings.Validators;
 
 import static carpet.api.settings.RuleCategory.*;
 
