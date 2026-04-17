@@ -37,12 +37,12 @@ public class EntityHighLight {
             //#if MC < 260100
             DyeColor color = dyeItem.getDyeColor();
             //#else
-            //$$ DyeColor color = (DyeColor) stack.get(DataComponents.DYE);
+            //$$ DyeColor color = stack.get(DataComponents.DYE);
             //#endif
             ChatFormatting formatting = COLOR_MAP.getOrDefault(color, ChatFormatting.WHITE);
             String Name = Carpet_CuOMod.MOD_ID+ ":" + formatting.name();
             PlayerTeam playerTeam = scoreboard.getPlayerTeam(Name);
-            PlayerTeam oldTeam = (PlayerTeam) entity.getTeam();
+            PlayerTeam oldTeam = entity.getTeam();
 
             if (playerTeam != null && playerTeam.getName().equals(Name)){
                 if (playerTeam.getPlayers().contains(ID)){

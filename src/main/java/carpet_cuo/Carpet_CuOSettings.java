@@ -11,8 +11,7 @@ public class Carpet_CuOSettings {
     private static final String NOT_VANILLA = "not_vanilla";
 
     @Rule(
-            validators = Validators.NonNegativeNumber.class,
-            options = {"0","65535","1000000","2147483647"},
+            options = {"-1","0","65535","1000000","2147483647"},
             strict = false,
             categories = {CuO,CREATIVE,NOT_VANILLA}
     )
@@ -29,8 +28,7 @@ public class Carpet_CuOSettings {
     //#endif
 
     @Rule(
-            validators = Validators.NonNegativeNumber.class,
-            options = {"0","512","1000000","2147483647"},
+            options = {"-1","0","512","1000000","2147483647"},
             strict = false,
             categories = {CuO,CREATIVE,NOT_VANILLA}
     )

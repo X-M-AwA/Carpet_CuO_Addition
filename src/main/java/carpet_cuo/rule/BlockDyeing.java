@@ -75,7 +75,7 @@ public class BlockDyeing {
         //#if MC < 260100
         DyeColor color = dye.getDyeColor();
         //#else
-        //$$ DyeColor color = (DyeColor)itemStack.get(DataComponents.DYE);
+        //$$ DyeColor color = itemStack.get(DataComponents.DYE);
         //#endif
 
         for (Map.Entry<TagKey<Block>, String> entry : TAG_SUFFIX_MAP.entrySet()) {
