@@ -160,3 +160,9 @@ fabricApi {
 		client = true
 	}
 }
+tasks.named('sourcesJar') {
+	def preprocessTask = tasks.findByName('preprocessResources')
+	if (preprocessTask != null) {
+		dependsOn preprocessTask
+	}
+}
