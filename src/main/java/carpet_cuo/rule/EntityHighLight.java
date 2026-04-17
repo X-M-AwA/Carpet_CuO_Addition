@@ -42,7 +42,7 @@ public class EntityHighLight {
             ChatFormatting formatting = COLOR_MAP.getOrDefault(color, ChatFormatting.WHITE);
             String Name = Carpet_CuOMod.MOD_ID+ ":" + formatting.name();
             PlayerTeam playerTeam = scoreboard.getPlayerTeam(Name);
-            PlayerTeam oldTeam = entity.getTeam();
+            PlayerTeam oldTeam = (PlayerTeam) entity.getTeam();
 
             if (playerTeam != null && playerTeam.getName().equals(Name)){
                 if (playerTeam.getPlayers().contains(ID)){
