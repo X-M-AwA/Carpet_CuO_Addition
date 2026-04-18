@@ -73,12 +73,17 @@ public class Carpet_CuOSettings {
     @Rule(categories = {CuO,CREATIVE,EXPERIMENTAL})
     public static boolean instantDispenserAndDropper = false;
 
+    //#if MC <= 260102
     @Rule(categories = {CuO,BUGFIX})
     public static boolean bambooBlockCrashFix = false;
+    //#endif
 
     @Rule(categories = {CuO,CREATIVE,NOT_VANILLA})
     public static boolean pistonBreakingBlockProducesUpdate = false;
 
     @Rule(categories = {CuO,FEATURE,CREATIVE,EXPERIMENTAL})
     public static boolean entityHighLight = false;
+
+    @Rule(categories = {CuO,FEATURE,CREATIVE,NOT_VANILLA,EXPERIMENTAL})
+    public static boolean instantScheduled = false;
 }

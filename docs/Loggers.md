@@ -25,3 +25,9 @@
 属性:
 * 默认选项：N/A
 * 参考选项：N/A
+### (更新跳略器)updateSkipping
+`/log updateSkipping`
+
+当发生更新跳略时会打印到聊天栏
+
+![picture](.././docs/114514/updateSkipping.png)

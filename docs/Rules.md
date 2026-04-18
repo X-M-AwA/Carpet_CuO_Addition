@@ -158,3 +158,14 @@
 * 默认值：`false`
 * 选项：`false`，`true`
 * 分类：`CuO`，`FEATURE`，`CREATIVE`，`EXPERIMENTAL`
+### (瞬时计划刻)instantScheduled
+方块和流体不会再添加计划刻，而是立即执行
+
+配合carpet Tis Addition的
+
+instantBlockUpdaterReintroduced规则获得更好的体验
+
+* 类型：`boolean`
+* 默认值：`false`
+* 选项：`false`，`true`
+* 分类：`CuO`，`FEATURE`，`CREATIVE`，`NOT_VANILLA`，`EXPERIMENTAL`

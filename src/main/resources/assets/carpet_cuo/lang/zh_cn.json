@@ -20,6 +20,7 @@
   "carpet.rule.bambooBlockCrashFix.name": "竹子崩溃修复",
   "carpet.rule.pistonBreakingBlockProducesUpdate.name": "活塞破坏方块产生方块更新",
   "carpet.rule.entityHighLight.name": "实体高亮",
+  "carpet.rule.instantScheduled.name": "瞬时计划刻",
 
   "carpet.rule.maxChainDepth.desc": "最大连锁更新深度",
   "carpet.rule.infinitelyVault.desc": "玩家可以无限开宝库",
@@ -40,6 +41,7 @@
   "carpet.rule.bambooBlockCrashFix.desc": "修复因生长时超出世界边界而崩溃",
   "carpet.rule.pistonBreakingBlockProducesUpdate.desc": "活塞破坏方块产生方块更新",
   "carpet.rule.entityHighLight.desc": "使用染料可以高亮实体",
+  "carpet.rule.instantScheduled.desc": "计划刻可以立即执行",
 
   "carpet.rule.infinitelyVault.extra.0": "只对该玩家未开启过的宝库有效",
   "carpet.rule.infinitelyTotem.extra.0": "不会消耗图腾",

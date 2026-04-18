@@ -6,6 +6,7 @@
     "AbstractBlockStateMixin",
     "AnvilScreenHandlerMixin",
     "BlockMixin",
+    "ChainRestrictedNeighborUpdaterMixin",
     "ItemMixin",
     "PistonBlockMixin",
     "BambooBlockCrashFixMixin.BambooBlockMixin",
@@ -17,7 +18,8 @@
     "InfinitelyTotemMixin.LivingEntityMixin",
     "InfinitelyVaultMixin.VaultServerDateMixin",
     "instantDispenserAndDropperMixin.DispenserBlockMixin",
-    "MaxChainDepthMixin.ChainRestrictedNeighborUpdaterMixin",
+    "InstantScheduledMixin.ObserverBlockMixin",
+    "InstantScheduledMixin.ScheduledTickAccessMixin",
     "MaxUpdateDepthMixin.WorldMixin",
     "PiglinTradeInstantlyMixin.PiglinBrainMixin",
     "UseLeavesAndMossAsFuleMixin.FurnaceBlockMixin"
