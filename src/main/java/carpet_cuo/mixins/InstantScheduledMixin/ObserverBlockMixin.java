@@ -12,6 +12,8 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
+import carpet_cuo.Carpet_CuOSettings;
+
 @Mixin(ObserverBlock.class)
 public abstract class ObserverBlockMixin {
     @Shadow
@@ -25,7 +27,9 @@ public abstract class ObserverBlockMixin {
             )
     )
     private void b(BlockState blockState, ServerLevel serverLevel, BlockPos blockPos, RandomSource randomSource, CallbackInfo ci){
-        this.updateNeighborsInFront(serverLevel, blockPos, blockState);
+        if (Carpet_CuOSettings.instantScheduled) {
+            this.updateNeighborsInFront(serverLevel, blockPos, blockState);
+        }
     }
 
 }
