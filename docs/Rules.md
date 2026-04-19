@@ -161,9 +161,18 @@
 ### (瞬时计划刻)instantScheduled
 方块和流体不会再添加计划刻，而是立即执行
 
-配合carpet Tis Addition的
+配合Carpet_Tis_Addition的instantBlockUpdaterReintroduced规则获得更好的体验
 
-instantBlockUpdaterReintroduced规则获得更好的体验
+顺便修复了因为更新分裂为nc和pp而导致的侦测器无法激活前方方块
+
+注意此规则及其危险，开启该规则后可能会因为以下原因导致崩溃
+
+* 激活压力板
+* 激活探测铁轨
+* 火焰调用计划刻
+* 触发拌线钩
+
+开启此规则后请勿随意加载区块，若发生上面的任意一种情况都会发生栈溢出错误！
 
 * 类型：`boolean`
 * 默认值：`false`
