@@ -1,4 +1,4 @@
-package carpet_cuo.mixins.InstantScheduledMixin;
+package carpet_cuo.mixins.InstantScheduleFixMixin;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;

@@ -178,3 +178,12 @@
 * 默认值：`false`
 * 选项：`false`，`true`
 * 分类：`CuO`，`FEATURE`，`CREATIVE`，`NOT_VANILLA`，`EXPERIMENTAL`
+### (瞬时计划刻修复)instantScheduleFix
+该功能修复了一些在开启瞬时计划刻后部分方块与低版本不同的问题
+
+* 侦测器无法激活方块(需要同时开启Carpet_Tis_Addition的instantBlockUpdaterReintroduced规则)
+
+* 类型：`boolean`
+* 默认值：`false`
+* 选项：`false`，`true`
+* 分类：`CuO`，`CREATIVE`，`NOT_VANILLA`，`EXPERIMENTAL`

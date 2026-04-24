@@ -86,4 +86,7 @@ public class Carpet_CuOSettings {
 
     @Rule(categories = {CuO,FEATURE,CREATIVE,NOT_VANILLA,EXPERIMENTAL})
     public static boolean instantScheduled = false;
+
+    @Rule(categories = {CuO,CREATIVE,EXPERIMENTAL,NOT_VANILLA})
+    public static boolean instantScheduleFix = false;
 }

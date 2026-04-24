@@ -80,7 +80,8 @@ public interface ScheduledTickAccessMixin {
 
     @Inject(
             method = "scheduleTick(Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/material/Fluid;ILnet/minecraft/world/ticks/TickPriority;)V",
-            at = @At("HEAD")
+            at = @At("HEAD"),
+            cancellable = true
     )
     private void scheduleFluidTickWithPriority(BlockPos blockPos, Fluid fluid, int delay, TickPriority priority, CallbackInfo ci){
         this.scheduledFluidTick(blockPos, ci);
