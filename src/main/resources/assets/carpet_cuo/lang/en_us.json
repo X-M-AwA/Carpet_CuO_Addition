@@ -46,5 +46,9 @@
   "carpet.rule.useLeavesAndMossAsFuel.extra.0": "Note: 1.21.2+ requires a server restart for change to take effect",
   "carpet.rule.comparatorDupeFix.extra.0": "Fix the comparator item duplication glitch",
   "carpet.rule.noEnchantmentLevelLimit.extra.0": "Enchantment level can reach 225 and it is recommended to use the noTooExpensive function",
-  "carpet.rule.blockDyeing.extra.1": "wool\nwool carpet\ncandle\nterracotta & glazed terracotta\nconcrete powder & concrete\nstained glass & stained glass pane"
+  "carpet.rule.blockDyeing.extra.1": "wool\nwool carpet\ncandle\nterracotta & glazed terracotta\nconcrete powder & concrete\nstained glass & stained glass pane",
+
+  "carpet.logger.update.depth": "Caused update skipping, depth: ",
+  "carpet.logger.update.pos": " at ",
+  "carpet.logger.update.chainDepth": "Update chain depth: "
 }

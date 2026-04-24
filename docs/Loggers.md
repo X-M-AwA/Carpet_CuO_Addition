@@ -1,5 +1,5 @@
 ## Loggers
-### (计划刻队列)scheduleQueue
+### (计划刻队列记录器)scheduleQueue
 `/log scheduleQueue`
 
 记录当前计划刻队列内元素的数量
@@ -25,13 +25,17 @@
 属性:
 * 默认选项：N/A
 * 参考选项：N/A
-### (更新跳略器)updateSkipping
-`/log updateSkipping`
+### (更新深度记录器)update
+`/log update <选项>`
 
-当发生更新跳略时会打印到聊天栏
+* `skipping`当发生更新跳略时，会打印当前的深度及发生跳略的坐标
 
-![picture](.././docs/114514/updateSkipping.png)
+![picture](.././docs/114514/update_0.png)
+
+* `chain`打印当前更新链的深度
+
+![picture](.././docs/114514/update_1.png)
 
 属性:
-* 默认选项：N/A
-* 参考选项：N/A
+* 默认选项：`skipping`
+* 参考选项：`skipping`，`chain`

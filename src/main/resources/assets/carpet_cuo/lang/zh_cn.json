@@ -48,5 +48,9 @@
   "carpet.rule.useLeavesAndMossAsFuel.extra.0": "注意1.21.2+需设为永久更改并重启服务器后更改才能生效",
   "carpet.rule.comparatorDupeFix.extra.0": "比较器复制还是太not vanilla了，直接修复",
   "carpet.rule.noEnchantmentLevelLimit.extra.0": "附魔等级可以一直堆叠到225,建议搭配noTooExpensive功能",
-  "carpet.rule.blockDyeing.extra.1": "羊毛\n地毯\n蜡烛\n混凝土&混凝土粉末\n陶瓦&带釉陶瓦\n染色玻璃&染色玻璃板"
+  "carpet.rule.blockDyeing.extra.1": "羊毛\n地毯\n蜡烛\n混凝土&混凝土粉末\n陶瓦&带釉陶瓦\n染色玻璃&染色玻璃板",
+
+  "carpet.logger.update.depth": "造成了更新跳略，深度为：",
+  "carpet.logger.update.pos": "在坐标：",
+  "carpet.logger.update.chainDepth": "当前更新链深度为："
 }

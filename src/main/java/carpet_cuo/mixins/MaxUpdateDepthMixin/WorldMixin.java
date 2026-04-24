@@ -13,6 +13,7 @@ public abstract class WorldMixin {
             constant = @Constant(intValue = 512)
     )
     private int modifyMaxUpdateDepth(int constant){
-        return Carpet_CuOSettings.maxUpdateDepth;
+        if (Carpet_CuOSettings.maxUpdateDepth != 512) return Carpet_CuOSettings.maxUpdateDepth;
+        else return constant;
     }
 }

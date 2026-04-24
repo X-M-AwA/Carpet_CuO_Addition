@@ -1,7 +1,8 @@
 package carpet_cuo.mixins;
 
 import carpet_cuo.Carpet_CuOSettings;
-import carpet_cuo.Logging.Logger.UpdateSkippingLogger;
+import carpet_cuo.Logging.CuOAdditionLoggerRegistry;
+import carpet_cuo.Logging.Logger.UpdateLogger;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.redstone.CollectingNeighborUpdater;
 import org.spongepowered.asm.mixin.Final;
@@ -27,7 +28,9 @@ public abstract class ChainRestrictedNeighborUpdaterMixin {
             at = @At("HEAD")
     )
     private void setMaxChainDepth(CallbackInfo ci){
-        maxChainedNeighborUpdates = Carpet_CuOSettings.maxChainDepth;
+        if (Carpet_CuOSettings.maxChainDepth != 1000000) {
+            maxChainedNeighborUpdates = Carpet_CuOSettings.maxChainDepth;
+        }
     }
 
     @Inject(
@@ -42,7 +45,22 @@ public abstract class ChainRestrictedNeighborUpdaterMixin {
             ordinal = 0
         )
     )
-    private void UpdateSkipping(BlockPos blockPos, CollectingNeighborUpdater.NeighborUpdates neighborUpdates, CallbackInfo ci){
-        UpdateSkippingLogger.getInstance().onDepthReached(count, blockPos.getX(), blockPos.getY(), blockPos.getZ());
+    private void Update(BlockPos blockPos, CollectingNeighborUpdater.NeighborUpdates neighborUpdates, CallbackInfo ci){
+        if (CuOAdditionLoggerRegistry.__update) {
+            UpdateLogger.getInstance().onUpdateSkipping(count, blockPos.getX(), blockPos.getY(), blockPos.getZ());
+        }
+    }
+
+    @Inject(
+        method = "runUpdates",
+        at = @At(
+            value = "INVOKE",
+            target = "Ljava/util/ArrayDeque;clear()V"
+        )
+    )
+    private void runUpdates(CallbackInfo ci){
+        if (CuOAdditionLoggerRegistry.__update && count-1 != 0) {
+            UpdateLogger.getInstance().onDepthReached(count);
+        }
     }
 }

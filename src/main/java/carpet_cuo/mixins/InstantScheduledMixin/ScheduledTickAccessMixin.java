@@ -3,7 +3,6 @@ package carpet_cuo.mixins.InstantScheduledMixin;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.level.Level;
 //#if MC >= 12103
 import net.minecraft.world.level.ScheduledTickAccess;
 //#else
@@ -33,11 +32,10 @@ public interface ScheduledTickAccessMixin {
     //方块计划刻
     @Unique
     private void scheduledBlockTick(BlockPos blockPos, CallbackInfo ci) {
-        if (Carpet_CuOSettings.instantScheduled) {
-            if (!(this instanceof Level level)) return;
+        if (Carpet_CuOSettings.instantScheduled && (this instanceof ServerLevel level)) {
             if (!level.isClientSide()) {
                 BlockBehaviour.BlockStateBase stateBase = level.getBlockState(blockPos);
-                stateBase.tick((ServerLevel) level, blockPos, RandomSource.create());
+                stateBase.tick(level, blockPos, RandomSource.create());
                 ci.cancel();
             }
         }
@@ -64,16 +62,14 @@ public interface ScheduledTickAccessMixin {
     //流体计划刻
     @Unique
     private void scheduledFluidTick(BlockPos blockPos, CallbackInfo ci){
-        if (Carpet_CuOSettings.instantScheduled) {
-            if (!(this instanceof Level)) return;
-            Level level = (Level) this;
+        if (Carpet_CuOSettings.instantScheduled && this instanceof ServerLevel level) {
             if (!level.isClientSide()){
                 //#if MC >= 12103
                 BlockState blockState = level.getBlockState(blockPos);
                 //#endif
                 FluidState fluidState = level.getFluidState(blockPos);
                 //#if MC >= 12103
-                fluidState.tick((ServerLevel) level, blockPos, blockState);
+                fluidState.tick(level, blockPos, blockState);
                 //#else
                 //$$ fluidState.tick(level, blockPos);
                 //#endif
