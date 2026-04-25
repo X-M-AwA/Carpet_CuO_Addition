@@ -18,8 +18,7 @@
   "carpet.rule.bambooBlockCrashFix.name": "bambooBlockCrashFix",
   "carpet.rule.pistonBreakingBlockProducesUpdate.name": "pistonBreakingBlockProducesUpdate",
   "carpet.rule.entityHighLight.name": "entityHighLight",
-  "carpet.rule.instantScheduled.name": "instantScheduled",
-  "carpet.rule.instantScheduleFix.name": "instantScheduleFix",
+  "carpet.rule.instantScheduling.name": "instantScheduling",
 
   "carpet.rule.maxChainDepth.desc": "max chain depth",
   "carpet.rule.infinitelyVault.desc": "Players can open vaults an unlimited number of times",
@@ -40,8 +39,7 @@
   "carpet.rule.bambooBlockCrashFix.desc": "Fix bamboo blocks crashing with no boundary detection",
   "carpet.rule.pistonBreakingBlockProducesUpdate.desc": "piston breaking block produces update",
   "carpet.rule.entityHighLight.desc": "Right-click on the entity with a dye to highlight it",
-  "carpet.rule.instantScheduled.desc": "Instant scheduled tick",
-  "carpet.rule.instantScheduleFix.desc": "Fixes some inconsistencies with the instant scheduled tick feature",
+  "carpet.rule.instantScheduling.desc": "Instant scheduled tick",
 
   "carpet.rule.infinitelyVault.extra.0": "This only applies to vaults that the player has not yet opened",
   "carpet.rule.infinitelyTotem.extra.0": "When a totem is used,it is not consumed",
@@ -49,8 +47,6 @@
   "carpet.rule.comparatorDupeFix.extra.0": "Fix the comparator item duplication glitch",
   "carpet.rule.noEnchantmentLevelLimit.extra.0": "Enchantment level can reach 225 and it is recommended to use the noTooExpensive function",
   "carpet.rule.blockDyeing.extra.1": "wool\nwool carpet\ncandle\nterracotta & glazed terracotta\nconcrete powder & concrete\nstained glass & stained glass pane",
-  "carpet.rule.instantScheduleFix.extra.0": "Fixes(need to open Carpet_Tis_Addition's instantBlockUpdaterReintroduced rule):",
-  "carpet.rule.instantScheduleFix.extra.1": "1. The observer block cannot power blocks",
 
   "carpet.logger.update.depth": "Caused update skipping, depth: ",
   "carpet.logger.update.pos": " at ",

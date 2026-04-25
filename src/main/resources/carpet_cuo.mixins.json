@@ -18,8 +18,7 @@
     "InfinitelyTotemMixin.LivingEntityMixin",
     "InfinitelyVaultMixin.VaultServerDateMixin",
     "instantDispenserAndDropperMixin.DispenserBlockMixin",
-    "InstantScheduleFixMixin.ObserverBlockMixin",
-    "InstantScheduledMixin.ScheduledTickAccessMixin",
+    "InstantSchedulingMixin.ScheduledTickAccessMixin",
     "MaxUpdateDepthMixin.WorldMixin",
     "PiglinTradeInstantlyMixin.PiglinBrainMixin",
     "UseLeavesAndMossAsFuleMixin.FurnaceBlockMixin"

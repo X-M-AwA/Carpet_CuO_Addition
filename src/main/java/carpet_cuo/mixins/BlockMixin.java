@@ -10,6 +10,8 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelAccessor;
+
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
@@ -22,15 +24,21 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(Block.class)
 public abstract class BlockMixin {
+    @Unique
+    private boolean TheRightTool(Player player){
+        ItemStack itemStack = player.getMainHandItem();
+        return itemStack.is(Items.DIAMOND_PICKAXE) || itemStack.is(Items.NETHERITE_PICKAXE);
+    }
+
     @Inject(
             method = "playerWillDestroy",
             at = @At("HEAD")
     )
     //#if MC > 12002
     private void onBreak(Level world, BlockPos pos, BlockState state, Player player, CallbackInfoReturnable<BlockState> cir) {
-        //#elseif MC <= 12002
-        //$$private void onBreak(Level world, BlockPos pos, BlockState state, Player player, CallbackInfo ci) {
-        //#endif
+    //#else
+    //$$private void onBreak(Level world, BlockPos pos, BlockState state, Player player, CallbackInfo ci) {
+    //#endif
         if (Carpet_CuOSettings.endPortalFrameCanBeMined && state.is(Blocks.END_PORTAL_FRAME) && !player.isCreative() && TheRightTool(player)) {
             ItemStack portalFrameStack = new ItemStack(Items.END_PORTAL_FRAME);
             ItemEntity itemEntity = new ItemEntity(
@@ -46,10 +54,5 @@ public abstract class BlockMixin {
             );
             world.addFreshEntity(itemEntity);
         }
-    }
-    @Unique
-    private boolean TheRightTool(Player player){
-        ItemStack itemStack = player.getMainHandItem();
-        return itemStack.is(Items.DIAMOND_PICKAXE) || itemStack.is(Items.NETHERITE_PICKAXE);
     }
 }

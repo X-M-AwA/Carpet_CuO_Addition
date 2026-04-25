@@ -20,8 +20,7 @@
   "carpet.rule.bambooBlockCrashFix.name": "竹子崩溃修复",
   "carpet.rule.pistonBreakingBlockProducesUpdate.name": "活塞破坏方块产生方块更新",
   "carpet.rule.entityHighLight.name": "实体高亮",
-  "carpet.rule.instantScheduled.name": "瞬时计划刻",
-  "carpet.rule.instantScheduleFix.name": "瞬时计划刻修复",
+  "carpet.rule.instantScheduling.name": "瞬时计划刻",
 
   "carpet.rule.maxChainDepth.desc": "最大连锁更新深度",
   "carpet.rule.infinitelyVault.desc": "玩家可以无限开宝库",
@@ -42,8 +41,7 @@
   "carpet.rule.bambooBlockCrashFix.desc": "修复因生长时超出世界边界而崩溃",
   "carpet.rule.pistonBreakingBlockProducesUpdate.desc": "活塞破坏方块产生方块更新",
   "carpet.rule.entityHighLight.desc": "使用染料可以高亮实体",
-  "carpet.rule.instantScheduled.desc": "计划刻可以立即执行",
-  "carpet.rule.instantScheduleFix.desc": "修复了一些开启瞬时计划刻下与低版本不同的现象",
+  "carpet.rule.instantScheduling.desc": "计划刻可以立即执行",
 
   "carpet.rule.infinitelyVault.extra.0": "只对该玩家未开启过的宝库有效",
   "carpet.rule.infinitelyTotem.extra.0": "不会消耗图腾",
@@ -51,8 +49,6 @@
   "carpet.rule.comparatorDupeFix.extra.0": "比较器复制还是太not vanilla了，直接修复",
   "carpet.rule.noEnchantmentLevelLimit.extra.0": "附魔等级可以一直堆叠到225,建议搭配noTooExpensive功能",
   "carpet.rule.blockDyeing.extra.1": "羊毛\n地毯\n蜡烛\n混凝土&混凝土粉末\n陶瓦&带釉陶瓦\n染色玻璃&染色玻璃板",
-  "carpet.rule.instantScheduleFix.extra.0": "修复的内容：",
-  "carpet.rule.instantScheduleFix.extra.1": "1. 侦测器无法激活方块(同时需要开启Carpet_Tis_Addition的instantBlockUpdaterReintroduced规则)",
 
   "carpet.logger.update.depth": "造成了更新跳略，深度为：",
   "carpet.logger.update.pos": "在坐标：",

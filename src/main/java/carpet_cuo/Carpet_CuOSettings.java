@@ -67,8 +67,11 @@ public class Carpet_CuOSettings {
     @Rule(categories = {CuO,FEATURE,CREATIVE,EXPERIMENTAL})
     public static boolean blockDyeing = false;
 
-    @Rule(categories = {CuO,CREATIVE,FEATURE,EXPERIMENTAL})
-    public static boolean rightClickBlockUpdate = false;
+    @Rule(
+        categories = {CuO,CREATIVE,FEATURE,EXPERIMENTAL},
+        options = {"false","def","async"}
+    )
+    public static String rightClickBlockUpdate = "false";
 
     @Rule(categories = {CuO,CREATIVE,EXPERIMENTAL})
     public static boolean instantDispenserAndDropper = false;
@@ -85,8 +88,5 @@ public class Carpet_CuOSettings {
     public static boolean entityHighLight = false;
 
     @Rule(categories = {CuO,FEATURE,CREATIVE,NOT_VANILLA,EXPERIMENTAL})
-    public static boolean instantScheduled = false;
-
-    @Rule(categories = {CuO,CREATIVE,EXPERIMENTAL,NOT_VANILLA})
-    public static boolean instantScheduleFix = false;
+    public static boolean instantScheduling = false;
 }
