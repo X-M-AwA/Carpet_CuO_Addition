@@ -119,12 +119,15 @@
 * 默认值：`false`
 * 选项：`false`，`true`
 * 分类：`CuO`，`FEATURE`，`CREATIVE`，`EXPERIMENTAL`
-### (右键方块发出方块更新)rightClickBlockUpdate
-右键方块可以发出nc更新(不知道有什么用)
+### (右键方块发出更新)rightClickBlockUpdate
+右键方块可以发出更新
+* `false`该规则未开启
+* `def`右键任意方块可以发出一阶毗邻的nc更新，
+* `async`右键铜矿或深层铜矿可以在异步线程发出一次pp更新，~~右键后铜矿和深层铜矿会相互转化~~
 
-* 类型：`boolean`
+* 类型：`String`
 * 默认值：`false`
-* 选项：`false`，`true`
+* 选项：`false`，`def`，`async`
 * 分类：`CuO`，`FEATURE`，`CREATIVE`，`EXPERIMENTAL`
 ### (瞬时发射器&投掷器)instantDispenserAndDropper
 发射器和投掷器不再添加4gt计划刻，而是立即执行
@@ -136,7 +139,7 @@
 ### (竹子崩溃修复)bambooBlockCrashFix
 修复了因竹子在调用grow时未添加边界检查而导致错误的获取void_air方块的stage属性
 
-~~该bug配合instantDispenserAndDropper可用作更新抑制器~~
+~~该bug配合瞬时计划刻或瞬时发射器可用作更新抑制器~~
 
 26.1snapshot8修复
 

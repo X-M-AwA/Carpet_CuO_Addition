@@ -67,7 +67,11 @@ public interface ScheduledTickAccessMixin {
             method = "scheduleTick(Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/Block;I)V",
             at = @At(
                     value = "INVOKE",
+                    //#if MC >= 12103
                     target = "Lnet/minecraft/world/level/ScheduledTickAccess;createTick(Lnet/minecraft/core/BlockPos;Ljava/lang/Object;I)Lnet/minecraft/world/ticks/ScheduledTick;"
+                    //#else
+                    //$$ target = "Lnet/minecraft/world/level/LevelAccessor;createTick(Lnet/minecraft/core/BlockPos;Ljava/lang/Object;I)Lnet/minecraft/world/ticks/ScheduledTick;"
+                    //#endif
             )
     )
     private void setDelay(Args args){

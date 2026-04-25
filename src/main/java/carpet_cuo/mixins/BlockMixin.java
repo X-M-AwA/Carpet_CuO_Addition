@@ -10,16 +10,15 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.LevelAccessor;
 
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
-//#if MC <= 12002
-//$$import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-//#elseif MC > 12002
+//#if MC > 12002
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
+//#else
+//$$import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 //#endif
 
 @Mixin(Block.class)
