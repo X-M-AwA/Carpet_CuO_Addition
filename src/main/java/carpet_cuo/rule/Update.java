@@ -13,7 +13,7 @@ public class Update {
                 BlockState blockState = world.getBlockState(hitResult.getBlockPos());
                 BlockState state = state(blockState);
                 Thread thread = new Thread(() -> {
-                    if (state != null) world.setBlock(hitResult.getBlockPos(), state, 2);
+                    if (state != null) world.setBlock(hitResult.getBlockPos(), state, 3);
                 });
 
                 if (Carpet_CuOSettings.rightClickBlockUpdate.equals("def")) {
