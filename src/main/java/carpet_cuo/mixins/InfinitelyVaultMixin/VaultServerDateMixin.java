@@ -7,20 +7,30 @@ package carpet_cuo.mixins.InfinitelyVaultMixin;
 //$$public abstract class VaultServerDateMixin {}
 //#elseif MC >=12100
 import carpet_cuo.Carpet_CuOSettings;
+import java.util.Set;
+import java.util.UUID;
 import net.minecraft.world.level.block.entity.vault.VaultServerData;
+import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.injection.Constant;
-import org.spongepowered.asm.mixin.injection.ModifyConstant;
+import org.spongepowered.asm.mixin.Shadow;
+import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(VaultServerData.class)
 public abstract class VaultServerDateMixin {
-    @ModifyConstant(
+    @Shadow
+    @Final
+    private Set<UUID> rewardedPlayers;
+
+    @Inject(
             method = "addToRewardedPlayers",
-            constant = @Constant(intValue = 128)
+            at = @At("HEAD")
     )
-    private int modifyRewardedPlayersSize(int original){
-        if (Carpet_CuOSettings.infinitelyVault)return 0;
-        else return original;
+    private void cleanRewardedPlayersSet(CallbackInfo ci){
+        if (!Carpet_CuOSettings.infinitelyVault)return;
+        this.rewardedPlayers.clear();
+        ci.cancel();
     }
 }
 //#endif
