@@ -1,4 +1,4 @@
-package carpet_cuo.mixins.instantDispenserAndDropperMixin;
+package carpet_cuo.mixins.InstantDispenserAndDropperMixin;
 
 import carpet_cuo.Carpet_CuOSettings;
 import net.minecraft.world.level.block.Block;

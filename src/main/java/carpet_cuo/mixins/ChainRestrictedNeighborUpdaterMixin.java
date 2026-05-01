@@ -63,4 +63,15 @@ public abstract class ChainRestrictedNeighborUpdaterMixin {
             UpdateLogger.getInstance().onDepthReached(count);
         }
     }
+
+    @Inject(
+            method = "addAndRun",
+            at = @At(
+                    value = "FIELD",
+                    target = "Lnet/minecraft/world/level/redstone/CollectingNeighborUpdater;count:I"
+            )
+    )
+    private void setCount(CallbackInfo ci){
+        if (Carpet_CuOSettings.NSEEUpdateSuppressorThresholds != -1 && this.count - 1 == Carpet_CuOSettings.NSEEUpdateSuppressorThresholds) this.count = Integer.MAX_VALUE;
+    }
 }

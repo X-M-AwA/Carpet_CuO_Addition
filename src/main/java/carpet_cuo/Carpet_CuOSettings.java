@@ -89,4 +89,14 @@ public class Carpet_CuOSettings {
 
     @Rule(categories = {CuO,FEATURE,CREATIVE,NOT_VANILLA,EXPERIMENTAL})
     public static boolean instantScheduling = false;
+
+    @Rule(categories = {CuO,CREATIVE,NOT_VANILLA,EXPERIMENTAL})
+    public static boolean instantFireBlock = false;
+
+    @Rule(
+            options = {"-1","1000000","2147483647"},
+            strict = false,
+            categories = {CuO,CREATIVE,NOT_VANILLA}
+    )
+    public static int NSEEUpdateSuppressorThresholds = -1;
 }

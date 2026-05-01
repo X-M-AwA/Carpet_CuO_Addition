@@ -62,7 +62,7 @@ public class BlockDyeing {
                 || BuiltInRegistries.BLOCK.getKey(state.getBlock()).getPath().endsWith("_concrete")
                 || BuiltInRegistries.BLOCK.getKey(state.getBlock()).getPath().endsWith("_stained_glass")
                 //#if MC <=12001
-                //|| BuiltInRegistries.BLOCK.getKey(state.getBlock()).getPath().endsWith("_concrete_powder")
+                //$$ || BuiltInRegistries.BLOCK.getKey(state.getBlock()).getPath().endsWith("_concrete_powder")
                 //#endif
                 || BuiltInRegistries.BLOCK.getKey(state.getBlock()).getPath().endsWith("_stained_glass_pane");
     }

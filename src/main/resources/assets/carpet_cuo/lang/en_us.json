@@ -19,6 +19,8 @@
   "carpet.rule.pistonBreakingBlockProducesUpdate.name": "pistonBreakingBlockProducesUpdate",
   "carpet.rule.entityHighLight.name": "entityHighLight",
   "carpet.rule.instantScheduling.name": "instantScheduling",
+  "carpet.rule.instantFireBlock.name": "instantFireBlock",
+  "carpet.rule.NSEEUpdateSuppressorThresholds.name": "NSEEUpdateSuppressorThresholds",
 
   "carpet.rule.maxChainDepth.desc": "max chain depth",
   "carpet.rule.infinitelyVault.desc": "Players can open vaults an unlimited number of times",
@@ -40,6 +42,8 @@
   "carpet.rule.pistonBreakingBlockProducesUpdate.desc": "piston breaking block produces update",
   "carpet.rule.entityHighLight.desc": "Right-click on the entity with a dye to highlight it",
   "carpet.rule.instantScheduling.desc": "Instant scheduled tick",
+  "carpet.rule.instantFireBlock.desc": "Flame blocks can burn instantly",
+  "carpet.rule.NSEEUpdateSuppressorThresholds.desc": "Adjust the value of the depth required by the NSEE update suppressor, -1 is disabled",
 
   "carpet.rule.infinitelyVault.extra.0": "This only applies to vaults that the player has not yet opened",
   "carpet.rule.infinitelyTotem.extra.0": "When a totem is used,it is not consumed",

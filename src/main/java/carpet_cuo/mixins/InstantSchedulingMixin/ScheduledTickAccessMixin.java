@@ -35,10 +35,10 @@ public interface ScheduledTickAccessMixin {
     //方块计划刻
     @Unique
     private void scheduledBlockTick(BlockPos blockPos, CallbackInfo ci){
-        if (Carpet_CuOSettings.instantScheduling && (this instanceof ServerLevel level)) {
-            if (!level.isClientSide()) {
-                BlockBehaviour.BlockStateBase stateBase = level.getBlockState(blockPos);
-                if (stateBase.is(Blocks.FIRE)) return;
+        if (this instanceof ServerLevel level) {
+            BlockBehaviour.BlockStateBase stateBase = level.getBlockState(blockPos);
+            if (Carpet_CuOSettings.instantScheduling && !Carpet_CuOSettings.instantFireBlock && stateBase.is(Blocks.FIRE)) return;
+            if (!level.isClientSide() && Carpet_CuOSettings.instantScheduling || Carpet_CuOSettings.instantFireBlock) {
                 stateBase.tick(level, blockPos, RandomSource.create());
                 ci.cancel();
             }
@@ -75,7 +75,7 @@ public interface ScheduledTickAccessMixin {
             )
     )
     private void setDelay(Args args){
-        if (Carpet_CuOSettings.instantScheduling && this instanceof ServerLevel level) {
+        if (Carpet_CuOSettings.instantScheduling && !Carpet_CuOSettings.instantFireBlock && this instanceof ServerLevel level) {
             if (!level.isClientSide()) args.set(2, 1);
         }
     }
