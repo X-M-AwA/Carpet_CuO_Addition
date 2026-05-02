@@ -4,7 +4,7 @@
 
 * 类型：`int`
 * 默认值：`1000000`
-* 选项：`0`，`65535`，`1000000`，`2147483647`
+* 选项：`-1`，`0`，`65535`，`1000000`，`2147483647`
 * 分类：`CuO`，`CREATIVE`，`NOT_VANILLA`
 ### (无限开宝库)infinitelyVault
 玩家可以无限的开启宝库
@@ -26,7 +26,7 @@
 
 * 类型：`int`
 * 默认值：`512`
-* 选项：`0`，`512`，`1000000`，`2147483647`
+* 选项：`-1`，`0`，`512`，`1000000`，`2147483647`
 * 分类：`CuO`，`CREATIVE`，`NOT_VANILLA`
 ### (树叶和苔藓可作为燃料)useLeavesAndMossAsFuel
 可以使用树叶类方块和苔藓块作为熔炉燃料使用
@@ -166,17 +166,31 @@
 
 配合Carpet_Tis_Addition的instantBlockUpdaterReintroduced规则获得更好的体验
 
-注意此规则及其危险，开启该规则后可能会因为以下原因导致崩溃
-
-* 激活压力板
-* 激活探测铁轨
-* 触发拌线钩
-
-若发生上面的任意一种情况都会发生栈溢出错误导致崩服！
-
-~~为什么高版本玩家水平移动导致的异常不会再被捕获了(~~
+注意，此规则及其危险，请谨慎使用
 
 * 类型：`boolean`
 * 默认值：`false`
 * 选项：`false`，`true`
 * 分类：`CuO`，`FEATURE`，`CREATIVE`，`NOT_VANILLA`，`EXPERIMENTAL`
+### (瞬时火焰)instantFireBlock
+地狱岩上的火焰会导致栈溢出异常，所以开启后请勿随意加载区块
+
+
+* 类型：`boolean`
+* 默认值：`false`
+* 选项：`false`，`true`
+* 分类：`CuO`，`CREATIVE`，`NOT_VANILLA`，`EXPERIMENTAL`
+### (NSEE抑制器阈值)NSEEUpdateSuppressorThresholds
+更改NSEE更新抑制器count所需要达到的数值，-1为禁用
+
+* 类型：`int`
+* 默认值：`-1`
+* 选项：`-1`，`1000000`，`2147483647`
+* 分类：`CuO`，`CREATIVE`，`NOT_VANILLA`
+### (链式更新记录器打印阈值)chainUpdateLoggerThresholds
+更改更新记录器`chain`模式下打印更新链深度所需的最小深度
+
+* 类型：`int`
+* 默认值：`0`
+* 选项：`0`，`10000`，`1000000`
+* 分类：`CuO`，`CREATIVE`，`NOT_VANILLA`

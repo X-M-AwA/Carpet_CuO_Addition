@@ -1,6 +1,8 @@
 package carpet_cuo;
 
 import carpet.api.settings.Rule;
+import carpet.api.settings.Validator;
+import carpet.api.settings.Validators;
 
 import static carpet.api.settings.RuleCategory.*;
 
@@ -99,4 +101,12 @@ public class Carpet_CuOSettings {
             categories = {CuO,CREATIVE,NOT_VANILLA}
     )
     public static int NSEEUpdateSuppressorThresholds = -1;
+
+    @Rule(
+            validators = Validators.NonNegativeNumber.class,
+            options = {"0","10000","500000"},
+            strict = false,
+            categories = {CuO,CREATIVE,NOT_VANILLA}
+    )
+    public static int chainUpdateLoggerThresholds = 0;
 }

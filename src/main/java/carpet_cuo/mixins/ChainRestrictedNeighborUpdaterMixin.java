@@ -28,8 +28,8 @@ public abstract class ChainRestrictedNeighborUpdaterMixin {
             at = @At("HEAD")
     )
     private void setMaxChainDepth(CallbackInfo ci){
-        if (Carpet_CuOSettings.maxChainDepth != 1000000) {
-            maxChainedNeighborUpdates = Carpet_CuOSettings.maxChainDepth;
+        if (this.maxChainedNeighborUpdates != Carpet_CuOSettings.maxChainDepth){
+            this.maxChainedNeighborUpdates = Carpet_CuOSettings.maxChainDepth;
         }
     }
 
@@ -47,7 +47,7 @@ public abstract class ChainRestrictedNeighborUpdaterMixin {
     )
     private void Update(BlockPos blockPos, CollectingNeighborUpdater.NeighborUpdates neighborUpdates, CallbackInfo ci){
         if (CuOAdditionLoggerRegistry.__update) {
-            UpdateLogger.getInstance().onUpdateSkipping(count, blockPos.getX(), blockPos.getY(), blockPos.getZ());
+            UpdateLogger.getInstance().onUpdateSkipping(this.count, blockPos.getX(), blockPos.getY(), blockPos.getZ());
         }
     }
 
@@ -59,8 +59,8 @@ public abstract class ChainRestrictedNeighborUpdaterMixin {
         )
     )
     private void runUpdates(CallbackInfo ci){
-        if (CuOAdditionLoggerRegistry.__update && count-1 != 0) {
-            UpdateLogger.getInstance().onDepthReached(count);
+        if (CuOAdditionLoggerRegistry.__update && this.count - 1 != 0 && this.count - 1 >= Carpet_CuOSettings.chainUpdateLoggerThresholds) {
+            UpdateLogger.getInstance().onDepthReached(this.count);
         }
     }
 
