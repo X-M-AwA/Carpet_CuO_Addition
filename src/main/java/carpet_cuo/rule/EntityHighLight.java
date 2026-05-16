@@ -7,6 +7,8 @@ import net.fabricmc.fabric.api.event.player.UseEntityCallback;
 //$$ import net.minecraft.core.component.DataComponents;
 //#endif
 import net.minecraft.ChatFormatting;
+import net.minecraft.server.MinecraftServer;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.item.DyeColor;
@@ -20,6 +22,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class EntityHighLight {
+
+    private static final Map<DyeColor, ChatFormatting> COLOR_MAP = new HashMap<>();
+
     public static void init(){
         UseEntityCallback.EVENT.register((player, world, hand, entity, hitResult) -> {
             if (!Carpet_CuOSettings.entityHighLight || player.isShiftKeyDown()) return InteractionResult.PASS;
@@ -48,7 +53,7 @@ public class EntityHighLight {
                 if (playerTeam.getPlayers().contains(ID)){
                     if (!level.isClientSide()) scoreboard.removePlayerFromTeam(ID, playerTeam);
                     entity.setGlowingTag(false);
-                    if (playerTeam.getPlayers().isEmpty()) scoreboard.removePlayerTeam(playerTeam);
+                    if (playerTeam.getPlayers().isEmpty()) removeTeam(scoreboard, playerTeam);
                     return InteractionResult.SUCCESS;
                 }
             }
@@ -68,7 +73,25 @@ public class EntityHighLight {
         return InteractionResult.PASS;
     }
 
-    private static final Map<DyeColor, ChatFormatting> COLOR_MAP = new HashMap<>();
+    public static void removeTeam(Scoreboard scoreboard, PlayerTeam playerTeam){
+        scoreboard.removePlayerTeam(playerTeam);
+    }
+
+    public static void tick(ServerLevel level) {
+        MinecraftServer minecraftServer = level.getServer();
+        int tick = minecraftServer.getTickCount();
+        if (tick % 20 == 0) {
+            Scoreboard scoreboard = level.getServer().getScoreboard();
+            String[] teams = scoreboard.getTeamNames().toArray(new String[0]);
+
+            for (String team : teams) {
+                PlayerTeam playerTeam = scoreboard.getPlayerTeam(team);
+                if (playerTeam != null && playerTeam.getName().contains(Carpet_CuOMod.MOD_ID) && playerTeam.getPlayers().isEmpty()) {
+                    removeTeam(scoreboard, playerTeam);
+                }
+            }
+        }
+    }
 
     static {
         COLOR_MAP.put(DyeColor.WHITE, ChatFormatting.WHITE);

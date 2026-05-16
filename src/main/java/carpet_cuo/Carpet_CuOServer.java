@@ -2,18 +2,17 @@ package carpet_cuo;
 
 import carpet.CarpetExtension;
 import carpet.CarpetServer;
-import carpet.api.settings.SettingsManager;
 import carpet.utils.Translations;
 import carpet_cuo.Logging.CuOAdditionLoggerRegistry;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.Map;
 
 public class Carpet_CuOServer implements CarpetExtension {
 
     private static final CarpetExtension INSTANCE = new Carpet_CuOServer();
-    private SettingsManager CarpetExtension;
-    public static final String MOD_ID = Carpet_CuOMod.MOD_ID;
-    public static final String compactName = MOD_ID.replace("-", "");
+    public static final Logger LOGGER = LoggerFactory.getLogger(Carpet_CuOMod.MOD_ID);
 
     public static void init(){
         CarpetServer.manageExtension(INSTANCE);
@@ -27,11 +26,6 @@ public class Carpet_CuOServer implements CarpetExtension {
     @Override
     public String version(){
         return Carpet_CuOMod.version;
-    }
-
-    @Override
-    public SettingsManager extensionSettingsManager(){
-        return CarpetExtension;
     }
 
     @Override

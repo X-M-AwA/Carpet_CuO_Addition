@@ -30,9 +30,9 @@ public class UpdateLogger extends AbstractLogger {
         if (option.equals("skipping")) {
             return new Component[]{
                 Messenger.c(
-                    Messenger.f(tr("carpet.logger.update.depth"), LayOut.WHITE),
+                    Messenger.f(Messenger.tr("carpet.logger.update.depth"), LayOut.WHITE),
                     Messenger.f(Component.literal(String.valueOf(depth)), LayOut.BLUE),
-                    Messenger.f(tr("carpet.logger.update.pos"), LayOut.WHITE),
+                    Messenger.f(Messenger.tr("carpet.logger.update.pos"), LayOut.WHITE),
                     Messenger.f(Component.literal(pos), LayOut.GRAY)
                 )
             };
@@ -49,17 +49,12 @@ public class UpdateLogger extends AbstractLogger {
         if (option.equals("chain")) {
             return new Component[]{
                 Messenger.c(
-                    Messenger.f(tr("carpet.logger.update.chainDepth"), LayOut.WHITE),
+                    Messenger.f(Messenger.tr("carpet.logger.update.chainDepth"), LayOut.WHITE),
                     Messenger.f(Component.literal(String.valueOf(depth)), LayOut.BLUE)
                 )
             };
         }
         return null;
         });
-    }
-
-    private MutableComponent tr(String key) {
-        String val = Translations.tr(key, key);
-        return Component.literal(val == null ? key : val);
     }
 }

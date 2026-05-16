@@ -5,10 +5,8 @@ import carpet_cuo.Logging.CuOAdditionLoggerRegistry;
 import carpet_cuo.Logging.Logger.UpdateLogger;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.redstone.CollectingNeighborUpdater;
-import org.spongepowered.asm.mixin.Final;
-import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Mutable;
-import org.spongepowered.asm.mixin.Shadow;
+import org.objectweb.asm.Opcodes;
+import org.spongepowered.asm.mixin.*;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
@@ -28,7 +26,7 @@ public abstract class ChainRestrictedNeighborUpdaterMixin {
             at = @At("HEAD")
     )
     private void setMaxChainDepth(CallbackInfo ci){
-        if (this.maxChainedNeighborUpdates != Carpet_CuOSettings.maxChainDepth){
+        if (this.maxChainedNeighborUpdates != Carpet_CuOSettings.maxChainDepth) {
             this.maxChainedNeighborUpdates = Carpet_CuOSettings.maxChainDepth;
         }
     }
@@ -68,10 +66,13 @@ public abstract class ChainRestrictedNeighborUpdaterMixin {
             method = "addAndRun",
             at = @At(
                     value = "FIELD",
-                    target = "Lnet/minecraft/world/level/redstone/CollectingNeighborUpdater;count:I"
+                    target = "Lnet/minecraft/world/level/redstone/CollectingNeighborUpdater;count:I",
+                    opcode = Opcodes.PUTFIELD
             )
     )
     private void setCount(CallbackInfo ci){
-        if (Carpet_CuOSettings.NSEEUpdateSuppressorThresholds != -1 && this.count - 1 == Carpet_CuOSettings.NSEEUpdateSuppressorThresholds) this.count = Integer.MAX_VALUE;
+        if (Carpet_CuOSettings.NSEEUpdateSuppressorThresholds != -1 && this.count - 1 == Carpet_CuOSettings.NSEEUpdateSuppressorThresholds) {
+            this.count = Integer.MAX_VALUE;
+        }
     }
 }
