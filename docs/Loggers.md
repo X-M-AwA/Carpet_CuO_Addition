@@ -25,7 +25,7 @@
 属性:
 * 默认选项：N/A
 * 参考选项：N/A
-### (更新深度记录器)update
+### (更新记录器)update
 `/log update <选项>`
 
 * `skipping` 当发生更新跳略时，会打印当前的深度及发生跳略的坐标
@@ -39,3 +39,11 @@
 属性:
 * 默认选项：`skipping`
 * 参考选项：`skipping`，`chain`
+### (更新深度记录器)updateDepth
+`/log updateDepth`
+
+能够可视化当前方块更新的MaxUpdateDepth的值
+
+属性:
+* 默认选项：N/A
+* 参考选项：N/A
