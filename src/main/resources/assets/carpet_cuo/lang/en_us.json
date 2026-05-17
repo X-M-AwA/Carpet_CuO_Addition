@@ -22,6 +22,7 @@
   "carpet.rule.instantFireBlock.name": "instantFireBlock",
   "carpet.rule.NSEEUpdateSuppressorThresholds.name": "NSEEUpdateSuppressorThresholds",
   "carpet.rule.chainUpdateLoggerThresholds.name": "chainUpdateLoggerThresholds",
+  "carpet.rule.spongeCanBeDriedNaturally.name": "spongeCanBeDriedNaturally",
 
   "carpet.rule.maxChainDepth.desc": "max chain depth",
   "carpet.rule.infinitelyVault.desc": "Players can open vaults an unlimited number of times",
@@ -46,6 +47,7 @@
   "carpet.rule.instantFireBlock.desc": "Flame blocks can burn instantly",
   "carpet.rule.NSEEUpdateSuppressorThresholds.desc": "Adjust the value of the depth required by the NSEE update suppressor, -1 is disabled",
   "carpet.rule.chainUpdateLoggerThresholds.desc": "Modify the threshold for updating the chain depth logger printing",
+  "carpet.rule.spongeCanBeDriedNaturally.desc": "The sponge that is placed can be dried naturally",
 
   "carpet.rule.infinitelyTotem.extra.0": "When a totem is used,it is not consumed",
   "carpet.rule.useLeavesAndMossAsFuel.extra.0": "Note: 1.21.2+ requires a server restart for change to take effect",

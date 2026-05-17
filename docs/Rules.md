@@ -141,7 +141,7 @@
 
 ~~该bug配合瞬时计划刻或瞬时发射器可用作更新抑制器~~
 
-26.1snapshot8修复
+原版于26.1snapshot8版本修复
 
 * 类型：`boolean`
 * 默认值：`false`
@@ -194,3 +194,15 @@
 * 默认值：`0`
 * 选项：`0`，`10000`，`1000000`
 * 分类：`CuO`，`CREATIVE`，`NOT_VANILLA`
+### (海绵可以被自然烘干)spongeCanBeDriedNaturally
+注意：此功能还有许多未完善的地方
+
+开启后新放置的湿海绵可以被自然地烘干
+
+其速度与群系温度，光照强度有关，当温度等于2时会立刻烘干，当温度太低或可以下雪将不会被烘干
+
+
+* 类型：`boolean`
+* 默认值：`false`
+* 选项：`false`，`true`
+* 分类：`CuO`，`CREATIVE`，`NOT_VANILLA`，`EXPERIMENTAL`

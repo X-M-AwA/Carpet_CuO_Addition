@@ -24,6 +24,7 @@
   "carpet.rule.instantFireBlock.name": "瞬时火焰",
   "carpet.rule.NSEEUpdateSuppressorThresholds.name": "NSEE更新抑制器阈值",
   "carpet.rule.chainUpdateLoggerThresholds.name": "连锁更新记录器阈值",
+  "carpet.rule.spongeCanBeDriedNaturally.name": "海绵可以被自然烘干",
 
   "carpet.rule.maxChainDepth.desc": "最大连锁更新深度",
   "carpet.rule.infinitelyVault.desc": "玩家可以无限开宝库",
@@ -48,6 +49,7 @@
   "carpet.rule.instantFireBlock.desc": "瞬时火焰",
   "carpet.rule.NSEEUpdateSuppressorThresholds.desc": "调整NSEE更新抑制器需要的depth的值，-1为禁用",
   "carpet.rule.chainUpdateLoggerThresholds.desc": "修改更新链深度记录器打印的阈值",
+  "carpet.rule.spongeCanBeDriedNaturally.desc": "放置在地上的海绵可以被自然烘干，速度与群系光照等有关",
 
   "carpet.rule.infinitelyTotem.extra.0": "不会消耗图腾",
   "carpet.rule.useLeavesAndMossAsFuel.extra.0": "注意1.21.2+需设为永久更改并重启服务器后更改才能生效",

@@ -15,7 +15,7 @@
     "carpet.HUDControllerMixin",
     "ComparatorDupeFixMixin.ComparatorBlockMixin",
     "CopperGolemMixin.CopperGolemEntityMixin",
-    "EntityHighLightMixin.ServerLevelMixin",
+    "ServerLevelMixin",
     "InfinitelyTotemMixin.LivingEntityMixin",
     "InfinitelyVaultMixin.VaultServerDateMixin",
     "InstantDispenserAndDropperMixin.DispenserBlockMixin",
@@ -23,6 +23,7 @@
     "InstantSchedulingMixin.ScheduledTickAccessMixin",
     "MaxUpdateDepthMixin.WorldMixin",
     "PiglinTradeInstantlyMixin.PiglinBrainMixin",
+    "spongeCanBeDriedNaturallyMixin.WetSpongeBlockMixin",
     "UpdateDepthVisualizeLoggerMixin.LevelMixin",
     "UseLeavesAndMossAsFuleMixin.FurnaceBlockMixin"
   ],
