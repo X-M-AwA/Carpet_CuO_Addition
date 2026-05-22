@@ -23,7 +23,7 @@
     "InstantSchedulingMixin.ScheduledTickAccessMixin",
     "MaxUpdateDepthMixin.WorldMixin",
     "PiglinTradeInstantlyMixin.PiglinBrainMixin",
-    "spongeCanBeDriedNaturallyMixin.WetSpongeBlockMixin",
+    "SpongeCanBeDriedNaturallyMixin.WetSpongeBlockMixin",
     "UpdateDepthVisualizeLoggerMixin.LevelMixin",
     "UseLeavesAndMossAsFuleMixin.FurnaceBlockMixin"
   ],

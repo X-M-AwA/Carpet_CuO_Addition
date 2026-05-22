@@ -166,7 +166,7 @@
 
 配合Carpet_Tis_Addition的instantBlockUpdaterReintroduced规则获得更好的体验
 
-注意，此规则及其危险，请谨慎使用
+注意，此规则有崩服危险，请谨慎使用
 
 * 类型：`boolean`
 * 默认值：`false`
@@ -174,7 +174,6 @@
 * 分类：`CuO`，`FEATURE`，`CREATIVE`，`NOT_VANILLA`，`EXPERIMENTAL`
 ### (瞬时火焰)instantFireBlock
 地狱岩上的火焰会导致栈溢出异常，所以开启后请勿随意加载区块
-
 
 * 类型：`boolean`
 * 默认值：`false`
@@ -197,11 +196,7 @@
 ### (海绵可以被自然烘干)spongeCanBeDriedNaturally
 注意：此功能还有许多未完善的地方
 
-开启后新放置的湿海绵可以被自然地烘干
-
-其速度与群系温度，光照强度有关
-
-温度等于2时会立刻烘干，温度太低将不会被烘干，雨天会暂停烘干
+开启后湿海绵可以被自然地烘干，若群系温度超过2，则会立即干燥
 
 * 类型：`boolean`
 * 默认值：`false`

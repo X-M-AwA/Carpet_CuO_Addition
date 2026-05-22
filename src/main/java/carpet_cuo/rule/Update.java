@@ -2,6 +2,7 @@ package carpet_cuo.rule;
 
 import carpet_cuo.Carpet_CuOSettings;
 import net.fabricmc.fabric.api.event.player.UseBlockCallback;
+import net.minecraft.server.MinecraftServer;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.InteractionResult;
@@ -12,6 +13,7 @@ public class Update {
             if (!Carpet_CuOSettings.rightClickBlockUpdate.equals("false") && !player.isShiftKeyDown()) {
                 BlockState blockState = world.getBlockState(hitResult.getBlockPos());
                 BlockState state = state(blockState);
+
                 Thread thread = new Thread(() -> {
                     if (state != null) world.setBlock(hitResult.getBlockPos(), state, 3);
                 });
@@ -19,7 +21,7 @@ public class Update {
                 if (Carpet_CuOSettings.rightClickBlockUpdate.equals("def")) {
                     world.updateNeighborsAt(hitResult.getBlockPos(), blockState.getBlock());
                     return InteractionResult.SUCCESS;
-                }else if (Carpet_CuOSettings.rightClickBlockUpdate.equals("async") && blockState.is(Blocks.COPPER_ORE) || blockState.is(Blocks.DEEPSLATE_COPPER_ORE)) {
+                }else if (Carpet_CuOSettings.rightClickBlockUpdate.equals("async") && state != null) {
                     thread.start();
                     return InteractionResult.SUCCESS;
                 }

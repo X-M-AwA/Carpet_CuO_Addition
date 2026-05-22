@@ -37,6 +37,8 @@ public class EntityHighLight {
     }
 
     private static InteractionResult setColor(ItemStack stack, Scoreboard scoreboard, Entity entity, Level level){
+        if (level.isClientSide) return InteractionResult.SUCCESS;
+
         if (stack.getItem() instanceof DyeItem dyeItem){
             String ID = entity.getStringUUID();
             //#if MC < 260100
@@ -51,7 +53,7 @@ public class EntityHighLight {
 
             if (playerTeam != null && playerTeam.getName().equals(Name)){
                 if (playerTeam.getPlayers().contains(ID)){
-                    if (!level.isClientSide()) scoreboard.removePlayerFromTeam(ID, playerTeam);
+                    scoreboard.removePlayerFromTeam(ID, playerTeam);
                     entity.setGlowingTag(false);
                     if (playerTeam.getPlayers().isEmpty()) removeTeam(scoreboard, playerTeam);
                     return InteractionResult.SUCCESS;
@@ -63,10 +65,8 @@ public class EntityHighLight {
                 playerTeam.setColor(formatting);
             }
 
-            if (!level.isClientSide()){
-                scoreboard.addPlayerToTeam(ID, playerTeam);
-                if (oldTeam != null && oldTeam.getPlayers().isEmpty()) scoreboard.removePlayerTeam(oldTeam);
-            }
+            scoreboard.addPlayerToTeam(ID, playerTeam);
+            if (oldTeam != null && oldTeam.getPlayers().isEmpty()) scoreboard.removePlayerTeam(oldTeam);
             entity.setGlowingTag(true);
             return InteractionResult.SUCCESS;
         }

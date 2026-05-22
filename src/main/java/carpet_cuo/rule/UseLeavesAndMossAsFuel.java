@@ -9,10 +9,9 @@ import net.fabricmc.fabric.api.registry.FuelRegistryEvents;
 //$$import net.fabricmc.fabric.api.registry.FuelRegistry;
 //#endif
 import net.minecraft.world.item.Items;
-import net.minecraft.world.level.Level;
 
 public class UseLeavesAndMossAsFuel {
-    public static void registerFuels(Level world){
+    public static void registerFuels(){
         //#if MC >= 12102
         if (Carpet_CuOSettings.useLeavesAndMossAsFuel){
             //#if MC >= 260100

@@ -5,8 +5,12 @@ import net.fabricmc.fabric.api.event.player.UseBlockCallback;
 //#if MC >= 260100
 //$$ import net.minecraft.core.component.DataComponents;
 //#endif
+import net.minecraft.core.BlockPos;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.item.DyeItem;
@@ -22,24 +26,26 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class BlockDyeing {
-    private static final Map<TagKey<Block>, String> TAG_SUFFIX_MAP = new HashMap<>(){{
+    private static final Map<TagKey<Block>, String> TAG_SUFFIX_MAP = new HashMap<>() {{
         put(BlockTags.WOOL, "_wool");
         put(BlockTags.WOOL_CARPETS, "_carpet");
         put(BlockTags.CANDLES, "_candle");
         put(BlockTags.TERRACOTTA, "_terracotta");
+        put(BlockTags.SHULKER_BOXES, "_shulker_box");
         //#if MC > 12001
         put(BlockTags.CONCRETE_POWDER, "_concrete_powder");
         //#endif
     }};
 
-    public static void init(){
+    public static void init() {
         UseBlockCallback.EVENT.register((player, world, hand, hitResult) -> {
             if (player.isShiftKeyDown()) return InteractionResult.PASS;
 
+            BlockPos pos = hitResult.getBlockPos();
             ItemStack stack = player.getMainHandItem();
-            BlockState state = world.getBlockState(hitResult.getBlockPos());
+            BlockState state = world.getBlockState(pos);
 
-            if (Carpet_CuOSettings.blockDyeing && stack.getItem() instanceof DyeItem dyeItem && isDyeableBlock(state) && !player.isSpectator()){
+            if (Carpet_CuOSettings.blockDyeing && stack.getItem() instanceof DyeItem dyeItem && isDyeableBlock(state) && !player.isSpectator()) {
                 Block targetBlock = getDyedBlock(state, dyeItem
                         //#if MC >= 260100
                         //$$ , stack
@@ -47,7 +53,11 @@ public class BlockDyeing {
                 );
                 if (targetBlock != null) {
                     BlockState newState = inheritBlockProperties(state, targetBlock.defaultBlockState());
-                    world.setBlock(hitResult.getBlockPos(), newState, 3);
+                    CompoundTag Nbt = readNbtFromBlockEntity(world, state, pos);
+
+                    world.setBlock(pos, newState, 3);
+
+                    writeNbtFromBlockEntity(world, world.getBlockEntity(pos), Nbt);
                     if (!player.isCreative() && newState != state) stack.shrink(1);
                     return InteractionResult.SUCCESS;
                 }
@@ -56,22 +66,23 @@ public class BlockDyeing {
         });
     }
 
-    private static boolean isDyeableBlock(BlockState state){
+    private static boolean isDyeableBlock(BlockState state) {
+        String path = BuiltInRegistries.BLOCK.getKey(state.getBlock()).getPath();
         return TAG_SUFFIX_MAP.keySet().stream().anyMatch(state::is)
-                || BuiltInRegistries.BLOCK.getKey(state.getBlock()).getPath().endsWith("_glazed_terracotta")
-                || BuiltInRegistries.BLOCK.getKey(state.getBlock()).getPath().endsWith("_concrete")
-                || BuiltInRegistries.BLOCK.getKey(state.getBlock()).getPath().endsWith("_stained_glass")
+                || path.endsWith("_glazed_terracotta")
+                || path.endsWith("_concrete")
+                || path.endsWith("_stained_glass")
                 //#if MC <=12001
-                //$$ || BuiltInRegistries.BLOCK.getKey(state.getBlock()).getPath().endsWith("_concrete_powder")
+                //$$ || path.endsWith("_concrete_powder")
                 //#endif
-                || BuiltInRegistries.BLOCK.getKey(state.getBlock()).getPath().endsWith("_stained_glass_pane");
+                || path.endsWith("_stained_glass_pane");
     }
 
     private static Block getDyedBlock(BlockState state, DyeItem dye
                                       //#if MC >= 260100
                                       //$$ , ItemStack itemStack
                                       //#endif
-    ){
+    ) {
         //#if MC < 260100
         DyeColor color = dye.getDyeColor();
         //#else
@@ -83,13 +94,11 @@ public class BlockDyeing {
         }
 
         String blockPath = BuiltInRegistries.BLOCK.getKey(state.getBlock()).getPath();
-        if (isDyeableBlock(state)) return setBlock(color, blockPath);
-        return null;
+        return setBlock(color, blockPath);
     }
 
-    private static Block setBlock(DyeColor color, String blockNames){
-        String blockName = blockName(blockNames);
-        String targetName = color.getName() + blockName;
+    private static Block setBlock(DyeColor color, String blockNames) {
+        String targetName = color.getName() + blockName(blockNames);
         ResourceLocation blockId = ResourceLocation.tryBuild("minecraft", targetName);
         //#if MC >= 12103
         Block targetBlock = BuiltInRegistries.BLOCK.getValue(blockId);
@@ -99,12 +108,12 @@ public class BlockDyeing {
         return targetBlock != Blocks.AIR ? targetBlock : null;
     }
 
-    private static String blockName(String string){
+    private static String blockName(String string) {
         int index = string.indexOf('_');
         return string.substring(index);
     }
 
-    private static BlockState inheritBlockProperties(BlockState oldState, BlockState newState){
+    private static BlockState inheritBlockProperties(BlockState oldState, BlockState newState) {
         BlockState resultState = newState;
 
         for (Property<?> oldProperty : oldState.getProperties()) {
@@ -118,10 +127,7 @@ public class BlockDyeing {
     }
 
     @SuppressWarnings("unchecked")
-    private static <T extends Comparable<T>> BlockState copyPropertyValue(
-            BlockState oldState, BlockState newState,
-            Property<?> oldProperty, Property<?> newProperty) {
-
+    private static <T extends Comparable<T>> BlockState copyPropertyValue(BlockState oldState, BlockState newState, Property<?> oldProperty, Property<?> newProperty) {
         if (oldProperty.getValueClass().equals(newProperty.getValueClass())) {
             try {
                 Property<T> typedOldProperty = (Property<T>) oldProperty;
@@ -136,5 +142,22 @@ public class BlockDyeing {
             }
         }
         return newState;
+    }
+
+    private static CompoundTag readNbtFromBlockEntity(Level level, BlockState state, BlockPos blockPos) {
+        CompoundTag nbt;
+
+        if (state.is(BlockTags.SHULKER_BOXES)) {
+            BlockEntity oldBlock = level.getBlockEntity(blockPos);
+            if (oldBlock != null) {
+                nbt = oldBlock.saveWithoutMetadata(level.registryAccess());
+                return nbt;
+            }
+        }
+        return null;
+    }
+
+    private static void writeNbtFromBlockEntity(Level level, BlockEntity newBlock, CompoundTag nbt) {
+        if (newBlock != null && nbt != null) newBlock.loadWithComponents(nbt, level.registryAccess());
     }
 }
