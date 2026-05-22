@@ -2,12 +2,10 @@ package carpet_cuo.Logging.Logger;
 
 import carpet.logging.Logger;
 import carpet.logging.LoggerRegistry;
-import carpet.utils.Translations;
 import carpet_cuo.Logging.AbstractLogger;
-import carpet_cuo.utils.LayOut;
 import carpet_cuo.utils.Messenger;
+import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.MutableComponent;
 
 public class UpdateLogger extends AbstractLogger {
     public static final String NAME = "update";
@@ -30,10 +28,10 @@ public class UpdateLogger extends AbstractLogger {
         if (option.equals("skipping")) {
             return new Component[]{
                 Messenger.c(
-                    Messenger.f(Messenger.tr("carpet.logger.update.depth"), LayOut.WHITE),
-                    Messenger.f(Component.literal(String.valueOf(depth)), LayOut.BLUE),
-                    Messenger.f(Messenger.tr("carpet.logger.update.pos"), LayOut.WHITE),
-                    Messenger.f(Component.literal(pos), LayOut.GRAY)
+                    Messenger.f(Messenger.tr("carpet.logger.update.depth"), ChatFormatting.WHITE),
+                    Messenger.f(Component.literal(String.valueOf(depth)), ChatFormatting.BLUE),
+                    Messenger.f(Messenger.tr("carpet.logger.update.pos"), ChatFormatting.WHITE),
+                    Messenger.f(Component.literal(pos), ChatFormatting.GRAY)
                 )
             };
         }
@@ -49,8 +47,8 @@ public class UpdateLogger extends AbstractLogger {
         if (option.equals("chain")) {
             return new Component[]{
                 Messenger.c(
-                    Messenger.f(Messenger.tr("carpet.logger.update.chainDepth"), LayOut.WHITE),
-                    Messenger.f(Component.literal(String.valueOf(depth)), LayOut.BLUE)
+                    Messenger.f(Messenger.tr("carpet.logger.update.chainDepth"), ChatFormatting.WHITE),
+                    Messenger.f(Component.literal(String.valueOf(depth)), ChatFormatting.BLUE)
                 )
             };
         }

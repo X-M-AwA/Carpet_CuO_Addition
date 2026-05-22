@@ -1,8 +1,8 @@
 package carpet_cuo.Logging.Logger;
 
 import carpet_cuo.Logging.AbstractHUDLogger;
-import carpet_cuo.utils.LayOut;
 import carpet_cuo.utils.Messenger;
+import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerLevel;
@@ -28,8 +28,8 @@ public class TickHUDLogger extends AbstractHUDLogger {
 
         return new MutableComponent[]{
                 Messenger.c(
-                        Messenger.f(Messenger.s("Tick: "), LayOut.WHITE),
-                        Messenger.f(Messenger.s(tick), LayOut.WHITE)
+                        Messenger.f(Messenger.s("Tick: "), ChatFormatting.WHITE),
+                        Messenger.f(Messenger.s(tick), ChatFormatting.WHITE)
                 )
         };
     }

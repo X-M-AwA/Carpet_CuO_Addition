@@ -3,7 +3,7 @@ package carpet_cuo.Logging;
 import carpet.logging.HUDLogger;
 import carpet.logging.Logger;
 import carpet.logging.LoggerRegistry;
-import carpet_cuo.Logging.Logger.ScheduleQueueHUDLogger;
+import carpet_cuo.Logging.Logger.ScheduleTickHUDLogger;
 import carpet_cuo.Logging.Logger.TickHUDLogger;
 import carpet_cuo.Logging.Logger.UpdateDepthVisualizeLogger;
 import carpet_cuo.Logging.Logger.UpdateLogger;
@@ -12,13 +12,13 @@ import carpet_cuo.Logging.Logger.UpdateLogger;
 import java.lang.reflect.Field;
 
 public class CuOAdditionLoggerRegistry {
-    public static boolean __scheduleQueue;
+    public static boolean __scheduleTick;
     public static boolean __tick;
     public static boolean __update;
     public static boolean __updateDepth;
 
     public static void registerLoggers() {
-        LoggerRegistry.registerLogger(ScheduleQueueHUDLogger.NAME, standardHUDLogger(ScheduleQueueHUDLogger.NAME, null, null));
+        LoggerRegistry.registerLogger(ScheduleTickHUDLogger.NAME, standardHUDLogger(ScheduleTickHUDLogger.NAME, null, null));
         LoggerRegistry.registerLogger(TickHUDLogger.NAME, standardHUDLogger(TickHUDLogger.NAME, null, null));
         LoggerRegistry.registerLogger(UpdateLogger.NAME, standardLogger(UpdateLogger.NAME, "skipping", new String[]{"skipping", "chain"}));
         LoggerRegistry.registerLogger(UpdateDepthVisualizeLogger.NAME, standardLogger(UpdateDepthVisualizeLogger.NAME, null, null));

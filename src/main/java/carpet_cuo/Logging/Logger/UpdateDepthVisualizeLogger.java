@@ -3,9 +3,9 @@ package carpet_cuo.Logging.Logger;
 import carpet.logging.Logger;
 import carpet.logging.LoggerRegistry;
 import carpet_cuo.Logging.AbstractLogger;
-import carpet_cuo.utils.LayOut;
 import carpet_cuo.utils.Messenger;
 import carpet_cuo.utils.NbtManager;
+import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerLevel;
@@ -45,7 +45,7 @@ public class UpdateDepthVisualizeLogger extends AbstractLogger {
         nbt.putByte("see_through", (byte) 1);
         NbtManager.writeToEntity(entity, nbt);
 
-        entity.setText(Messenger.f(Messenger.s("Limit " + UpdateLimit), LayOut.DARK_AQUA));
+        entity.setText(Messenger.f(Messenger.s("Limit " + UpdateLimit), ChatFormatting.DARK_AQUA));
         entity.setInvisible(true);
         entity.setNoGravity(true);
         entity.setInvulnerable(true);

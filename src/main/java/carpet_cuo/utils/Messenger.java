@@ -17,14 +17,8 @@ public class Messenger {
     }
 
     @NotNull
-    public static MutableComponent f(MutableComponent text, LayOut... formattings) {
-        ChatFormatting[] chatFormattings = new ChatFormatting[formattings.length];
-
-        for (int i = 0; i < formattings.length; i++) {
-            chatFormattings[i] = formattings[i].getFormatting();
-        }
-
-        return text.withStyle(chatFormattings);
+    public static MutableComponent f(MutableComponent text, ChatFormatting... formattings) {
+        return text.withStyle(formattings);
     }
 
     public static MutableComponent tr(String key, Object... args) {

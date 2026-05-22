@@ -1,12 +1,12 @@
 package carpet_cuo.Logging;
 
 import carpet.logging.LoggerRegistry;
-import carpet_cuo.Logging.Logger.ScheduleQueueHUDLogger;
+import carpet_cuo.Logging.Logger.ScheduleTickHUDLogger;
 import carpet_cuo.Logging.Logger.TickHUDLogger;
 
 public class CuOAdditionHUDController {
     public static void updateHUD() {
-        doHudLogging(CuOAdditionLoggerRegistry.__scheduleQueue, ScheduleQueueHUDLogger.getInstance());
+        doHudLogging(CuOAdditionLoggerRegistry.__scheduleTick, ScheduleTickHUDLogger.getInstance());
         doHudLogging(CuOAdditionLoggerRegistry.__tick, TickHUDLogger.getInstance());
     }
 

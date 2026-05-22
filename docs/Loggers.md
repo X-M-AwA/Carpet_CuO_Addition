@@ -1,6 +1,6 @@
 ## Loggers
-### (计划刻队列记录器)scheduleQueue
-`/log scheduleQueue`
+### (计划刻队列记录器)scheduleTick
+`/log scheduleTick`
 
 记录当前计划刻队列内元素的数量
 
