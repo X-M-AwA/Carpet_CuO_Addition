@@ -17,12 +17,12 @@ import java.util.Optional;
 public abstract class AbstractBlockStateMixin {
     @Shadow
     public abstract Block getBlock();
+
     @ModifyReturnValue(
             method = "getDestroySpeed",
             at = @At("RETURN")
     )
-    public float getBlockHardness(float hardness, @Local(argsOnly = true) BlockGetter world, @Local(argsOnly = true) BlockPos pos) {
-        Optional<Float> optional = BlockHardnessModifiers.getHardness(this.getBlock(), world, pos);
-        return optional.orElse(hardness);
+    public float getBlockHardness(float hardness) {
+        return BlockHardnessModifiers.getHardness(this.getBlock(), hardness);
     }
 }
