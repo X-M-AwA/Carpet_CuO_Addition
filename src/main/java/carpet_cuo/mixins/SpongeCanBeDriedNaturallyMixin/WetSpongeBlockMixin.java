@@ -7,6 +7,9 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.util.RandomSource;
+//#if MC >= 12111
+//$$ import net.minecraft.world.attribute.EnvironmentAttributes;
+//#endif
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.Block;
@@ -32,7 +35,13 @@ public abstract class WetSpongeBlockMixin extends Block {
     )
     private void onPlace(BlockState blockState, Level level, BlockPos blockPos, BlockState blockState2, boolean bl, CallbackInfo ci) {
         Biome biome = level.getBiome(blockPos).value();
-        if (biome.getBaseTemperature() == 2.0F || level.dimensionType().ultraWarm()) {
+        if (biome.getBaseTemperature() == 2.0F ||
+                //#if MC < 12111
+                level.dimensionType().ultraWarm()
+                //#else
+                //$$ (Boolean)level.environmentAttributes().getValue(EnvironmentAttributes.WATER_EVAPORATES, blockPos)
+                //#endif
+        ) {
             this.drySponge(level, blockPos);
             ci.cancel();
         }
@@ -44,13 +53,18 @@ public abstract class WetSpongeBlockMixin extends Block {
     }
 
     @Override
+    //#if MC >= 12006
     protected void randomTick(BlockState blockState, ServerLevel serverLevel, BlockPos blockPos, RandomSource randomSource) {
+    //#else
+    //$$ @SuppressWarnings("deprecation")
+    //$$ public void randomTick(BlockState blockState, ServerLevel serverLevel, BlockPos blockPos, RandomSource randomSource) {
+    //#endif
         Biome biome = serverLevel.getBiome(blockPos).value();
-        this.tick(serverLevel, blockPos, biome, blockState);
+        this.tick(serverLevel, blockPos, biome);
     }
 
     @Unique
-    private void tick(ServerLevel level, BlockPos blockPos, Biome biome, BlockState state) {
+    private void tick(ServerLevel level, BlockPos blockPos, Biome biome) {
         if (Carpet_CuOSettings.spongeCanBeDriedNaturally
                 && !level.isRainingAt(blockPos.above())
                 && !this.hasWater(level, blockPos)

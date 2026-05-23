@@ -21,6 +21,11 @@ import net.minecraft.world.level.block.state.properties.Property;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.InteractionResult;
+//#if MC >= 12108
+//$$ import net.minecraft.util.ProblemReporter;
+//$$ import com.mojang.logging.LogUtils;
+//$$ import net.minecraft.world.level.storage.TagValueInput;
+//#endif
 
 import java.util.HashMap;
 import java.util.Map;
@@ -150,7 +155,11 @@ public class BlockDyeing {
         if (state.is(BlockTags.SHULKER_BOXES)) {
             BlockEntity oldBlock = level.getBlockEntity(blockPos);
             if (oldBlock != null) {
+                //#if MC > 12004
                 nbt = oldBlock.saveWithoutMetadata(level.registryAccess());
+                //#else
+                //$$ nbt = oldBlock.saveWithoutMetadata();
+                //#endif
                 return nbt;
             }
         }
@@ -158,6 +167,16 @@ public class BlockDyeing {
     }
 
     private static void writeNbtFromBlockEntity(Level level, BlockEntity newBlock, CompoundTag nbt) {
-        if (newBlock != null && nbt != null) newBlock.loadWithComponents(nbt, level.registryAccess());
+        if (newBlock != null && nbt != null) {
+            //#if MC <= 12004
+            //$$ newBlock.load(nbt);
+            //#elseif MC > 12004 && MC <= 12105
+            newBlock.loadWithComponents(nbt, level.registryAccess());
+            //#elseif MC > 12105
+            //$$ try (ProblemReporter.ScopedCollector reporter = new ProblemReporter.ScopedCollector(newBlock.problemPath(), LogUtils.getLogger())) {
+            //$$    newBlock.loadWithComponents(TagValueInput.create(reporter, level.registryAccess(), nbt));
+            //$$ }
+            //#endif
+        }
     }
 }

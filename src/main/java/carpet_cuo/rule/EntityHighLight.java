@@ -37,7 +37,7 @@ public class EntityHighLight {
     }
 
     private static InteractionResult setColor(ItemStack stack, Scoreboard scoreboard, Entity entity, Level level){
-        if (level.isClientSide) return InteractionResult.SUCCESS;
+        if (level.isClientSide()) return InteractionResult.SUCCESS;
 
         if (stack.getItem() instanceof DyeItem dyeItem){
             String ID = entity.getStringUUID();
