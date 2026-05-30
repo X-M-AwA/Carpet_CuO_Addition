@@ -1,4 +1,6 @@
 {
+  "carpet.category.not_vanilla": "not_vanilla",
+
   "carpet.rule.maxChainDepth.name": "maxChainDepth",
   "carpet.rule.infinitelyVault.name": "infinitelyVault",
   "carpet.rule.comparatorDupeFix.name": "comparatorDupeFix",
