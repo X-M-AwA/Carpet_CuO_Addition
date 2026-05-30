@@ -1,6 +1,7 @@
 package carpet_cuo.rule;
 
 import carpet_cuo.Carpet_CuOSettings;
+import carpet_cuo.utils.NbtManager;
 import net.fabricmc.fabric.api.event.player.UseBlockCallback;
 //#if MC >= 260100
 //$$ import net.minecraft.core.component.DataComponents;
@@ -8,9 +9,7 @@ import net.fabricmc.fabric.api.event.player.UseBlockCallback;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.tags.BlockTags;
-import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.item.DyeItem;
@@ -58,11 +57,11 @@ public class BlockDyeing {
                 );
                 if (targetBlock != null) {
                     BlockState newState = inheritBlockProperties(state, targetBlock.defaultBlockState());
-                    CompoundTag Nbt = readNbtFromBlockEntity(world, state, pos);
+                    CompoundTag Nbt = NbtManager.readNbtFromBlockEntity(world, state, pos);
 
                     world.setBlock(pos, newState, 3);
 
-                    writeNbtFromBlockEntity(world, world.getBlockEntity(pos), Nbt);
+                    NbtManager.writeNbtToBlockEntity(world, world.getBlockEntity(pos), Nbt);
                     if (!player.isCreative() && newState != state) stack.shrink(1);
                     return InteractionResult.SUCCESS;
                 }
@@ -147,36 +146,5 @@ public class BlockDyeing {
             }
         }
         return newState;
-    }
-
-    private static CompoundTag readNbtFromBlockEntity(Level level, BlockState state, BlockPos blockPos) {
-        CompoundTag nbt;
-
-        if (state.is(BlockTags.SHULKER_BOXES)) {
-            BlockEntity oldBlock = level.getBlockEntity(blockPos);
-            if (oldBlock != null) {
-                //#if MC > 12004
-                nbt = oldBlock.saveWithoutMetadata(level.registryAccess());
-                //#else
-                //$$ nbt = oldBlock.saveWithoutMetadata();
-                //#endif
-                return nbt;
-            }
-        }
-        return null;
-    }
-
-    private static void writeNbtFromBlockEntity(Level level, BlockEntity newBlock, CompoundTag nbt) {
-        if (newBlock != null && nbt != null) {
-            //#if MC <= 12004
-            //$$ newBlock.load(nbt);
-            //#elseif MC > 12004 && MC <= 12105
-            newBlock.loadWithComponents(nbt, level.registryAccess());
-            //#elseif MC > 12105
-            //$$ try (ProblemReporter.ScopedCollector reporter = new ProblemReporter.ScopedCollector(newBlock.problemPath(), LogUtils.getLogger())) {
-            //$$    newBlock.loadWithComponents(TagValueInput.create(reporter, level.registryAccess(), nbt));
-            //$$ }
-            //#endif
-        }
     }
 }
