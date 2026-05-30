@@ -10,6 +10,8 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
+import java.io.IOException;
+
 @Mixin(CopperGolem.class)
 public abstract class CopperGolemEntityMixin {
     @Inject(
@@ -20,8 +22,12 @@ public abstract class CopperGolemEntityMixin {
     private void copperGolem(CallbackInfo ci){
         CopperGolem copperGolemEntity = (CopperGolem) (Object) this;
         BlockPos blockPos = copperGolemEntity.blockPosition().below();
-        Level world = copperGolemEntity.level();
-        BlockState blockState = world.getBlockState(blockPos);
+        BlockState blockState;
+        try (Level world = copperGolemEntity.level()) {
+            blockState = world.getBlockState(blockPos);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
         if (Carpet_CuOSettings.copperGolemFix && blockState.isAir())ci.cancel();
     }
 }

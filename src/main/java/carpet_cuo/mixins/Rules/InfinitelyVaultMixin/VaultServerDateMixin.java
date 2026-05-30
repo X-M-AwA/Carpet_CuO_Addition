@@ -25,7 +25,8 @@ public abstract class VaultServerDateMixin {
 
     @Inject(
             method = "addToRewardedPlayers",
-            at = @At("HEAD")
+            at = @At("HEAD"),
+            cancellable = true
     )
     private void cleanRewardedPlayersSet(CallbackInfo ci){
         if (!Carpet_CuOSettings.infinitelyVault)return;

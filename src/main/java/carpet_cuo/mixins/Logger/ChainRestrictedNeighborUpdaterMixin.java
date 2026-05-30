@@ -1,11 +1,9 @@
 package carpet_cuo.mixins.Logger;
 
-import carpet_cuo.Carpet_CuOSettings;
 import carpet_cuo.Logging.CuOAdditionLoggerRegistry;
 import carpet_cuo.Logging.Logger.UpdateLogger;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.redstone.CollectingNeighborUpdater;
-import org.objectweb.asm.Opcodes;
 import org.spongepowered.asm.mixin.*;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
