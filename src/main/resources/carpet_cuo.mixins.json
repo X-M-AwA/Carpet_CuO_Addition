@@ -9,7 +9,7 @@
     "rules.BambooBlockCrashFixMixin.BambooBlockMixin",
     "rules.BlockEntitySwapReintroducedMixin.BlockEntityMixin",
     "rules.BlockEntitySwapReintroducedMixin.WorldChunkMixin",
-    "rules.PlaceableNetherPortalMixin.onPlaceMixin",
+    "rules.PlaceableNetherPortalMixin.BlockItemMixin",
     "carpet.HUDControllerMixin",
     "rules.ChainUpdateLoggerThresholds.ChainRestrictedNeighborUpdaterMixin",
     "rules.ComparatorDupeFixMixin.ComparatorBlockMixin",

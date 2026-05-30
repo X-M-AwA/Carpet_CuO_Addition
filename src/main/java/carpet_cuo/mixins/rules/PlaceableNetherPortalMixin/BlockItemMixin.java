@@ -8,6 +8,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.NetherPortalBlock;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
@@ -15,15 +16,15 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(BlockItem.class)
-public abstract class onPlaceMixin {
+public abstract class BlockItemMixin {
     @Inject(
             method = "placeBlock",
             at = @At("HEAD"),
             cancellable = true
     )
-    private void onPurpleStainedGlass(BlockPlaceContext blockPlaceContext, BlockState blockState, CallbackInfoReturnable<Boolean> cir) {
-        if (blockState.is(Blocks.PURPLE_STAINED_GLASS) && Carpet_CuOSettings.placeableNetherPortal) {
-            Direction direction = blockPlaceContext.getClickedFace();
+    private void onPurpleGlazedTerracotta(BlockPlaceContext blockPlaceContext, BlockState blockState, CallbackInfoReturnable<Boolean> cir) {
+        if (blockState.is(Blocks.PURPLE_GLAZED_TERRACOTTA) && Carpet_CuOSettings.placeableNetherPortal) {
+            Direction direction = blockState.getValue(BlockStateProperties.HORIZONTAL_FACING);
             Direction.Axis axis = getAxis(direction, blockPlaceContext);
             Level level = blockPlaceContext.getLevel();
             level.setBlock(blockPlaceContext.getClickedPos(), Blocks.NETHER_PORTAL.defaultBlockState().setValue(NetherPortalBlock.AXIS, axis), 2, 0);

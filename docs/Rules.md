@@ -203,7 +203,7 @@
 * 选项：`false`，`true`
 * 分类：`CuO`，`CREATIVE`，`NOT_VANILLA`，`EXPERIMENTAL`
 ### (可放置地狱门)placeableNetherPortal
-玩家放置的紫色染色玻璃会变为地狱门
+玩家放置的紫色带釉陶瓦会变为地狱门
 
 * 类型：`boolean`
 * 默认值：`false`
