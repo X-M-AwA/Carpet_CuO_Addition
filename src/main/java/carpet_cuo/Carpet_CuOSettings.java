@@ -1,16 +1,7 @@
 package carpet_cuo;
 
 import carpet.api.settings.Rule;
-import carpet.api.settings.Validator;
 import carpet.api.settings.Validators;
-import net.minecraft.core.BlockPos;
-import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.WetSpongeBlock;
-import net.minecraft.world.level.block.state.BlockState;
-import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import static carpet.api.settings.RuleCategory.*;
 
@@ -120,4 +111,7 @@ public class Carpet_CuOSettings {
 
     @Rule(categories = {CuO,CREATIVE,NOT_VANILLA,EXPERIMENTAL})
     public static boolean spongeCanBeDriedNaturally = false;
+
+    @Rule(categories = {CuO,CREATIVE,NOT_VANILLA,EXPERIMENTAL})
+    public static boolean placeableNetherPortal = false;
 }

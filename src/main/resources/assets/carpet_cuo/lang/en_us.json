@@ -23,6 +23,7 @@
   "carpet.rule.NSEEUpdateSuppressorThresholds.name": "NSEEUpdateSuppressorThresholds",
   "carpet.rule.chainUpdateLoggerThresholds.name": "chainUpdateLoggerThresholds",
   "carpet.rule.spongeCanBeDriedNaturally.name": "spongeCanBeDriedNaturally",
+  "carpet.rule.placeableNetherPortal.name": "placeableNetherPortal",
 
   "carpet.rule.maxChainDepth.desc": "max chain depth",
   "carpet.rule.infinitelyVault.desc": "Players can open vaults an unlimited number of times",
@@ -48,12 +49,14 @@
   "carpet.rule.NSEEUpdateSuppressorThresholds.desc": "Adjust the value of the depth required by the NSEE update suppressor, -1 is disabled",
   "carpet.rule.chainUpdateLoggerThresholds.desc": "Modify the threshold for updating the chain depth logger printing",
   "carpet.rule.spongeCanBeDriedNaturally.desc": "The sponge that is placed can be dried naturally",
+  "carpet.rule.placeableNetherPortal.desc": "Placeable nether portal",
 
   "carpet.rule.infinitelyTotem.extra.0": "When a totem is used,it is not consumed",
   "carpet.rule.useLeavesAndMossAsFuel.extra.0": "Note: 1.21.2+ requires a server restart for change to take effect",
   "carpet.rule.comparatorDupeFix.extra.0": "Fix the comparator item duplication glitch",
   "carpet.rule.noEnchantmentLevelLimit.extra.0": "Enchantment level can reach 225 and it is recommended to use the noTooExpensive function",
-  "carpet.rule.blockDyeing.extra.1": "wool\nwool carpet\ncandle\nterracotta & glazed terracotta\nconcrete powder & concrete\nstained glass & stained glass pane",
+  "carpet.rule.blockDyeing.extra.0": "Includes the following blocks: wool\nwool carpet\ncandle\nterracotta & glazed terracotta\nconcrete powder & concrete\nstained glass & stained glass pane\nshulker box",
+  "carpet.rule.placeableNetherPortal.extra.0": "The purple stained glass placed by the player transforms into the nether portal",
 
   "carpet.logger.update.depth": "Caused update skipping, depth: ",
   "carpet.logger.update.pos": " at ",
