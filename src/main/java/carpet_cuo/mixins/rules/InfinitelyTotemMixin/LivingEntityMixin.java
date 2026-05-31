@@ -10,10 +10,10 @@ import org.spongepowered.asm.mixin.injection.ModifyConstant;
 public abstract class LivingEntityMixin {
     @ModifyConstant(
             method = "checkTotemDeathProtection",
-            constant = @Constant(intValue = 1,ordinal = 0)
+            constant = @Constant(intValue = 1, ordinal = 0)
     )
     private int setAmount(int original){
-        if (Carpet_CuOSettings.infinitelyTotem)return 0;
+        if (Carpet_CuOSettings.infinitelyTotem) return 0;
         else return original;
     }
 }

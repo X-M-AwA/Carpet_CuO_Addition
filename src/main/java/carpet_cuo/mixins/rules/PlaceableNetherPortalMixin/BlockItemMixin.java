@@ -22,7 +22,7 @@ public abstract class BlockItemMixin {
             at = @At("HEAD"),
             cancellable = true
     )
-    private void onPurpleGlazedTerracotta(BlockPlaceContext blockPlaceContext, BlockState blockState, CallbackInfoReturnable<Boolean> cir) {
+    private void isPurpleGlazedTerracotta(BlockPlaceContext blockPlaceContext, BlockState blockState, CallbackInfoReturnable<Boolean> cir) {
         if (blockState.is(Blocks.PURPLE_GLAZED_TERRACOTTA) && Carpet_CuOSettings.placeableNetherPortal) {
             Direction direction = blockState.getValue(BlockStateProperties.HORIZONTAL_FACING);
             Direction.Axis axis = getAxis(direction, blockPlaceContext);

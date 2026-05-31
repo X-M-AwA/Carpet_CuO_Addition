@@ -58,7 +58,7 @@
   "carpet.rule.comparatorDupeFix.extra.0": "Fix the comparator item duplication glitch",
   "carpet.rule.noEnchantmentLevelLimit.extra.0": "Enchantment level can reach 225 and it is recommended to use the noTooExpensive function",
   "carpet.rule.blockDyeing.extra.0": "Includes the following blocks: wool\nwool carpet\ncandle\nterracotta & glazed terracotta\nconcrete powder & concrete\nstained glass & stained glass pane\nshulker box",
-  "carpet.rule.placeableNetherPortal.extra.0": "The purple stained glass placed by the player transforms into the nether portal",
+  "carpet.rule.placeableNetherPortal.extra.0": "The purple glazed terracotta placed by the player transforms into the nether portal",
 
   "carpet.logger.update.depth": "Caused update skipping, depth: ",
   "carpet.logger.update.pos": " at ",
