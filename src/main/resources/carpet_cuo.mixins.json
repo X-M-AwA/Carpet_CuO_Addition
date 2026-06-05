@@ -28,7 +28,7 @@
     "rules.MaxChainDepthMixin.ChainRestrictedNeighborUpdaterMixin",
     "rules.MaxUpdateDepthMixin.WorldMixin",
     "rules.NoEnchantmentLevelLimitMixin.AnvilScreenHandlerMixin",
-    "rules.NoTooExpensive.AnvilScreenHandlerMixin",
+    "rules.RemoveTooExpensiveLimit.AnvilScreenHandlerMixin",
     "rules.NSEEUpdateSuppressorThresholds.ChainRestrictedNeighborUpdaterMixin",
     "rules.PiglinTradeInstantlyMixin.PiglinBrainMixin",
     "rules.PistonBreakingBlockProducesUpdateMixin.PistonBlockMixin",
@@ -44,7 +44,7 @@
     "requireAnnotations": true
   },
   "client": [
-    "rules.NoTooExpensive.AnvilScreenMixin"
+    "rules.RemoveTooExpensiveLimit.AnvilScreenMixin"
   ],
   "server": [
   ]

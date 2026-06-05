@@ -1,4 +1,4 @@
-package carpet_cuo.mixins.rules.NoTooExpensive;
+package carpet_cuo.mixins.rules.RemoveTooExpensiveLimit;
 
 import carpet_cuo.Carpet_CuOSettings;
 import net.minecraft.client.gui.screens.inventory.AnvilScreen;
@@ -17,7 +17,7 @@ public abstract class AnvilScreenMixin {
             constant = @Constant(intValue = 40)
     )
     private int clientRendering(int original){
-        if (Carpet_CuOSettings.noTooExpensive) return Integer.MAX_VALUE;
+        if (Carpet_CuOSettings.removeTooExpensiveLimit) return Integer.MAX_VALUE;
         else return original;
     }
 }
