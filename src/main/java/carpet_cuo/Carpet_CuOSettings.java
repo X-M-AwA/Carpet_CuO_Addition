@@ -44,7 +44,7 @@ public class Carpet_CuOSettings {
     public static boolean noEnchantmentLevelLimit = false;
 
     @Rule(categories = {CuO,NOT_VANILLA,EXPERIMENTAL})
-    public static boolean noTooExpensive = false;
+    public static boolean removeTooExpensiveLimit = false;
 
     //#if MC >= 12109
     //$$ @Rule(categories = {CuO,CREATIVE,FEATURE,BUGFIX})
