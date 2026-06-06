@@ -8,7 +8,10 @@ import net.fabricmc.fabric.api.registry.FuelRegistryEvents;
 //#elseif MC < 12102
 //$$import net.fabricmc.fabric.api.registry.FuelRegistry;
 //#endif
+import net.minecraft.tags.TagKey;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.level.block.entity.FuelValues;
 
 public class UseLeavesAndMossAsFuel {
     public static void registerFuels(){

@@ -11,6 +11,7 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.DyeItem;
 import net.minecraft.world.item.ItemStack;
@@ -26,8 +27,8 @@ public class EntityHighLight {
     private static final Map<DyeColor, ChatFormatting> COLOR_MAP = new HashMap<>();
 
     public static void init(){
-        UseEntityCallback.EVENT.register((player, world, hand, entity, hitResult) -> {
-            if (!Carpet_CuOSettings.entityHighLight || player.isShiftKeyDown()) return InteractionResult.PASS;
+        UseEntityCallback.EVENT.register((player, world, _, entity, _) -> {
+            if (!Carpet_CuOSettings.entityHighLight || player.isShiftKeyDown() || !(entity instanceof Player)) return InteractionResult.PASS;
 
             ItemStack stack = player.getMainHandItem();
             Scoreboard scoreboard = world.getScoreboard();

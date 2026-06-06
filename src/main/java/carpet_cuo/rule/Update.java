@@ -9,7 +9,7 @@ import net.minecraft.world.InteractionResult;
 
 public class Update {
     public static void init(){
-        UseBlockCallback.EVENT.register((player, world, hand, hitResult) -> {
+        UseBlockCallback.EVENT.register((player, world, _, hitResult) -> {
             if (!Carpet_CuOSettings.rightClickBlockUpdate.equals("false") && !player.isShiftKeyDown()) {
                 BlockState blockState = world.getBlockState(hitResult.getBlockPos());
                 BlockState state = state(blockState);
