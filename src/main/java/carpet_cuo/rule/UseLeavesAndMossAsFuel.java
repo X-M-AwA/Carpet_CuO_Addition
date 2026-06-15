@@ -8,19 +8,16 @@ import net.fabricmc.fabric.api.registry.FuelRegistryEvents;
 //#elseif MC < 12102
 //$$import net.fabricmc.fabric.api.registry.FuelRegistry;
 //#endif
-import net.minecraft.tags.TagKey;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.level.block.entity.FuelValues;
 
 public class UseLeavesAndMossAsFuel {
     public static void registerFuels(){
         //#if MC >= 12102
         if (Carpet_CuOSettings.useLeavesAndMossAsFuel){
             //#if MC >= 260100
-            //$$FuelValueEvents.BUILD.register((builder, context) -> {
+            //$$FuelValueEvents.BUILD.register((builder, _) -> {
             //#elseif MC >= 12102
-            FuelRegistryEvents.BUILD.register((builder, context) -> {
+            FuelRegistryEvents.BUILD.register((builder, _) -> {
             //#endif
                 builder.add(Items.SPRUCE_LEAVES,300);
                 builder.add(Items.FLOWERING_AZALEA_LEAVES,300);

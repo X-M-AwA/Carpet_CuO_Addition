@@ -28,11 +28,11 @@
     "rules.MaxChainDepthMixin.ChainRestrictedNeighborUpdaterMixin",
     "rules.MaxUpdateDepthMixin.WorldMixin",
     "rules.NoEnchantmentLevelLimitMixin.AnvilScreenHandlerMixin",
-    "rules.RemoveTooExpensiveLimit.AnvilScreenHandlerMixin",
     "rules.NSEEUpdateSuppressorThresholds.ChainRestrictedNeighborUpdaterMixin",
     "rules.PiglinTradeInstantlyMixin.PiglinBrainMixin",
     "rules.PistonBreakingBlockProducesUpdateMixin.PistonBlockMixin",
     "rules.PlaceableNetherPortalMixin.BlockItemMixin",
+    "rules.RemoveTooExpensiveLimit.AnvilScreenHandlerMixin",
     "rules.SpongeCanBeDriedNaturallyMixin.WetSpongeBlockMixin",
     "rules.UpdateDepthVisualizeLoggerMixin.LevelMixin",
     "rules.UseLeavesAndMossAsFuleMixin.FurnaceBlockMixin"
