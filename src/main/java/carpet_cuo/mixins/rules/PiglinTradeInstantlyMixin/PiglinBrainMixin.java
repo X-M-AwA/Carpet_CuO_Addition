@@ -10,7 +10,13 @@ import org.spongepowered.asm.mixin.injection.ModifyConstant;
 public abstract class PiglinBrainMixin {
     @ModifyConstant(
             method = "admireGoldItem",
-            constant = @Constant(longValue = 119L)
+            constant = @Constant(longValue =
+                    //#if MC >= 12002
+                    119L
+                    //#else
+                    //$$ 120L
+                    //#endif
+            )
     )
     private static long setExpiry(long original){
         if (Carpet_CuOSettings.piglinTradeInstantly) return -1L;
