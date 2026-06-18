@@ -42,7 +42,7 @@ public class BlockDyeing {
     }};
 
     public static void init() {
-        UseBlockCallback.EVENT.register((player, world, _, hitResult) -> {
+        UseBlockCallback.EVENT.register((player, world, interactionHand, hitResult) -> {
             if (player.isShiftKeyDown()) return InteractionResult.PASS;
 
             BlockPos pos = hitResult.getBlockPos();

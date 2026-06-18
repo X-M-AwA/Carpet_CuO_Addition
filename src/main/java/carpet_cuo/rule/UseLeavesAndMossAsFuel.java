@@ -15,9 +15,9 @@ public class UseLeavesAndMossAsFuel {
         //#if MC >= 12102
         if (Carpet_CuOSettings.useLeavesAndMossAsFuel){
             //#if MC >= 260100
-            //$$FuelValueEvents.BUILD.register((builder, _) -> {
+            //$$FuelValueEvents.BUILD.register((builder, count) -> {
             //#elseif MC >= 12102
-            FuelRegistryEvents.BUILD.register((builder, _) -> {
+            FuelRegistryEvents.BUILD.register((builder, count) -> {
             //#endif
                 builder.add(Items.SPRUCE_LEAVES,300);
                 builder.add(Items.FLOWERING_AZALEA_LEAVES,300);

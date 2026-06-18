@@ -13,7 +13,7 @@ public class Carpet_CuOSettings {
     @Rule(
             options = {"-1","0","65535","1000000","2147483647"},
             strict = false,
-            categories = {CuO,CREATIVE,NOT_VANILLA}
+            categories = {CuO,CREATIVE}
     )
     public static int maxChainDepth = 1000000;
 
@@ -30,7 +30,7 @@ public class Carpet_CuOSettings {
     @Rule(
             options = {"-1","0","512","1000000","2147483647"},
             strict = false,
-            categories = {CuO,CREATIVE,NOT_VANILLA}
+            categories = {CuO,CREATIVE}
     )
     public static int maxUpdateDepth = 512;
 

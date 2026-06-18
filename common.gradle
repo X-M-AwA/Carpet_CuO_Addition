@@ -116,6 +116,7 @@ processResources {
 tasks.withType(JavaCompile).configureEach {
 	options.encoding = "UTF-8"
 	options.compilerArgs << "-Xlint:deprecation" << "-Xlint:unchecked"
+    options.release.set(JAVA_COMPATIBILITY.majorVersion.toInteger())
 	if (JAVA_COMPATIBILITY <= JavaVersion.VERSION_1_8) {
 		// suppressed "source/target value 8 is obsolete and will be removed in a future release"
 		options.compilerArgs << '-Xlint:-options'

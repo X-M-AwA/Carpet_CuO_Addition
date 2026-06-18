@@ -27,7 +27,7 @@ public class EntityHighLight {
     private static final Map<DyeColor, ChatFormatting> COLOR_MAP = new HashMap<>();
 
     public static void init(){
-        UseEntityCallback.EVENT.register((player, world, _, entity, _) -> {
+        UseEntityCallback.EVENT.register((player, world, interactionHand, entity, entityHitResult) -> {
             if (!Carpet_CuOSettings.entityHighLight || player.isShiftKeyDown() || !(entity instanceof Player)) return InteractionResult.PASS;
 
             ItemStack stack = player.getMainHandItem();
