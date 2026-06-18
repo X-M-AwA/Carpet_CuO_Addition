@@ -10,8 +10,11 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.Display;
+//#if MC < 260200
 import net.minecraft.world.entity.EntityType;
-
+//#else
+//$$ import net.minecraft.world.entity.EntityTypes;
+//#endif
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -38,7 +41,13 @@ public class UpdateDepthVisualizeLogger extends AbstractLogger {
             oldEntry.getKey().discard();
         }
 
-        Display.TextDisplay entity = new Display.TextDisplay(EntityType.TEXT_DISPLAY, level);
+        Display.TextDisplay entity = new Display.TextDisplay(
+                //#if MC < 260200
+                EntityType.TEXT_DISPLAY,
+                //#else
+                //$$ EntityTypes.TEXT_DISPLAY,
+                //#endif
+                level);
         CompoundTag nbt = NbtManager.readFromEntity(entity, new CompoundTag());
 
         nbt.putString("billboard", "center");

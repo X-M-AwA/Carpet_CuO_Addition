@@ -23,7 +23,13 @@ public abstract class BlockItemMixin {
             cancellable = true
     )
     private void isPurpleGlazedTerracotta(BlockPlaceContext blockPlaceContext, BlockState blockState, CallbackInfoReturnable<Boolean> cir) {
-        if (blockState.is(Blocks.PURPLE_GLAZED_TERRACOTTA) && Carpet_CuOSettings.placeableNetherPortal) {
+        if (blockState.is(
+                //#if MC < 260200
+                Blocks.PURPLE_GLAZED_TERRACOTTA
+                //#else
+                //$$ Blocks.GLAZED_TERRACOTTA.purple()
+                //#endif
+        ) && Carpet_CuOSettings.placeableNetherPortal) {
             Direction direction = blockState.getValue(BlockStateProperties.HORIZONTAL_FACING);
             Direction.Axis axis = getAxis(direction, blockPlaceContext);
             Level level = blockPlaceContext.getLevel();

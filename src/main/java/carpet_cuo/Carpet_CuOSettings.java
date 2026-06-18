@@ -77,7 +77,7 @@ public class Carpet_CuOSettings {
     @Rule(categories = {CuO,CREATIVE,EXPERIMENTAL})
     public static boolean instantDispenserAndDropper = false;
 
-    //#if MC <= 260102
+    //#if MC < 260102
     @Rule(categories = {CuO,BUGFIX})
     public static boolean bambooBlockCrashFix = false;
     //#endif

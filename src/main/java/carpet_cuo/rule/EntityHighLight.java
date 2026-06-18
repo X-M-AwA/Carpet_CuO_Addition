@@ -21,6 +21,10 @@ import net.minecraft.world.scores.Scoreboard;
 
 import java.util.HashMap;
 import java.util.Map;
+//#if MC >= 260200
+//$$ import java.util.Optional;
+//$$ import net.minecraft.world.scores.TeamColor;
+//#endif
 
 public class EntityHighLight {
 
@@ -47,7 +51,11 @@ public class EntityHighLight {
             //#else
             //$$ DyeColor color = stack.get(DataComponents.DYE);
             //#endif
+            //#if MC < 260200
             ChatFormatting formatting = COLOR_MAP.getOrDefault(color, ChatFormatting.WHITE);
+            //#else
+            //$$ TeamColor formatting = ChatFormattingToTeamColor(COLOR_MAP.getOrDefault(color, ChatFormatting.WHITE));
+            //#endif
             String Name = Carpet_CuOMod.MOD_ID+ ":" + formatting.name();
             PlayerTeam playerTeam = scoreboard.getPlayerTeam(Name);
             PlayerTeam oldTeam = (PlayerTeam) entity.getTeam();
@@ -63,7 +71,11 @@ public class EntityHighLight {
 
             if (playerTeam == null){
                 playerTeam = scoreboard.addPlayerTeam(Name);
+                //#if MC < 260200
                 playerTeam.setColor(formatting);
+                //#else
+                //$$ playerTeam.setColor(Optional.of(formatting));
+                //#endif
             }
 
             scoreboard.addPlayerToTeam(ID, playerTeam);
@@ -93,7 +105,11 @@ public class EntityHighLight {
             }
         }
     }
-
+    //#if MC >= 260200
+    //$$ private static TeamColor ChatFormattingToTeamColor(ChatFormatting chatFormatting) {
+    //$$ return TeamColor.valueOf(chatFormatting.name());
+    //$$ }
+    //#endif
     static {
         COLOR_MAP.put(DyeColor.WHITE, ChatFormatting.WHITE);
         COLOR_MAP.put(DyeColor.ORANGE, ChatFormatting.GOLD);

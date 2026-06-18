@@ -1,5 +1,12 @@
 package carpet_cuo.mixins.rules.BambooBlockCrashFixMixin;
 
+//#if MC >= 260102
+//$$ import org.spongepowered.asm.mixin.Mixin;
+//$$ import carpet_cuo.utils.compat.DummyClass;
+//$$
+//$$ @Mixin(DummyClass.class)
+//$$ public abstract class BambooBlockMixin {}
+//#else
 import carpet_cuo.Carpet_CuOSettings;
 import net.minecraft.world.level.block.BambooStalkBlock;
 import net.minecraft.world.level.block.state.BlockState;
@@ -12,6 +19,7 @@ import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+
 @Mixin(BambooStalkBlock.class)
 public abstract class BambooBlockMixin {
     @Shadow
@@ -32,3 +40,4 @@ public abstract class BambooBlockMixin {
         }
     }
 }
+//#endif
