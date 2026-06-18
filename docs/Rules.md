@@ -5,7 +5,7 @@
 * 类型：`int`
 * 默认值：`1000000`
 * 选项：`-1`，`0`，`65535`，`1000000`，`2147483647`
-* 分类：`CuO`，`CREATIVE`，`NOT_VANILLA`
+* 分类：`CuO`，`CREATIVE`
 ### (无限开宝库)infinitelyVault
 玩家可以无限的开启宝库
 仅限该玩家未开启过的宝库
@@ -27,7 +27,7 @@
 * 类型：`int`
 * 默认值：`512`
 * 选项：`-1`，`0`，`512`，`1000000`，`2147483647`
-* 分类：`CuO`，`CREATIVE`，`NOT_VANILLA`
+* 分类：`CuO`，`CREATIVE`
 ### (树叶和苔藓可作为燃料)useLeavesAndMossAsFuel
 可以使用树叶类方块和苔藓块作为熔炉燃料使用
 
@@ -209,3 +209,10 @@
 * 默认值：`false`
 * 选项：`false`，`true`
 * 分类：`CuO`，`CREATIVE`，`NOT_VANILLA`，`EXPERIMENTAL`
+### (删除更改调色板时的锁)removePalettedContainerLock
+删除了更改区块调色板时的线程锁
+
+* 类型：`boolean`
+* 默认值：`false`
+* 选项：`false`，`true`
+* 分类：`CuO`，`CREATIVE`，`EXPERIMENTAL`

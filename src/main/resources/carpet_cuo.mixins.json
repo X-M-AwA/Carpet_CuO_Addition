@@ -32,6 +32,7 @@
     "rules.PiglinTradeInstantlyMixin.PiglinBrainMixin",
     "rules.PistonBreakingBlockProducesUpdateMixin.PistonBlockMixin",
     "rules.PlaceableNetherPortalMixin.BlockItemMixin",
+    "rules.RemovePalettedContainerLock.PalettedContainerMixin",
     "rules.RemoveTooExpensiveLimit.AnvilScreenHandlerMixin",
     "rules.SpongeCanBeDriedNaturallyMixin.WetSpongeBlockMixin",
     "rules.UpdateDepthVisualizeLoggerMixin.LevelMixin",

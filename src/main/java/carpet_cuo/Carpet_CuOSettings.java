@@ -114,4 +114,7 @@ public class Carpet_CuOSettings {
 
     @Rule(categories = {CuO,CREATIVE,NOT_VANILLA,EXPERIMENTAL})
     public static boolean placeableNetherPortal = false;
+
+    @Rule(categories = {CuO,CREATIVE,EXPERIMENTAL})
+    public static boolean removePalettedContainerLock = false;
 }
