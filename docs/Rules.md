@@ -216,3 +216,10 @@
 * 默认值：`false`
 * 选项：`false`，`true`
 * 分类：`CuO`，`CREATIVE`，`EXPERIMENTAL`
+### (删除线程检查")removedThreadChecks
+删除在获取方块实体时线程检查
+
+* 类型：`boolean`
+* 默认值：`false`
+* 选项：`false`，`true`
+* 分类：`CuO`，`CREATIVE`，`EXPERIMENTAL`

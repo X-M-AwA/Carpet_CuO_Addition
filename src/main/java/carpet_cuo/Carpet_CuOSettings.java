@@ -117,4 +117,7 @@ public class Carpet_CuOSettings {
 
     @Rule(categories = {CuO,CREATIVE,EXPERIMENTAL})
     public static boolean removePalettedContainerLock = false;
+
+    @Rule(categories = {CuO,CREATIVE,EXPERIMENTAL})
+    public static boolean removedThreadChecks = false;
 }

@@ -24,6 +24,7 @@
     "rules.InfinitelyVaultMixin.VaultServerDateMixin",
     "rules.InstantDispenserAndDropperMixin.DispenserBlockMixin",
     "rules.InstantFireBlockMixin.FireBlockMixin",
+    "rules.RemoveThreadChecksMixin.LevelMixin",
     "rules.InstantSchedulingMixin.ScheduledTickAccessMixin",
     "rules.MaxChainDepthMixin.ChainRestrictedNeighborUpdaterMixin",
     "rules.MaxUpdateDepthMixin.WorldMixin",

@@ -27,6 +27,7 @@
   "carpet.rule.spongeCanBeDriedNaturally.name": "海绵可以被自然烘干",
   "carpet.rule.placeableNetherPortal.name": "可放置地狱门",
   "carpet.rule.removePalettedContainerLock.name": "删除更改调色板时的锁",
+  "carpet.rule.removedThreadChecks.name": "删除线程检查",
 
   "carpet.rule.maxChainDepth.desc": "最大连锁更新深度",
   "carpet.rule.infinitelyVault.desc": "玩家可以无限开宝库",
@@ -54,6 +55,7 @@
   "carpet.rule.spongeCanBeDriedNaturally.desc": "放置在地上的海绵可以被自然烘干，速度与群系光照等有关",
   "carpet.rule.placeableNetherPortal.desc": "可放置地狱门",
   "carpet.rule.removePalettedContainerLock.desc": "删除更改调色板时的锁",
+  "carpet.rule.removedThreadChecks.desc": "删除在获取方块实体时线程检查",
 
   "carpet.rule.bedrockCanBeMined.extra.0": "注意：这项功能与carpet org addition的setBedrockHardness冲突",
   "carpet.rule.bedrockCanBeMined.extra.1": "如果仅开启这一项你将无法挖掘基岩",
