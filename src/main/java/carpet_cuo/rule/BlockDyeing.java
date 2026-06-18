@@ -36,10 +36,11 @@ public class BlockDyeing {
         put(BlockTags.CANDLES, "_candle");
         put(BlockTags.TERRACOTTA, "_terracotta");
         put(BlockTags.SHULKER_BOXES, "_shulker_box");
+        //#if MC >= 260200
+        //$$ put(BlockTags.CONCRETE_POWDERS, "_concrete_powder");
+        //#endif
         //#if MC > 12001 && MC < 260200
         put(BlockTags.CONCRETE_POWDER, "_concrete_powder");
-        //#else if MC >= 260200
-        //$$ put(BlockTags.CONCRETE_POWDERS, "_concrete_powder");
         //#endif
     }};
 
