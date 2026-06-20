@@ -24,7 +24,6 @@
     "rules.InfinitelyVaultMixin.VaultServerDateMixin",
     "rules.InstantDispenserAndDropperMixin.DispenserBlockMixin",
     "rules.InstantFireBlockMixin.FireBlockMixin",
-    "rules.RemoveThreadChecksMixin.LevelMixin",
     "rules.InstantSchedulingMixin.ScheduledTickAccessMixin",
     "rules.MaxChainDepthMixin.ChainRestrictedNeighborUpdaterMixin",
     "rules.MaxUpdateDepthMixin.WorldMixin",
@@ -34,7 +33,9 @@
     "rules.PistonBreakingBlockProducesUpdateMixin.PistonBlockMixin",
     "rules.PlaceableNetherPortalMixin.BlockItemMixin",
     "rules.RemovePalettedContainerLock.PalettedContainerMixin",
+    "rules.RemoveThreadChecksMixin.LevelMixin",
     "rules.RemoveTooExpensiveLimit.AnvilScreenHandlerMixin",
+    "rules.SimpleChunkDupe.SerializableChunkDataMixin",
     "rules.SpongeCanBeDriedNaturallyMixin.WetSpongeBlockMixin",
     "rules.UpdateDepthVisualizeLoggerMixin.LevelMixin",
     "rules.UseLeavesAndMossAsFuleMixin.FurnaceBlockMixin"

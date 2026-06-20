@@ -120,4 +120,7 @@ public class Carpet_CuOSettings {
 
     @Rule(categories = {CuO,CREATIVE,EXPERIMENTAL})
     public static boolean removedThreadChecks = false;
+
+    @Rule(categories = {CuO,CREATIVE,EXPERIMENTAL,NOT_VANILLA})
+    public static boolean simpleChunkDupe = false;
 }

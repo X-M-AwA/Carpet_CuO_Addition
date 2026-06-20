@@ -28,6 +28,7 @@
   "carpet.rule.placeableNetherPortal.name": "placeableNetherPortal",
   "carpet.rule.removePalettedContainerLock.name": "removePalettedContainerLock",
   "carpet.rule.removedThreadChecks.name": "removedThreadChecks",
+  "carpet.rule.simpleChunkDupe.name": "simpleChunkDupe",
 
   "carpet.rule.maxChainDepth.desc": "max chain depth",
   "carpet.rule.infinitelyVault.desc": "Players can open vaults an unlimited number of times",
@@ -56,6 +57,7 @@
   "carpet.rule.placeableNetherPortal.desc": "Purple glazed terracotta placed by players transforms into a nether portal",
   "carpet.rule.removePalettedContainerLock.desc": "Removed the lock in the PalettedContainer class",
   "carpet.rule.removedThreadChecks.desc": "Removed thread checks when retrieving block entities",
+  "carpet.rule.simpleChunkDupe.desc": "This prevents chunk from being saved",
 
   "carpet.rule.bedrockCanBeMined.extra.0": "Note: This rule conflicts with the setBedrockHardness rule from the vanilla Carpet mod",
   "carpet.rule.bedrockCanBeMined.extra.1": "If you only enable this rule, bedrock will be unbreakable",
@@ -66,6 +68,7 @@
   "carpet.rule.noEnchantmentLevelLimit.extra.0": "Enchantment level can reach 225 and it is recommended to use the noTooExpensive function",
   "carpet.rule.blockDyeing.extra.0": "Includes the following blocks: wool\nwool carpet\ncandle\nterracotta & glazed terracotta\nconcrete powder & concrete\nstained glass & stained glass pane\nshulker box",
   "carpet.rule.placeableNetherPortal.extra.0": "The purple glazed terracotta placed by the player transforms into the nether portal",
+  "carpet.rule.simpleChunkDupe.extra.0": "Place a shulker box named \"ChunkDupe\" inside a chunk\nthis chunk will throw an exception when saved",
 
   "carpet.logger.update.depth": "Caused update skipping, depth: ",
   "carpet.logger.update.pos": " at ",

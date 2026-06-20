@@ -6,6 +6,8 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.InteractionResult;
 
+import java.util.concurrent.Executors;
+
 public class Update {
     public static void init(){
         UseBlockCallback.EVENT.register((player, world, interactionHand, hitResult) -> {
@@ -13,15 +15,13 @@ public class Update {
                 BlockState blockState = world.getBlockState(hitResult.getBlockPos());
                 BlockState state = state(blockState);
 
-                Thread thread = new Thread(() -> {
-                    if (state != null) world.setBlock(hitResult.getBlockPos(), state, 3);
-                });
-
                 if (Carpet_CuOSettings.rightClickBlockUpdate.equals("def")) {
                     world.updateNeighborsAt(hitResult.getBlockPos(), blockState.getBlock());
                     return InteractionResult.SUCCESS;
                 }else if (Carpet_CuOSettings.rightClickBlockUpdate.equals("async") && state != null) {
-                    thread.start();
+                    Executors.newFixedThreadPool(2).submit(()-> {
+                        if (state != null) world.setBlock(hitResult.getBlockPos(), state, 3);
+                    });
                     return InteractionResult.SUCCESS;
                 }
             }
