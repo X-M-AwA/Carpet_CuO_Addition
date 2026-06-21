@@ -216,10 +216,19 @@
 * 默认值：`false`
 * 选项：`false`，`true`
 * 分类：`CuO`，`CREATIVE`，`EXPERIMENTAL`
-### (删除线程检查")removedThreadChecks
+### (删除线程检查)removedThreadChecks
 删除在获取方块实体时线程检查
 
 * 类型：`boolean`
 * 默认值：`false`
 * 选项：`false`，`true`
 * 分类：`CuO`，`CREATIVE`，`EXPERIMENTAL`
+### (简易区块保存抑制)simpleChunkDupe
+在区块中放置名称为`ChunkDupe`的潜影盒后
+
+该区块将不会被保存
+
+* 类型：`boolean`
+* 默认值：`false`
+* 选项：`false`，`true`
+* 分类：`CuO`，`CREATIVE`，`EXPERIMENTAL`，`NOT_VANILLA`
