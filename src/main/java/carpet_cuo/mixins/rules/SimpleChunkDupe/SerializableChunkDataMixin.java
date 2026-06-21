@@ -26,18 +26,25 @@ public abstract class SerializableChunkDataMixin {
             method = "copyOf",
             //#else
             //$$ method = "write",
+            //#endif
             at = @At(
                     value = "INVOKE",
                     //#if MC >= 12103
                     target = "Ljava/util/List;add(Ljava/lang/Object;)Z",
                     //#else
-                    //$$ Lnet/minecraft/nbt/ListTag;add(Ljava/lang/Object;)Z,
+                    //$$  target = "Lnet/minecraft/nbt/ListTag;add(Ljava/lang/Object;)Z",
                     //#endif
                     ordinal = 1
             )
     )
-    private static void boom(ServerLevel serverLevel, ChunkAccess chunkAccess, CallbackInfoReturnable<SerializableChunkData> cir, @Local CompoundTag compoundTag) {
-        if (Carpet_CuOSettings.simpleChunkDupe && compoundTag.getString("CustomName").equals("\"ChunkDupe\"") && compoundTag.getString("id").equals("minecraft:shulker_box")) {
+    private static void boom(ServerLevel serverLevel, ChunkAccess chunkAccess, CallbackInfoReturnable<CompoundTag> cir,
+                             //#if MC >= 12103
+                             @Local CompoundTag compoundTag3
+                             //#else
+                             //$$ @Local(ordinal = 1) CompoundTag compoundTag3
+                             //#endif
+    ) {
+        if (Carpet_CuOSettings.simpleChunkDupe && compoundTag3.getString("CustomName").equals("\"ChunkDupe\"") && compoundTag3.getString("id").equals("minecraft:shulker_box")) {
             try {
                 throw new OutOfMemoryError();
             } catch (Throwable e) {
