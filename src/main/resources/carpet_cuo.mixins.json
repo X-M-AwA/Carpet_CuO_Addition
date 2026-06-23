@@ -6,6 +6,8 @@
     "carpet.HUDControllerMixin",
     "logger.ChainRestrictedNeighborUpdaterMixin",
     "logger.ServerLevelMixin",
+    "logger.FeatureMixin.ChunkGeneratorMixin",
+    "logger.FeatureMixin.MonsterRoomFeatureMixin",
     "rules.AbstractBlockStateMixin",
     "rules.BambooBlockCrashFixMixin.BambooBlockMixin",
     "rules.BlockEntitySwapReintroducedMixin.BlockEntityMixin",
@@ -37,8 +39,7 @@
     "rules.RemoveTooExpensiveLimit.AnvilScreenHandlerMixin",
     "rules.SimpleChunkDupe.SerializableChunkDataMixin",
     "rules.SpongeCanBeDriedNaturallyMixin.WetSpongeBlockMixin",
-    "rules.UpdateDepthVisualizeLoggerMixin.LevelMixin",
-    "rules.UseLeavesAndMossAsFuleMixin.FurnaceBlockMixin"
+    "rules.UpdateDepthVisualizeLoggerMixin.LevelMixin"
   ],
   "injectors": {
     "defaultRequire": 1

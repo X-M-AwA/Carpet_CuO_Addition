@@ -29,9 +29,9 @@ public class UpdateLogger extends AbstractLogger {
             return new Component[]{
                 Messenger.c(
                     Messenger.f(Messenger.tr("carpet.logger.update.depth"), ChatFormatting.WHITE),
-                    Messenger.f(Component.literal(String.valueOf(depth)), ChatFormatting.BLUE),
+                    Messenger.f(Messenger.s(depth), ChatFormatting.BLUE),
                     Messenger.f(Messenger.tr("carpet.logger.update.pos"), ChatFormatting.WHITE),
-                    Messenger.f(Component.literal(pos), ChatFormatting.GRAY)
+                    Messenger.f(Messenger.s(pos), ChatFormatting.GRAY)
                 )
             };
         }
@@ -48,7 +48,7 @@ public class UpdateLogger extends AbstractLogger {
             return new Component[]{
                 Messenger.c(
                     Messenger.f(Messenger.tr("carpet.logger.update.chainDepth"), ChatFormatting.WHITE),
-                    Messenger.f(Component.literal(String.valueOf(depth)), ChatFormatting.BLUE)
+                    Messenger.f(Messenger.s(depth), ChatFormatting.BLUE)
                 )
             };
         }

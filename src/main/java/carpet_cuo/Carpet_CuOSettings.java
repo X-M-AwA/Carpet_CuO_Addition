@@ -35,9 +35,6 @@ public class Carpet_CuOSettings {
     public static int maxUpdateDepth = 512;
 
     @Rule(categories = {CuO,CREATIVE,FEATURE,NOT_VANILLA})
-    public static boolean useLeavesAndMossAsFuel = false;
-
-    @Rule(categories = {CuO,CREATIVE,FEATURE,NOT_VANILLA})
     public static boolean infinitelyTotem = false;
 
     @Rule(categories = {CuO,NOT_VANILLA,EXPERIMENTAL})
