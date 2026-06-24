@@ -20,7 +20,7 @@ public class CuOAdditionLoggerRegistry {
         LoggerRegistry.registerLogger(TickHUDLogger.NAME, standardHUDLogger(TickHUDLogger.NAME, null, null));
         LoggerRegistry.registerLogger(UpdateLogger.NAME, standardLogger(UpdateLogger.NAME, "skipping", new String[]{"skipping", "chain"}));
         LoggerRegistry.registerLogger(UpdateDepthVisualizeLogger.NAME, standardLogger(UpdateDepthVisualizeLogger.NAME, null, null));
-        LoggerRegistry.registerLogger(FeatureLogger.NAME, standardLogger(FeatureLogger.NAME, "monsterRoom", new String[]{"monsterRoom", "endGateway"}));
+        LoggerRegistry.registerLogger(FeatureLogger.NAME, standardLogger(FeatureLogger.NAME, "monsterRoom", new String[]{"monsterRoom", "amethystGeode", "desertWell"}));
     }
 
     public static Logger standardLogger(String logName, String def, String [] options) {

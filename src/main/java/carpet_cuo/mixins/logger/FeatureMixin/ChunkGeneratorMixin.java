@@ -2,6 +2,8 @@ package carpet_cuo.mixins.logger.FeatureMixin;
 
 import carpet_cuo.Logging.CuOAdditionLoggerRegistry;
 import carpet_cuo.Logging.Logger.FeatureLogger;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.StructureManager;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.chunk.ChunkAccess;
@@ -18,6 +20,9 @@ public abstract class ChunkGeneratorMixin {
             at = @At("RETURN")
     )
     private void applyBiomeDecoration(WorldGenLevel worldGenLevel, ChunkAccess chunkAccess, StructureManager structureManager, CallbackInfo ci) {
-        if (CuOAdditionLoggerRegistry.__feature) FeatureLogger.getInstance().print();
+        if (CuOAdditionLoggerRegistry.__feature) {
+            ChunkPos chunkPos = chunkAccess.getPos();
+            FeatureLogger.getInstance().print(chunkPos);
+        }
     }
 }

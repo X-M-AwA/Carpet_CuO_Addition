@@ -47,3 +47,17 @@
 属性:
 * 默认选项：N/A
 * 参考选项：N/A
+### (区块装饰记录器)feature
+`/log feature <选项>`
+
+绿色为成功生成，灰色则为失败
+
+![picture](.././docs/114514/feature.png)
+
+* `monsterRoom` 记录尝试生成刷怪笼的区块
+* `amethystGeode` 记录尝试生成紫水晶洞的区块
+* `desertWell` 记录尝试生成沙漠水井的区块
+
+属性:
+* 默认选项：`monsterRoom`
+* 参考选项：`monsterRoom`，`amethystGeode`，`desertWell`
