@@ -51,7 +51,7 @@ public abstract class WetSpongeBlockMixin extends Block {
 
     @Override
     public boolean isRandomlyTicking(BlockState state) {
-        return true;
+        return Carpet_CuOSettings.spongeCanBeDriedNaturally;
     }
 
     @Override
@@ -67,8 +67,7 @@ public abstract class WetSpongeBlockMixin extends Block {
 
     @Unique
     private void tick(Level level, BlockPos blockPos, Biome biome) {
-        if (Carpet_CuOSettings.spongeCanBeDriedNaturally
-                && !level.isRainingAt(blockPos.above())
+        if (!level.isRainingAt(blockPos.above())
                 && !this.hasWater(level, blockPos)
                 && biome.getBaseTemperature() >= 0.15F
             ) {

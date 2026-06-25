@@ -94,7 +94,7 @@ public class Carpet_CuOSettings {
     @Rule(
             options = {"-1","1000000","2147483647"},
             strict = false,
-            categories = {CuO,CREATIVE,NOT_VANILLA}
+            categories = {CuO,CREATIVE}
     )
     public static int NSEEUpdateSuppressorThresholds = -1;
 
@@ -102,7 +102,7 @@ public class Carpet_CuOSettings {
             validators = Validators.NonNegativeNumber.class,
             options = {"0","10000","500000"},
             strict = false,
-            categories = {CuO,CREATIVE,NOT_VANILLA}
+            categories = {CuO,CREATIVE,FEATURE}
     )
     public static int chainUpdateLoggerThresholds = 0;
 
@@ -118,6 +118,15 @@ public class Carpet_CuOSettings {
     @Rule(categories = {CuO,CREATIVE,EXPERIMENTAL})
     public static boolean removedThreadChecks = false;
 
-    @Rule(categories = {CuO,CREATIVE,EXPERIMENTAL,NOT_VANILLA})
+    @Rule(categories = {CuO,CREATIVE,EXPERIMENTAL})
     public static boolean simpleChunkDupe = false;
+
+    @Rule(categories = {CuO,CREATIVE,EXPERIMENTAL,NOT_VANILLA})
+    public static boolean oreBreeding = false;
+
+    @Rule(categories = {CuO,CREATIVE,EXPERIMENTAL,NOT_VANILLA})
+    public static boolean scaffoldingBlockCanBeRipening = false;
+
+    @Rule(categories = {CuO,CREATIVE,EXPERIMENTAL,NOT_VANILLA})
+    public static boolean pointedDripstoneBlockCanBeRipening = false;
 }

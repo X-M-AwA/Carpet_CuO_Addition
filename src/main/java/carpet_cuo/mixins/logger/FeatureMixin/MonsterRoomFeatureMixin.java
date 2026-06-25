@@ -17,6 +17,6 @@ public abstract class MonsterRoomFeatureMixin {
             at = @At("RETURN")
     )
     private void onPlace(FeaturePlaceContext<NoneFeatureConfiguration> featurePlaceContext, CallbackInfoReturnable<Boolean> cir) {
-        if (CuOAdditionLoggerRegistry.__feature) FeatureLogger.getInstance().Cache(featurePlaceContext.origin(), cir.getReturnValue(), FeatureLogger.FeatureType.MONSTER_ROOM);
+        if (CuOAdditionLoggerRegistry.__feature) FeatureLogger.getInstance().cache(featurePlaceContext.origin(), cir.getReturnValue(), FeatureLogger.FeatureType.MONSTER_ROOM);
     }
 }

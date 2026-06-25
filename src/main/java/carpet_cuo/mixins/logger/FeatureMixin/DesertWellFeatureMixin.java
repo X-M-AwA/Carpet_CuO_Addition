@@ -16,6 +16,6 @@ public abstract class DesertWellFeatureMixin {
             at = @At("RETURN")
     )
     private void onPlace(FeaturePlaceContext<NoneFeatureConfiguration> featurePlaceContext, CallbackInfoReturnable<Boolean> cir) {
-        FeatureLogger.getInstance().Cache(featurePlaceContext.origin(), cir.getReturnValue(), FeatureLogger.FeatureType.DESERT_WELL);
+        FeatureLogger.getInstance().cache(featurePlaceContext.origin(), cir.getReturnValue(), FeatureLogger.FeatureType.DESERT_WELL);
     }
 }

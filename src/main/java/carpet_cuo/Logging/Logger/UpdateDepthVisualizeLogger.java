@@ -32,7 +32,7 @@ public class UpdateDepthVisualizeLogger extends AbstractLogger {
         return INSTANCE;
     }
 
-    public void Text(ServerLevel level, BlockPos pos, int UpdateLimit) {
+    public void text(ServerLevel level, BlockPos pos, int UpdateLimit) {
         Logger logger = LoggerRegistry.getLogger(NAME);
         if (logger == null) return;
 

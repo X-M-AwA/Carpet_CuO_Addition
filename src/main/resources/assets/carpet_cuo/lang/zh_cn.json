@@ -28,6 +28,9 @@
   "carpet.rule.removePalettedContainerLock.name": "删除更改调色板时的锁",
   "carpet.rule.removedThreadChecks.name": "删除线程检查",
   "carpet.rule.simpleChunkDupe.name": "简易区块保存抑制",
+  "carpet.rule.oreBreeding.name": "矿物繁殖",
+  "carpet.rule.scaffoldingBlockCanBeRipening.name": "脚手架可以被催熟",
+  "carpet.rule.pointedDripstoneBlockCanBeRipening.name": "滴水石锥可以被催熟",
 
   "carpet.rule.maxChainDepth.desc": "最大连锁更新深度",
   "carpet.rule.infinitelyVault.desc": "玩家可以无限开宝库",
@@ -54,8 +57,11 @@
   "carpet.rule.spongeCanBeDriedNaturally.desc": "放置在地上的海绵可以被自然烘干，速度与群系光照等有关",
   "carpet.rule.placeableNetherPortal.desc": "可放置地狱门",
   "carpet.rule.removePalettedContainerLock.desc": "删除更改调色板时的锁",
-  "carpet.rule.removedThreadChecks.desc": "删除在获取方块实体时线程检查",
+  "carpet.rule.removedThreadChecks.desc": "删除在获取方块实体时的线程检查",
   "carpet.rule.simpleChunkDupe.desc": "简易区块保存抑制",
+  "carpet.rule.oreBreeding.desc": "矿物可以用骨粉繁殖",
+  "carpet.rule.scaffoldingBlockCanBeRipening.desc": "脚手架可以被骨粉催熟",
+  "carpet.rule.pointedDripstoneBlockCanBeRipening.desc": "滴水石锥可以被骨粉催熟",
 
   "carpet.rule.bedrockCanBeMined.extra.0": "注意：这项功能与carpet org addition的setBedrockHardness冲突",
   "carpet.rule.bedrockCanBeMined.extra.1": "如果仅开启这一项你将无法挖掘基岩",

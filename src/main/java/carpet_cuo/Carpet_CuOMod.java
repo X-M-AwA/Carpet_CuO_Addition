@@ -2,6 +2,7 @@ package carpet_cuo;
 
 import carpet_cuo.rule.BlockDyeing;
 import carpet_cuo.rule.EntityHighLight;
+import carpet_cuo.rule.OreBreeding;
 import carpet_cuo.rule.Update;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.loader.api.FabricLoader;
@@ -16,5 +17,6 @@ public class Carpet_CuOMod implements ModInitializer {
 		BlockDyeing.init();
 		Update.init();
 		EntityHighLight.init();
+		OreBreeding.init();
 	}
 }

@@ -17,6 +17,6 @@ public class GeodeFeatureMixin {
             at = @At("RETURN")
     )
     private void onPlace(FeaturePlaceContext<GeodeConfiguration> featurePlaceContext, CallbackInfoReturnable<Boolean> cir) {
-        if (CuOAdditionLoggerRegistry.__feature) FeatureLogger.getInstance().Cache(featurePlaceContext.origin(), cir.getReturnValue(), FeatureLogger.FeatureType.AMETHYST_GEODE);
+        if (CuOAdditionLoggerRegistry.__feature) FeatureLogger.getInstance().cache(featurePlaceContext.origin(), cir.getReturnValue(), FeatureLogger.FeatureType.AMETHYST_GEODE);
     }
 }

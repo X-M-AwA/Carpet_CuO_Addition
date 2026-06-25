@@ -36,9 +36,12 @@
     "rules.PiglinTradeInstantlyMixin.PiglinBrainMixin",
     "rules.PistonBreakingBlockProducesUpdateMixin.PistonBlockMixin",
     "rules.PlaceableNetherPortalMixin.BlockItemMixin",
+    "rules.PointedDripstoneBlockCanBeRipeningMixin.PointedDripstoneBlockMixin",
+    "rules.PointedDripstoneBlockCanBeRipeningMixin.SulfurSpikeBlockMixin",
     "rules.RemovePalettedContainerLock.PalettedContainerMixin",
     "rules.RemoveThreadChecksMixin.LevelMixin",
     "rules.RemoveTooExpensiveLimit.AnvilScreenHandlerMixin",
+    "rules.ScaffoldingBlockCanBeRipeningMixin.ScaffoldingBlockMixin",
     "rules.SimpleChunkDupe.SerializableChunkDataMixin",
     "rules.SpongeCanBeDriedNaturallyMixin.WetSpongeBlockMixin",
     "rules.UpdateDepthVisualizeLoggerMixin.LevelMixin"

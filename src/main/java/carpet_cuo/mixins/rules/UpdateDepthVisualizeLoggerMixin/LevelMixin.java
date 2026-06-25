@@ -23,7 +23,7 @@ public abstract class LevelMixin {
     private void onUpdate(BlockPos blockPos, BlockState blockState, int i, int j, CallbackInfoReturnable<Boolean> cir) {
         if ((Object) this instanceof ServerLevel level) {
             if (CuOAdditionLoggerRegistry.__updateDepth) {
-                UpdateDepthVisualizeLogger.getInstance().Text(level, blockPos, j);
+                UpdateDepthVisualizeLogger.getInstance().text(level, blockPos, j);
             }
         }
     }

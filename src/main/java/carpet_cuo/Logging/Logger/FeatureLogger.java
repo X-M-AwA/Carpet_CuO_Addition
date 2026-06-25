@@ -66,7 +66,7 @@ public class FeatureLogger extends AbstractLogger {
                 );
             }
 
-            FeatureType type = matched.getFirst().type;
+            FeatureType type = matched.get(0).type;
             MutableComponent component = Messenger.s(type.displayName);
             synchronized (features) {
                 features.removeAll(matched);
@@ -77,18 +77,26 @@ public class FeatureLogger extends AbstractLogger {
                             Messenger.f(Messenger.s("#"), ChatFormatting.DARK_GREEN),
                             Messenger.hover(
                                     Messenger.f(component, color),
+                                    //#if MC < 12105
                                     new HoverEvent(HoverEvent.Action.SHOW_TEXT,
                                             Messenger.c(
                                                     hoverLines.toArray()
                                             )
                                     )
+                                    //#else
+                                    //$$ new HoverEvent.ShowText(
+                                    //$$    Messenger.c(
+                                    //$$        hoverLines.toArray()
+                                    //$$    )
+                                    //$$ )
+                                    //#endif
                             )
                     )
             };
         });
     }
 
-    public void Cache(BlockPos blockPos, boolean success, FeatureType featureType) {
+    public void cache(BlockPos blockPos, boolean success, FeatureType featureType) {
         Logger logger = LoggerRegistry.getLogger(NAME);
         if (logger == null) return;
 

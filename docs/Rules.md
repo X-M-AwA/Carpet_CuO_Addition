@@ -185,14 +185,14 @@
 * 类型：`int`
 * 默认值：`-1`
 * 选项：`-1`，`1000000`，`2147483647`
-* 分类：`CuO`，`CREATIVE`，`NOT_VANILLA`
+* 分类：`CuO`，`CREATIVE`
 ### (链式更新记录器打印阈值)chainUpdateLoggerThresholds
 更改更新记录器`chain`模式下打印更新链深度所需的最小深度
 
 * 类型：`int`
 * 默认值：`0`
 * 选项：`0`，`10000`，`1000000`
-* 分类：`CuO`，`CREATIVE`，`NOT_VANILLA`
+* 分类：`CuO`，`CREATIVE`，`FEATURE`
 ### (海绵可以被自然烘干)spongeCanBeDriedNaturally
 注意：此功能还有许多未完善的地方
 
@@ -217,7 +217,7 @@
 * 选项：`false`，`true`
 * 分类：`CuO`，`CREATIVE`，`EXPERIMENTAL`
 ### (删除线程检查)removedThreadChecks
-删除在获取方块实体时线程检查
+删除在获取方块实体时的线程检查
 
 * 类型：`boolean`
 * 默认值：`false`
@@ -231,4 +231,25 @@
 * 类型：`boolean`
 * 默认值：`false`
 * 选项：`false`，`true`
-* 分类：`CuO`，`CREATIVE`，`EXPERIMENTAL`，`NOT_VANILLA`
+* 分类：`CuO`，`CREATIVE`，`EXPERIMENTAL`
+### (矿物繁殖)oreBreeding
+使用骨粉催熟矿物后将向毗邻的6个方向的石头或深板岩上蔓延
+
+* 类型：`boolean`
+* 默认值：`false`
+* 选项：`false`，`true`
+* 分类：`CuO`，`CREATIVE`，`EXPERIMENTAL`
+### (脚手架可被催熟)scaffoldingBlockCanBeRipening
+可以催熟脚手架
+
+* 类型：`boolean`
+* 默认值：`false`
+* 选项：`false`，`true`
+* 分类：`CuO`，`CREATIVE`，`EXPERIMENTAL`
+### (滴水石锥可被催熟)pointedDripstoneBlockCanBeRipening
+可以催熟滴水石锥
+
+* 类型：`boolean`
+* 默认值：`false`
+* 选项：`false`，`true`
+* 分类：`CuO`，`CREATIVE`，`EXPERIMENTAL`
