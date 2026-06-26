@@ -28,15 +28,6 @@
 * 默认值：`512`
 * 选项：`-1`，`0`，`512`，`1000000`，`2147483647`
 * 分类：`CuO`，`CREATIVE`
-### (树叶和苔藓可作为燃料)useLeavesAndMossAsFuel
-可以使用树叶类方块和苔藓块作为熔炉燃料使用
-
-1.21.2+需要重启服务器使更改生效
-
-* 类型：`boolean`
-* 默认值：`false`
-* 选项：`false`，`true`
-* 分类：`CuO`，`CREATIVE`，`FEATURE`，`NOT_VANILLA`
 ### (无限图腾)infinitelyTotem
 无限使用图腾
 
@@ -93,7 +84,7 @@
 ### (基岩可以被挖掘)bedrockCanBeMined
 可以挖掘基岩来获取物品形式的基岩(硬度为黑曜石的硬度)
 
-注意：这项功能与carpet org addition的setBedrockHardness冲突
+注意：这项功能与**carpet org addition的setBedrockHardness冲突**
 
 如果你仅开启其中的任意一项都无法使用全部的功能
 
@@ -173,7 +164,7 @@
 * 选项：`false`，`true`
 * 分类：`CuO`，`FEATURE`，`CREATIVE`，`NOT_VANILLA`，`EXPERIMENTAL`
 ### (瞬时火焰)instantFireBlock
-地狱岩上的火焰会导致栈溢出异常，所以开启后请勿随意加载区块
+地狱岩上的火焰会导致栈溢出异常，所以开启后请勿**随意加载区块**
 
 * 类型：`boolean`
 * 默认值：`false`

@@ -20,14 +20,17 @@ import org.spongepowered.asm.mixin.Unique;
 @Mixin(SulfurSpikeBlock.class)
 public abstract class SulfurSpikeBlockMixin implements BonemealableBlock {
     public boolean isValidBonemealTarget(@NonNull LevelReader levelReader, @NonNull BlockPos blockPos, @NonNull BlockState blockState) {
-        Direction direction = blockState.getValue(BlockStateProperties.VERTICAL_DIRECTION);
-        BlockPos pos;
-        if (direction.equals(Direction.UP)) {
-            pos = getTopBlockPos(levelReader, blockPos, blockState.getBlock());
-        }else {
-            pos = getbottomBlockPos(levelReader, blockPos, blockState.getBlock());
+        if (Carpet_CuOSettings.pointedDripstoneBlockCanBeRipening) {
+            Direction direction = blockState.getValue(BlockStateProperties.VERTICAL_DIRECTION);
+            BlockPos pos;
+            if (direction.equals(Direction.UP)) {
+                pos = getTopBlockPos(levelReader, blockPos, blockState.getBlock());
+            }else {
+                pos = getbottomBlockPos(levelReader, blockPos, blockState.getBlock());
+            }
+            return levelReader.getBlockState(pos).canBeReplaced();
         }
-        return levelReader.getBlockState(pos).canBeReplaced();
+        return false;
     }
 
     public boolean isBonemealSuccess(@NonNull Level level, @NonNull RandomSource randomSource, @NonNull BlockPos blockPos, @NonNull BlockState blockState) {
@@ -35,20 +38,22 @@ public abstract class SulfurSpikeBlockMixin implements BonemealableBlock {
     }
 
     public void performBonemeal(@NonNull ServerLevel serverLevel, @NonNull RandomSource randomSource, @NonNull BlockPos blockPos, BlockState blockState) {
-        Direction direction = blockState.getValue(BlockStateProperties.VERTICAL_DIRECTION);
-        BlockPos pos;
-        if (direction.equals(Direction.UP)) {
-            pos = getTopBlockPos(serverLevel, blockPos, Blocks.SULFUR_SPIKE);
-        }else {
-            pos = getbottomBlockPos(serverLevel, blockPos, Blocks.SULFUR_SPIKE);
-        }
-        FluidState fluidState = serverLevel.getFluidState(pos);
-        BlockState state = serverLevel.getBlockState(pos);
-        if (state.canBeReplaced() && direction.equals(Direction.UP)) {
-            serverLevel.setBlock(pos, Blocks.SULFUR_SPIKE.defaultBlockState().setValue(PointedDripstoneBlock.WATERLOGGED, fluidState.isSourceOfType(Fluids.WATER)), 3);
-        }else if (state.canBeReplaced() && direction.equals(Direction.DOWN)){
-            serverLevel.setBlock(pos, Blocks.SULFUR_SPIKE.defaultBlockState().setValue(BlockStateProperties.VERTICAL_DIRECTION, Direction.DOWN).setValue(PointedDripstoneBlock.WATERLOGGED, fluidState.isSourceOfType(Fluids.WATER)), 3
-            );
+        if (Carpet_CuOSettings.pointedDripstoneBlockCanBeRipening) {
+            Direction direction = blockState.getValue(BlockStateProperties.VERTICAL_DIRECTION);
+            BlockPos pos;
+            if (direction.equals(Direction.UP)) {
+                pos = getTopBlockPos(serverLevel, blockPos, Blocks.SULFUR_SPIKE);
+            }else {
+                pos = getbottomBlockPos(serverLevel, blockPos, Blocks.SULFUR_SPIKE);
+            }
+            FluidState fluidState = serverLevel.getFluidState(pos);
+            BlockState state = serverLevel.getBlockState(pos);
+            if (state.canBeReplaced() && direction.equals(Direction.UP)) {
+                serverLevel.setBlock(pos, Blocks.SULFUR_SPIKE.defaultBlockState().setValue(PointedDripstoneBlock.WATERLOGGED, fluidState.isSourceOfType(Fluids.WATER)), 3);
+            }else if (state.canBeReplaced() && direction.equals(Direction.DOWN)){
+                serverLevel.setBlock(pos, Blocks.SULFUR_SPIKE.defaultBlockState().setValue(BlockStateProperties.VERTICAL_DIRECTION, Direction.DOWN).setValue(PointedDripstoneBlock.WATERLOGGED, fluidState.isSourceOfType(Fluids.WATER)), 3
+                );
+            }
         }
     }
 

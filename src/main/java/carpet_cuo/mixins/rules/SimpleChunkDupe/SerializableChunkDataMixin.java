@@ -45,11 +45,7 @@ public abstract class SerializableChunkDataMixin {
                              //#endif
     ) {
         if (Carpet_CuOSettings.simpleChunkDupe && compoundTag3.getString("CustomName").equals("\"ChunkDupe\"") && compoundTag3.getString("id").equals("minecraft:shulker_box")) {
-            try {
-                throw new OutOfMemoryError();
-            } catch (Throwable e) {
-                throw new RuntimeException(e);
-            }
+            throw new RuntimeException();
         }
     }
 }

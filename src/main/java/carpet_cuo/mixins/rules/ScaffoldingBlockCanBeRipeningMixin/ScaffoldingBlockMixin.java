@@ -21,8 +21,11 @@ import org.spongepowered.asm.mixin.Unique;
 @Mixin(ScaffoldingBlock.class)
 public abstract class ScaffoldingBlockMixin implements BonemealableBlock {
     public boolean isValidBonemealTarget(LevelReader levelReader, BlockPos blockPos, BlockState blockState) {
-        BlockPos pos = getBlockPos(levelReader, blockPos, blockState.getBlock());
-        return levelReader.getBlockState(pos).canBeReplaced();
+        if (Carpet_CuOSettings.scaffoldingBlockCanBeRipening) {
+            BlockPos pos = getBlockPos(levelReader, blockPos, blockState.getBlock());
+            return levelReader.getBlockState(pos).canBeReplaced();
+        }
+        return false;
     }
 
     public boolean isBonemealSuccess(Level level, RandomSource randomSource, BlockPos blockPos, BlockState blockState) {
@@ -30,11 +33,13 @@ public abstract class ScaffoldingBlockMixin implements BonemealableBlock {
     }
 
     public void performBonemeal(ServerLevel serverLevel, RandomSource randomSource, BlockPos blockPos, BlockState blockState) {
-        BlockPos pos = getBlockPos(serverLevel, blockPos, Blocks.SCAFFOLDING);
-        FluidState fluidState = serverLevel.getFluidState(pos);
-        BlockState state = serverLevel.getBlockState(pos);
-        if (state.canBeReplaced()) {
-            serverLevel.setBlock(pos, Blocks.SCAFFOLDING.defaultBlockState().setValue(ScaffoldingBlock.WATERLOGGED, fluidState.isSourceOfType(Fluids.WATER)), 3);
+        if (Carpet_CuOSettings.scaffoldingBlockCanBeRipening) {
+            BlockPos pos = getBlockPos(serverLevel, blockPos, Blocks.SCAFFOLDING);
+            FluidState fluidState = serverLevel.getFluidState(pos);
+            BlockState state = serverLevel.getBlockState(pos);
+            if (state.canBeReplaced()) {
+                serverLevel.setBlock(pos, Blocks.SCAFFOLDING.defaultBlockState().setValue(ScaffoldingBlock.WATERLOGGED, fluidState.isSourceOfType(Fluids.WATER)), 3);
+            }
         }
     }
 
