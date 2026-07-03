@@ -4,6 +4,8 @@
   "package": "carpet_cuo.mixins",
   "mixins": [
     "carpet.HUDControllerMixin",
+    "command.ChunkMapMixin",
+    "command.MinecraftServerMixin",
     "logger.ChainRestrictedNeighborUpdaterMixin",
     "logger.ServerLevelMixin",
     "logger.FeatureMixin.ChunkGeneratorMixin",

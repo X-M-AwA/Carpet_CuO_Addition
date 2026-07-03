@@ -2,6 +2,9 @@ package carpet_cuo;
 
 import carpet.api.settings.Rule;
 import carpet.api.settings.Validators;
+import net.minecraft.world.level.ChunkPos;
+
+import java.util.ArrayList;
 
 import static carpet.api.settings.RuleCategory.*;
 
@@ -129,4 +132,12 @@ public class Carpet_CuOSettings {
 
     @Rule(categories = {CuO,CREATIVE,EXPERIMENTAL,NOT_VANILLA})
     public static boolean pointedDripstoneBlockCanBeRipening = false;
+
+    @Rule(
+            validators = Validators.NonNegativeNumber.class,
+            options = {"0","1","2","3","4"},
+            strict = false,
+            categories = {CuO,CREATIVE,FEATURE}
+    )
+    public static int removeCommandLevel = 4;
 }

@@ -244,3 +244,10 @@
 * 默认值：`false`
 * 选项：`false`，`true`
 * 分类：`CuO`，`CREATIVE`，`EXPERIMENTAL`
+### (remove指令权限)removeCommandLevel
+更改`remove`指令的权限
+
+* 类型：`int`
+* 默认值：`0`
+* 选项：`0`，`1`，`2`，`3`，`4`
+* 分类：`CuO`，`CREATIVE`，`FEATURE`

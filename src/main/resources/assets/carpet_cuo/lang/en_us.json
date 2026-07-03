@@ -31,6 +31,7 @@
   "carpet.rule.oreBreeding.name": "oreBreeding",
   "carpet.rule.scaffoldingBlockCanBeRipening.name": "scaffoldingBlockCanBeRipening",
   "carpet.rule.pointedDripstoneBlockCanBeRipening.name": "pointedDripstoneBlockCanBeRipening",
+  "carpet.rule.removeCommandLevel.name": "removeCommandLevel",
 
   "carpet.rule.maxChainDepth.desc": "max chain depth",
   "carpet.rule.infinitelyVault.desc": "Players can open vaults an unlimited number of times",
@@ -62,6 +63,7 @@
   "carpet.rule.oreBreeding.desc": "Ore can be propagated with bone meal",
   "carpet.rule.scaffoldingBlockCanBeRipening.desc": "Scaffolding can be matured by bone meal",
   "carpet.rule.pointedDripstoneBlockCanBeRipening.desc": "Pointed Dripstone can be matured by bone meal",
+  "carpet.rule.removeCommandLevel.desc": "removeCommandLevel",
 
   "carpet.rule.bedrockCanBeMined.extra.0": "Note: This rule conflicts with the setBedrockHardness rule from the vanilla Carpet mod",
   "carpet.rule.bedrockCanBeMined.extra.1": "If you only enable this rule, bedrock will be unbreakable",

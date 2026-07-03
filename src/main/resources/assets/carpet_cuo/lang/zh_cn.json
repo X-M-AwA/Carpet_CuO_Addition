@@ -31,6 +31,7 @@
   "carpet.rule.oreBreeding.name": "矿物繁殖",
   "carpet.rule.scaffoldingBlockCanBeRipening.name": "脚手架可以被催熟",
   "carpet.rule.pointedDripstoneBlockCanBeRipening.name": "滴水石锥可以被催熟",
+  "carpet.rule.removeCommandLevel.name": "remove指令权限等级",
 
   "carpet.rule.maxChainDepth.desc": "最大连锁更新深度",
   "carpet.rule.infinitelyVault.desc": "玩家可以无限开宝库",
@@ -62,6 +63,7 @@
   "carpet.rule.oreBreeding.desc": "矿物可以用骨粉繁殖",
   "carpet.rule.scaffoldingBlockCanBeRipening.desc": "脚手架可以被骨粉催熟",
   "carpet.rule.pointedDripstoneBlockCanBeRipening.desc": "滴水石锥可以被骨粉催熟",
+  "carpet.rule.removeCommandLevel.desc": "remove指令权限等级",
 
   "carpet.rule.bedrockCanBeMined.extra.0": "注意：这项功能与carpet org addition的setBedrockHardness冲突",
   "carpet.rule.bedrockCanBeMined.extra.1": "如果仅开启这一项你将无法挖掘基岩",
