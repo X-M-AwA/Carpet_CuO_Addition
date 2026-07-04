@@ -13,7 +13,7 @@
 * 类型：`boolean`
 * 默认值：`false`
 * 选项：`false`，`true`
-* 分类：`CuO`，`CREATIVE`,`FEATURE`,`NOT_VANILLA`
+* 分类：`CuO`，`SURVIVAL`,`FEATURE`,`NOT_VANILLA`
 ### (比较器复制修复)comparatorDupeFix
 修复比较器复制（*其实就是在调用Comparator.update()时判断自身是否是空气*）
 
@@ -34,7 +34,7 @@
 * 类型：`boolean`
 * 默认值：`false`
 * 选项：`false`，`true`
-* 分类：`CuO`，`CREATIVE`，`FEATURE`，`NOT_VANILLA`
+* 分类：`CuO`，`SURVIVAL`，`FEATURE`，`NOT_VANILLA`
 ### (没有附魔等级上限)noEnchantmentLevelLimit
 没有附魔等级上限
 
@@ -80,7 +80,7 @@
 * 类型：`boolean`
 * 默认值：`false`
 * 选项：`false`，`true`
-* 分类：`CuO`，`CREATIVE`，`NOT_VANILLA`
+* 分类：`CuO`，`SURVIVAL`，`NOT_VANILLA`
 ### (基岩可以被挖掘)bedrockCanBeMined
 可以挖掘基岩来获取物品形式的基岩(硬度为黑曜石的硬度)
 
@@ -91,14 +91,14 @@
 * 类型：`boolean`
 * 默认值：`false`
 * 选项：`false`，`true`
-* 分类：`CuO`，`CREATIVE`，`NOT_VANILLA`
+* 分类：`CuO`，`SURVIVAL`，`NOT_VANILLA`
 ### (猪灵交易无硬控时间)piglinTradeInstantly
 移除了猪灵端详的时间，可以1gt交易一次
 
 * 类型：`boolean`
 * 默认值：`false`
 * 选项：`false`，`true`
-* 分类：`CuO`，`EXPERIMENTAL`，`FEATURE`
+* 分类：`CuO`，`SURVIVAL`，`EXPERIMENTAL`，`FEATURE`
 ### (方块染色)blockDyeing
 主手拿燃料右键染色方块可以将方块颜色改变为染料颜色
 
@@ -192,14 +192,14 @@
 * 类型：`boolean`
 * 默认值：`false`
 * 选项：`false`，`true`
-* 分类：`CuO`，`CREATIVE`，`NOT_VANILLA`，`EXPERIMENTAL`
+* 分类：`CuO`，`SURVIVAL`，`NOT_VANILLA`，`EXPERIMENTAL`
 ### (可放置地狱门)placeableNetherPortal
 玩家放置的紫色带釉陶瓦会变为地狱门
 
 * 类型：`boolean`
 * 默认值：`false`
 * 选项：`false`，`true`
-* 分类：`CuO`，`CREATIVE`，`NOT_VANILLA`，`EXPERIMENTAL`
+* 分类：`CuO`，`SURVIVAL`，`NOT_VANILLA`，`EXPERIMENTAL`
 ### (删除更改调色板时的锁)removePalettedContainerLock
 删除了更改区块调色板时的线程锁
 
@@ -229,21 +229,21 @@
 * 类型：`boolean`
 * 默认值：`false`
 * 选项：`false`，`true`
-* 分类：`CuO`，`CREATIVE`，`EXPERIMENTAL`
+* 分类：`CuO`，`SURVIVAL`，`EXPERIMENTAL`
 ### (脚手架可被催熟)scaffoldingBlockCanBeRipening
 可以催熟脚手架
 
 * 类型：`boolean`
 * 默认值：`false`
 * 选项：`false`，`true`
-* 分类：`CuO`，`CREATIVE`，`EXPERIMENTAL`
+* 分类：`CuO`，`SURVIVAL`，`EXPERIMENTAL`
 ### (滴水石锥可被催熟)pointedDripstoneBlockCanBeRipening
 可以催熟滴水石锥
 
 * 类型：`boolean`
 * 默认值：`false`
 * 选项：`false`，`true`
-* 分类：`CuO`，`CREATIVE`，`EXPERIMENTAL`
+* 分类：`CuO`，`SURVIVAL`，`EXPERIMENTAL`
 ### (remove指令权限)removeCommandLevel
 更改`remove`指令的权限
 
@@ -258,3 +258,11 @@
 * 默认值：`false`
 * 选项：`false`，`true`
 * 分类：`CuO`，`CREATIVE`，`EXPERIMENTAL`
+
+### (修复怪物ai问题)repairTheMonsterAI
+修复了目标站在固体方块内生物寻路错误的问题
+
+* 类型：`boolean`
+* 默认值：`false`
+* 选项：`false`，`true`
+* 分类：`CuO`，`SURVIVAL`，`EXPERIMENTAL`，`NOT_VANILLA`

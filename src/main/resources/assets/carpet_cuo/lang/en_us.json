@@ -33,6 +33,7 @@
   "carpet.rule.pointedDripstoneBlockCanBeRipening.name": "pointedDripstoneBlockCanBeRipening",
   "carpet.rule.removeCommandLevel.name": "removeCommandLevel",
   "carpet.rule.unrestrictedPlacingBlock.name": "unrestrictedPlacingBlock",
+  "carpet.rule.repairTheMonsterAI.name": "repairTheMonsterAI",
 
   "carpet.rule.maxChainDepth.desc": "max chain depth",
   "carpet.rule.infinitelyVault.desc": "Players can open vaults an unlimited number of times",
@@ -66,6 +67,7 @@
   "carpet.rule.pointedDripstoneBlockCanBeRipening.desc": "Pointed Dripstone can be matured by bone meal",
   "carpet.rule.removeCommandLevel.desc": "removeCommandLevel",
   "carpet.rule.unrestrictedPlacingBlock.desc": "Placing blocks is unrestricted",
+  "carpet.rule.repairTheMonsterAI.desc": "Fixed an issue where the target was standing inside solid blocks with incorrect pathfinding errors",
 
   "carpet.rule.bedrockCanBeMined.extra.0": "Note: This rule conflicts with the setBedrockHardness rule from the vanilla Carpet mod",
   "carpet.rule.bedrockCanBeMined.extra.1": "If you only enable this rule, bedrock will be unbreakable",

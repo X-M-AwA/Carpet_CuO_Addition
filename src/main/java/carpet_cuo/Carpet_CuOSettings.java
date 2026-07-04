@@ -21,7 +21,7 @@ public class Carpet_CuOSettings {
     public static int maxChainDepth = 1000000;
 
     //#if MC >= 12100
-    @Rule(categories = {CuO,CREATIVE,FEATURE,NOT_VANILLA})
+    @Rule(categories = {CuO,SURVIVAL,FEATURE,NOT_VANILLA})
     public static boolean infinitelyVault = false;
     //#endif
 
@@ -37,7 +37,7 @@ public class Carpet_CuOSettings {
     )
     public static int maxUpdateDepth = 512;
 
-    @Rule(categories = {CuO,CREATIVE,FEATURE,NOT_VANILLA})
+    @Rule(categories = {CuO,SURVIVAL,FEATURE,NOT_VANILLA})
     public static boolean infinitelyTotem = false;
 
     @Rule(categories = {CuO,NOT_VANILLA,EXPERIMENTAL})
@@ -56,13 +56,13 @@ public class Carpet_CuOSettings {
     public static boolean blockEntitySwapReintroduced = false;
     //#endif
 
-    @Rule(categories = {CuO,CREATIVE,NOT_VANILLA})
+    @Rule(categories = {CuO,SURVIVAL,NOT_VANILLA})
     public static boolean endPortalFrameCanBeMined = false;
 
-    @Rule(categories = {CuO,CREATIVE,NOT_VANILLA})
+    @Rule(categories = {CuO,SURVIVAL,NOT_VANILLA})
     public static boolean bedrockCanBeMined = false;
 
-    @Rule(categories = {CuO,EXPERIMENTAL,FEATURE})
+    @Rule(categories = {CuO,SURVIVAL,EXPERIMENTAL,FEATURE})
     public static boolean piglinTradeInstantly = false;
 
     @Rule(categories = {CuO,FEATURE,CREATIVE,EXPERIMENTAL})
@@ -109,10 +109,10 @@ public class Carpet_CuOSettings {
     )
     public static int chainUpdateLoggerThresholds = 0;
 
-    @Rule(categories = {CuO,CREATIVE,NOT_VANILLA,EXPERIMENTAL})
+    @Rule(categories = {CuO,SURVIVAL,NOT_VANILLA,EXPERIMENTAL})
     public static boolean spongeCanBeDriedNaturally = false;
 
-    @Rule(categories = {CuO,CREATIVE,NOT_VANILLA,EXPERIMENTAL})
+    @Rule(categories = {CuO,SURVIVAL,NOT_VANILLA,EXPERIMENTAL})
     public static boolean placeableNetherPortal = false;
 
     @Rule(categories = {CuO,CREATIVE,EXPERIMENTAL})
@@ -124,10 +124,10 @@ public class Carpet_CuOSettings {
     @Rule(categories = {CuO,CREATIVE,EXPERIMENTAL})
     public static boolean simpleChunkDupe = false;
 
-    @Rule(categories = {CuO,CREATIVE,EXPERIMENTAL,NOT_VANILLA})
+    @Rule(categories = {CuO,SURVIVAL,EXPERIMENTAL,NOT_VANILLA})
     public static boolean oreBreeding = false;
 
-    @Rule(categories = {CuO,CREATIVE,EXPERIMENTAL,NOT_VANILLA})
+    @Rule(categories = {CuO,SURVIVAL,EXPERIMENTAL,NOT_VANILLA})
     public static boolean scaffoldingBlockCanBeRipening = false;
 
     @Rule(categories = {CuO,CREATIVE,EXPERIMENTAL,NOT_VANILLA})
@@ -141,6 +141,9 @@ public class Carpet_CuOSettings {
     )
     public static int removeCommandLevel = 4;
 
-    @Rule(categories = {CuO,CREATIVE,EXPERIMENTAL})
+    @Rule(categories = {CuO,CREATIVE,EXPERIMENTAL,NOT_VANILLA})
     public static boolean unrestrictedPlacingBlock = false;
+
+    @Rule(categories = {CuO,SURVIVAL,EXPERIMENTAL,NOT_VANILLA})
+    public static boolean repairTheMonsterAI = false;
 }

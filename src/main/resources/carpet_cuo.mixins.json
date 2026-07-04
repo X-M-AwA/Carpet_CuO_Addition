@@ -13,6 +13,7 @@
     "logger.FeatureMixin.GeodeFeatureMixin",
     "logger.FeatureMixin.MonsterRoomFeatureMixin",
     "rules.AbstractBlockStateMixin",
+    "rules.GroundPathNavigationMixin",
     "rules.BambooBlockCrashFixMixin.BambooBlockMixin",
     "rules.BlockEntitySwapReintroducedMixin.BlockEntityMixin",
     "rules.BlockEntitySwapReintroducedMixin.WorldChunkMixin",
