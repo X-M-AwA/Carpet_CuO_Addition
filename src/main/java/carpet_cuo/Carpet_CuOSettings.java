@@ -140,4 +140,7 @@ public class Carpet_CuOSettings {
             categories = {CuO,CREATIVE,FEATURE}
     )
     public static int removeCommandLevel = 4;
+
+    @Rule(categories = {CuO,CREATIVE,EXPERIMENTAL})
+    public static boolean unrestrictedPlacingBlock = false;
 }

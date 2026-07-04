@@ -251,3 +251,10 @@
 * 默认值：`0`
 * 选项：`0`，`1`，`2`，`3`，`4`
 * 分类：`CuO`，`CREATIVE`，`FEATURE`
+### (无方块放置限制)unrestrictedPlacingBlock
+消除方块放置时的检查(比如你可以做到通天压力板)
+
+* 类型：`boolean`
+* 默认值：`false`
+* 选项：`false`，`true`
+* 分类：`CuO`，`CREATIVE`，`EXPERIMENTAL`

@@ -46,6 +46,7 @@
     "rules.ScaffoldingBlockCanBeRipeningMixin.ScaffoldingBlockMixin",
     "rules.SimpleChunkDupe.SerializableChunkDataMixin",
     "rules.SpongeCanBeDriedNaturallyMixin.WetSpongeBlockMixin",
+    "rules.UnrestrictedPlacingBlockMixin.BlockItemMixin",
     "rules.UpdateDepthVisualizeLoggerMixin.LevelMixin"
   ],
   "injectors": {
