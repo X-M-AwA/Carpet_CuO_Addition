@@ -1,4 +1,4 @@
-package carpet_cuo.mixins.rules;
+package carpet_cuo.mixins.rules.repairTheMonsterAIMixin;
 
 import carpet_cuo.Carpet_CuOSettings;
 import net.minecraft.core.BlockPos;
