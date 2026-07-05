@@ -2,65 +2,60 @@ final int mcVersion = project.mcVersion
 final boolean unobfuscated = mcVersion >= 26_00_00
 
 apply plugin: 'maven-publish'
+apply plugin: 'com.github.hierynomus.license'
 apply plugin: unobfuscated ? 'net.fabricmc.fabric-loom' : 'net.fabricmc.fabric-loom-remap'
 apply plugin: 'com.replaymod.preprocess'
+apply plugin: 'me.fallenbreath.yamlang'
 
 repositories {
 	maven {
-		url = 'https://api.modrinth.com/maven'
-	}
-	maven {
-		url = 'https://masa.dy.fi/maven'
+		url = 'https://maven.parchmentmc.org'
+		content { includeGroup('org.parchmentmc.data') }
 	}
 	maven {
 		url = 'https://jitpack.io'
+		content { includeGroupAndSubgroups('com.github') }
+	}
+	maven {
+		url = 'https://maven.fallenbreath.me/releases'
+		content { includeGroup('me.fallenbreath') }
 	}
 }
 
-// https://github.com/FabricMC/fabric-loader/issues/783
-configurations {
-	modRuntimeOnly.exclude group: 'net.fabricmc', module: 'fabric-loader'
-}
-
 dependencies {
-    def processDependency = { dep ->
-        // https://github.com/FabricMC/fabric-loader/issues/783
-        if (dep instanceof ModuleDependency && !(dep.group == 'net.fabricmc' && dep.name == 'fabric-loader')) {
-            dep.exclude group: 'net.fabricmc', module: 'fabric-loader'
-            dep.exclude group: 'com.github.astei', module: 'lazydfu'
-            dep.exclude group: 'com.github.2No2Name', module: 'McTester'
-        }
-        return dep
-    }
+	def processDependency = { dep ->
+		// https://github.com/FabricMC/fabric-loader/issues/783
+		if (dep instanceof ModuleDependency) {
+			if (!(dep.group == 'net.fabricmc' && dep.name == 'fabric-loader')) {
+				dep.exclude group: 'net.fabricmc', module: 'fabric-loader'
+			}
+		}
+		return dep
+	}
 	def autoImplementation = { Object... args -> processDependency(unobfuscated ? implementation(*args) : modImplementation(*args)) }
 
-    // Minecraft
-    minecraft "com.mojang:minecraft:${project.minecraft_version}"
-    if (!unobfuscated) {
-        mappings loom.layered() {
+	// loom
+	minecraft "com.mojang:minecraft:${project.minecraft_version}"
+	if (!unobfuscated) {
+		mappings loom.layered() {
 			officialMojangMappings()
-        }
-    }
-    // Mixin Extras
-	include(implementation(annotationProcessor("io.github.llamalad7:mixinextras-fabric:0.2.2")))
+		}
+	}
 	autoImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
-	autoImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}"
 
-    // Carpet
-	autoImplementation "carpet:fabric-carpet:${project.carpet_version}"
 }
 
+String LANG_DIR = 'assets/template_mod/lang'
 JavaVersion JAVA_COMPATIBILITY
-if (mcVersion >= 26_00_00){
-    JAVA_COMPATIBILITY = JavaVersion.VERSION_25
-}else if (mcVersion >= 1_20_05){
+if (mcVersion >= 260000) {
+	JAVA_COMPATIBILITY = JavaVersion.VERSION_25
+} else if (mcVersion >= 12005) {
 	JAVA_COMPATIBILITY = JavaVersion.VERSION_21
-}else if (mcVersion >= 1_18_00){
+} else {
 	JAVA_COMPATIBILITY = JavaVersion.VERSION_17
 }
 
 loom {
-    accessWidenerPath = file("src/main/resources/carpet_cuo_addition.accesswidener")
 	def commonVmArgs = ['-Dmixin.debug.export=true', '-Dmixin.debug.countInjections=true']
 	runConfigs.configureEach {
 		// to make sure it generates all "Minecraft Client (:subproject_name)" applications
@@ -70,6 +65,17 @@ loom {
 	}
 }
 
+// hack fix for a gradle 9.5 implicit_dependency issue
+afterEvaluate {
+	tasks.matching { it.name.startsWith('runClient') }.configureEach { runTask ->
+		parent.subprojects.findAll { it != project }.each { otherProject ->
+			def downloadAssets = otherProject.tasks.findByName('downloadAssets')
+			if (downloadAssets != null) {
+				runTask.mustRunAfter(downloadAssets)
+			}
+		}
+	}
+}
 
 String modVersionSuffix = ''
 String artifactVersion = project.mod_version
@@ -78,37 +84,54 @@ String artifactVersionSuffix = ''
 // https://docs.github.com/en/actions/learn-github-actions/environment-variables#default-environment-variables
 if (System.getenv("BUILD_RELEASE") != "true") {
 	String buildNumber = System.getenv("BUILD_ID")
-	modVersionSuffix += buildNumber != null ? ('+build.' + buildNumber) : ''
+	modVersionSuffix += buildNumber != null ? ('+build.' + buildNumber) : '-SNAPSHOT'
 	artifactVersionSuffix = '-SNAPSHOT'  // A non-release artifact is always a SNAPSHOT artifact
 }
 String fullModVersion = project.mod_version + modVersionSuffix
 String fullProjectVersion, fullArtifactVersion
 
+// Example version values:
+//   project.mod_version     1.0.3                      (the base mod version)
+//   modVersionSuffix        +build.88                  (use github action build number if possible)
+//   artifactVersionSuffix   -SNAPSHOT
+//   fullModVersion          1.0.3+build.88             (the actual mod version to use in the mod)
+//   fullProjectVersion      v1.0.3-mc1.15.2+build.88   (in build output jar name)
+//   fullArtifactVersion     1.0.3-mc1.15.2-SNAPSHOT    (maven artifact version)
+
 group = project.maven_group
-base.archivesName = project.archives_base_name
-fullProjectVersion = 'v' + project.mod_version + '-mc' + project.minecraft_version + modVersionSuffix
-fullArtifactVersion = artifactVersion + '-mc' + project.minecraft_version + artifactVersionSuffix
+if (System.getenv("JITPACK") == "true") {
+	// move mc version into archivesBaseName, so jitpack will be able to organize archives from multiple subprojects correctly
+	base.archivesName = project.archives_base_name + '-mc' + project.minecraft_version
+	fullProjectVersion = 'v' + project.mod_version + modVersionSuffix
+	fullArtifactVersion = artifactVersion + artifactVersionSuffix
+} else {
+	base.archivesName = project.archives_base_name
+	fullProjectVersion = 'v' + project.mod_version + '-mc' + project.minecraft_version + modVersionSuffix
+	fullArtifactVersion = artifactVersion + '-mc' + project.minecraft_version + artifactVersionSuffix
+}
 version = fullProjectVersion
 
 // See https://youtrack.jetbrains.com/issue/IDEA-296490
 // if IDEA complains about "Cannot resolve resource filtering of MatchingCopyAction" and you want to know why
 processResources {
-	inputs.property "id", project.mod_id
-	inputs.property "name", project.mod_name
-	inputs.property "version", fullModVersion
-	inputs.property "minecraft_dependency", project.minecraft_dependency
+	def modProperties = [
+			"id"                  : project.mod_id,
+			"name"                : project.mod_name,
+			"version"             : fullModVersion,
+			"minecraft_dependency": project.minecraft_dependency,
+	]
+	inputs.properties(modProperties)
 
 	filesMatching("fabric.mod.json") {
-		def valueMap = [
-				"id": project.mod_id,
-				"name": project.mod_name,
-				"version": fullModVersion,
-				"minecraft_dependency": project.minecraft_dependency,
-		]
-		expand valueMap
+		expand modProperties
 	}
 }
 
+// https://github.com/Fallen-Breath/yamlang
+yamlang {
+	targetSourceSets = [sourceSets.main]
+	inputDir = LANG_DIR
+}
 
 // ensure that the encoding is set to UTF-8, no matter what the system default is
 // this fixes some edge cases with special characters not displaying correctly
@@ -116,7 +139,6 @@ processResources {
 tasks.withType(JavaCompile).configureEach {
 	options.encoding = "UTF-8"
 	options.compilerArgs << "-Xlint:deprecation" << "-Xlint:unchecked"
-    options.release.set(JAVA_COMPATIBILITY.majorVersion.toInteger())
 	if (JAVA_COMPATIBILITY <= JavaVersion.VERSION_1_8) {
 		// suppressed "source/target value 8 is obsolete and will be removed in a future release"
 		options.compilerArgs << '-Xlint:-options'
@@ -124,17 +146,54 @@ tasks.withType(JavaCompile).configureEach {
 }
 
 java {
+	sourceCompatibility = JAVA_COMPATIBILITY
+	targetCompatibility = JAVA_COMPATIBILITY
+
+	// Loom will automatically attach sourcesJar to a RemapSourcesJar task and to the "build" task
+	// if it is present.
+	// If you remove this line, sources will not be generated.
 	withSourcesJar()
 }
 
 jar {
+	inputs.property "archives_base_name", project.archives_base_name
 	from(rootProject.file('LICENSE')) {
-		rename { "${it}" }
+		rename { "${it}_${inputs.properties.archives_base_name}" }
 	}
-    from(rootProject.file('NOTICE')) {
-        rename { "${it}" }
-    }
 }
+
+// https://github.com/hierynomus/license-gradle-plugin
+license {
+	// use "gradle licenseFormat" to apply license headers
+	header = rootProject.file('HEADER.txt')
+	include '**/*.java'
+	skipExistingHeaders = true
+
+	headerDefinitions {
+		SLASHSTAR_STYLE_NEWLINE {
+			firstLine = "/*"
+			beforeEachLine = " * "
+			endLine = " */" + System.lineSeparator()
+			afterEachLine = ""
+			skipLinePattern = null
+			firstLineDetectionPattern = "(\\s|\\t)*/\\*.*\$"
+			lastLineDetectionPattern = ".*\\*/(\\s|\\t)*\$"
+			allowBlankLines = false
+			isMultiline = true
+			padLines = false
+		}
+	}
+	mapping {
+		java = 'SLASHSTAR_STYLE_NEWLINE'
+	}
+	ext {
+		name = project.mod_name
+		author = 'Fallen_Breath'
+		year = Calendar.getInstance().get(Calendar.YEAR).toString()
+	}
+}
+classes.dependsOn licenseFormatMain
+testClasses.dependsOn licenseFormatTest
 
 // configure the maven publication
 publishing {
@@ -144,20 +203,5 @@ publishing {
 			artifactId = base.archivesName.get()
 			version = fullArtifactVersion
 		}
-	}
-
-	// select the repositories you want to publish to
-	repositories {
-	}
-}
-fabricApi {
-	configureDataGeneration() {
-		client = true
-	}
-}
-tasks.named('sourcesJar') {
-	def preprocessTask = tasks.findByName('preprocessResources')
-	if (preprocessTask != null) {
-		dependsOn preprocessTask
 	}
 }
