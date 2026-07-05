@@ -2,6 +2,9 @@ package carpet_cuo.rule;
 
 import carpet_cuo.Carpet_CuOSettings;
 import net.fabricmc.fabric.api.event.player.UseEntityCallback;
+//#if MC >= 260102
+//$$ import net.minecraft.core.component.DataComponents;
+//#endif
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.DyeColor;
@@ -21,7 +24,11 @@ public class EntityHighLight {
 
             ItemStack stack = player.getMainHandItem();
             if (stack.getItem() instanceof DyeItem dyeItem) {
+                //#if MC < 260102
                 int color = COLOR_MAP.get(dyeItem.getDyeColor());
+                //#else
+                //$$ int color = COLOR_MAP.get(stack.get(DataComponents.DYE));
+                //#endif
                 if (entity.hasGlowingTag() && entity.getTeamColor() == color) {
                     ((IEntityColor) entity).setHighlightColor(0xFFFFFF);
                     entity.setGlowingTag(false);
