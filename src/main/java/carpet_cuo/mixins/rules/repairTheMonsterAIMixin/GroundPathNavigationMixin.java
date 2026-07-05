@@ -1,4 +1,4 @@
-package carpet_cuo.mixins.rules.repairTheMonsterAIMixin;
+package carpet_cuo.mixins.rules.RepairTheMonsterAIMixin;
 
 import carpet_cuo.Carpet_CuOSettings;
 import net.minecraft.core.BlockPos;
@@ -22,8 +22,13 @@ public abstract class GroundPathNavigationMixin extends PathNavigation {
             method = "createPath(Lnet/minecraft/core/BlockPos;I)Lnet/minecraft/world/level/pathfinder/Path;",
             at = @At(
                     value = "INVOKE",
+                    //#if MC >= 12103
                     target = "Lnet/minecraft/core/BlockPos;mutable()Lnet/minecraft/core/BlockPos$MutableBlockPos;",
                     ordinal = 1
+                    //#else
+                    //$$ target = "Lnet/minecraft/core/BlockPos;above()Lnet/minecraft/core/BlockPos;",
+                    //$$ ordinal = 2
+                    //#endif
             ),
             cancellable = true
     )
