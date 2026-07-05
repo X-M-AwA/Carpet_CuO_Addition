@@ -25,7 +25,7 @@
     "rules.EndPortalFrameCanBeMinedMixin.BlockMixin",
     "rules.EndPortalFrameCanBeMinedMixin.ItemMixin",
     "rules.EndPortalFrameCanBeMinedMixin.PistonBlockMixin",
-    "rules.EntityHightLight.ServerLevelMixin",
+    "rules.EntityHighLightMixin.EntityMixin",
     "rules.InfinitelyTotemMixin.LivingEntityMixin",
     "rules.InfinitelyVaultMixin.VaultServerDateMixin",
     "rules.InstantDispenserAndDropperMixin.DispenserBlockMixin",

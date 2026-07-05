@@ -1,129 +1,56 @@
 package carpet_cuo.rule;
 
-import carpet_cuo.Carpet_CuOMod;
 import carpet_cuo.Carpet_CuOSettings;
 import net.fabricmc.fabric.api.event.player.UseEntityCallback;
-//#if MC >= 260100
-//$$ import net.minecraft.core.component.DataComponents;
-//#endif
-import net.minecraft.ChatFormatting;
-import net.minecraft.server.MinecraftServer;
-import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.InteractionResult;
-import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.DyeItem;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.Level;
-import net.minecraft.world.scores.PlayerTeam;
-import net.minecraft.world.scores.Scoreboard;
 
 import java.util.HashMap;
 import java.util.Map;
-//#if MC >= 260200
-//$$ import java.util.Optional;
-//$$ import net.minecraft.world.scores.TeamColor;
-//#endif
 
 public class EntityHighLight {
+    private static final Map<DyeColor, Integer> COLOR_MAP = new HashMap<>();
 
-    private static final Map<DyeColor, ChatFormatting> COLOR_MAP = new HashMap<>();
-
-    public static void init(){
+    public static void init() {
         UseEntityCallback.EVENT.register((player, world, interactionHand, entity, entityHitResult) -> {
-            if (!Carpet_CuOSettings.entityHighLight || player.isShiftKeyDown() || !(entity instanceof Player)) return InteractionResult.PASS;
+            if (!Carpet_CuOSettings.entityHighLight || player.isShiftKeyDown() || (entity instanceof Player))
+                return InteractionResult.PASS;
 
             ItemStack stack = player.getMainHandItem();
-            Scoreboard scoreboard = world.getScoreboard();
-
-            return setColor(stack, scoreboard, entity, world);
+            if (stack.getItem() instanceof DyeItem dyeItem) {
+                int color = COLOR_MAP.get(dyeItem.getDyeColor());
+                if (entity.hasGlowingTag() && entity.getTeamColor() == color) {
+                    ((IEntityColor) entity).setHighlightColor(0xFFFFFF);
+                    entity.setGlowingTag(false);
+                    return InteractionResult.SUCCESS;
+                }
+                ((IEntityColor) entity).setHighlightColor(color);
+                entity.setGlowingTag(true);
+                return InteractionResult.SUCCESS;
+            }
+            return InteractionResult.PASS;
         });
     }
 
-    private static InteractionResult setColor(ItemStack stack, Scoreboard scoreboard, Entity entity, Level level){
-        if (level.isClientSide()) return InteractionResult.SUCCESS;
-
-        if (stack.getItem() instanceof DyeItem dyeItem){
-            String ID = entity.getStringUUID();
-            //#if MC < 260100
-            DyeColor color = dyeItem.getDyeColor();
-            //#else
-            //$$ DyeColor color = stack.get(DataComponents.DYE);
-            //#endif
-            //#if MC < 260200
-            ChatFormatting formatting = COLOR_MAP.getOrDefault(color, ChatFormatting.WHITE);
-            //#else
-            //$$ TeamColor formatting = ChatFormattingToTeamColor(COLOR_MAP.getOrDefault(color, ChatFormatting.WHITE));
-            //#endif
-            String Name = Carpet_CuOMod.MOD_ID+ ":" + formatting.name();
-            PlayerTeam playerTeam = scoreboard.getPlayerTeam(Name);
-            PlayerTeam oldTeam = (PlayerTeam) entity.getTeam();
-
-            if (playerTeam != null && playerTeam.getName().equals(Name)){
-                if (playerTeam.getPlayers().contains(ID)){
-                    scoreboard.removePlayerFromTeam(ID, playerTeam);
-                    entity.setGlowingTag(false);
-                    if (playerTeam.getPlayers().isEmpty()) removeTeam(scoreboard, playerTeam);
-                    return InteractionResult.SUCCESS;
-                }
-            }
-
-            if (playerTeam == null){
-                playerTeam = scoreboard.addPlayerTeam(Name);
-                //#if MC < 260200
-                playerTeam.setColor(formatting);
-                //#else
-                //$$ playerTeam.setColor(Optional.of(formatting));
-                //#endif
-            }
-
-            scoreboard.addPlayerToTeam(ID, playerTeam);
-            if (oldTeam != null && oldTeam.getPlayers().isEmpty()) scoreboard.removePlayerTeam(oldTeam);
-            entity.setGlowingTag(true);
-            return InteractionResult.SUCCESS;
-        }
-        return InteractionResult.PASS;
-    }
-
-    public static void removeTeam(Scoreboard scoreboard, PlayerTeam playerTeam){
-        scoreboard.removePlayerTeam(playerTeam);
-    }
-
-    public static void tick(ServerLevel level) {
-        MinecraftServer minecraftServer = level.getServer();
-        int tick = minecraftServer.getTickCount();
-        if (tick % 20 == 0) {
-            Scoreboard scoreboard = level.getServer().getScoreboard();
-            String[] teams = scoreboard.getTeamNames().toArray(new String[0]);
-
-            for (String team : teams) {
-                PlayerTeam playerTeam = scoreboard.getPlayerTeam(team);
-                if (playerTeam != null && playerTeam.getName().contains(Carpet_CuOMod.MOD_ID) && playerTeam.getPlayers().isEmpty()) {
-                    removeTeam(scoreboard, playerTeam);
-                }
-            }
-        }
-    }
-    //#if MC >= 260200
-    //$$ private static TeamColor ChatFormattingToTeamColor(ChatFormatting chatFormatting) {
-    //$$ return TeamColor.valueOf(chatFormatting.name());
-    //$$ }
-    //#endif
     static {
-        COLOR_MAP.put(DyeColor.WHITE, ChatFormatting.WHITE);
-        COLOR_MAP.put(DyeColor.ORANGE, ChatFormatting.GOLD);
-        COLOR_MAP.put(DyeColor.MAGENTA, ChatFormatting.LIGHT_PURPLE);
-        COLOR_MAP.put(DyeColor.LIGHT_BLUE, ChatFormatting.AQUA);
-        COLOR_MAP.put(DyeColor.YELLOW, ChatFormatting.YELLOW);
-        COLOR_MAP.put(DyeColor.LIME, ChatFormatting.GREEN);
-        COLOR_MAP.put(DyeColor.GRAY, ChatFormatting.DARK_GRAY);
-        COLOR_MAP.put(DyeColor.LIGHT_GRAY, ChatFormatting.GRAY);
-        COLOR_MAP.put(DyeColor.CYAN, ChatFormatting.DARK_AQUA);
-        COLOR_MAP.put(DyeColor.PURPLE, ChatFormatting.DARK_PURPLE);
-        COLOR_MAP.put(DyeColor.BLUE, ChatFormatting.BLUE);
-        COLOR_MAP.put(DyeColor.GREEN, ChatFormatting.DARK_GREEN);
-        COLOR_MAP.put(DyeColor.RED, ChatFormatting.RED);
-        COLOR_MAP.put(DyeColor.BLACK, ChatFormatting.BLACK);
+        COLOR_MAP.put(DyeColor.WHITE,0xF9FFFE);
+        COLOR_MAP.put(DyeColor.ORANGE,0xF9801D);
+        COLOR_MAP.put(DyeColor.MAGENTA,0xC74EBD);
+        COLOR_MAP.put(DyeColor.LIGHT_BLUE,0x3AB3DA);
+        COLOR_MAP.put(DyeColor.YELLOW,0xFED83D);
+        COLOR_MAP.put(DyeColor.LIME,0x80C71F);
+        COLOR_MAP.put(DyeColor.PINK,0xF38BAA);
+        COLOR_MAP.put(DyeColor.GRAY,0x474F52);
+        COLOR_MAP.put(DyeColor.LIGHT_GRAY,0x9D9D97);
+        COLOR_MAP.put(DyeColor.CYAN,0x169C9C);
+        COLOR_MAP.put(DyeColor.PURPLE,0x8932B8);
+        COLOR_MAP.put(DyeColor.BLUE,0x3C44AA);
+        COLOR_MAP.put(DyeColor.BROWN,0x835432);
+        COLOR_MAP.put(DyeColor.GREEN,0x5E7C16);
+        COLOR_MAP.put(DyeColor.RED,0xB02E26);
+        COLOR_MAP.put(DyeColor.BLACK,0x1D1D21);
     }
 }
