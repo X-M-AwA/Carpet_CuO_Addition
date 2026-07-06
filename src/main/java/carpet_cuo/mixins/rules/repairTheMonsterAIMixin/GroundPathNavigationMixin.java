@@ -19,7 +19,11 @@ public abstract class GroundPathNavigationMixin extends PathNavigation {
     }
 
     @Inject(
+            //#if MC <= 12108
             method = "createPath(Lnet/minecraft/core/BlockPos;I)Lnet/minecraft/world/level/pathfinder/Path;",
+            //#else
+            //$$ method = "findSurfacePosition",
+            //#endif
             at = @At(
                     value = "INVOKE",
                     //#if MC >= 12103
@@ -32,7 +36,13 @@ public abstract class GroundPathNavigationMixin extends PathNavigation {
             ),
             cancellable = true
     )
+    //#if MC <= 12108
     private void createPath(BlockPos blockPos, int i, CallbackInfoReturnable<Path> cir) {
         if (Carpet_CuOSettings.repairTheMonsterAI) cir.setReturnValue(super.createPath(blockPos, i));
     }
+    //#else
+    //$$ private void createPath(LevelChunk levelChunk, BlockPos blockPos, int i, CallbackInfoReturnable<BlockPos> cir) {
+    //$$     if (Carpet_CuOSettings.repairTheMonsterAI) cir.setReturnValue(blockPos);
+    //$$ }
+    //#endif
 }

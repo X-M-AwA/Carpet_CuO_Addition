@@ -143,4 +143,7 @@ public class Carpet_CuOSettings {
 
     @Rule(categories = {CuO,SURVIVAL,EXPERIMENTAL,NOT_VANILLA})
     public static boolean repairTheMonsterAI = false;
+
+    @Rule(categories = {CuO,CREATIVE,EXPERIMENTAL,NOT_VANILLA})
+    public static boolean populationCanAffectLoadedChunks = false;
 }

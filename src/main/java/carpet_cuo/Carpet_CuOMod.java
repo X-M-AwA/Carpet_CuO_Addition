@@ -1,6 +1,6 @@
 package carpet_cuo;
 
-import carpet_cuo.command.RemoveChunk;
+import carpet_cuo.command.deletedChunk;
 import carpet_cuo.rule.BlockDyeing;
 import carpet_cuo.rule.EntityHighLight;
 import carpet_cuo.rule.OreBreeding;
@@ -20,8 +20,6 @@ public class Carpet_CuOMod implements ModInitializer {
 		Update.init();
 		EntityHighLight.init();
 		OreBreeding.init();
-		CommandRegistrationCallback.EVENT.register(((commandDispatcher, commandBuildContext, commandSelection) -> {
-			RemoveChunk.register(commandDispatcher);
-		}));
+		CommandRegistrationCallback.EVENT.register(((commandDispatcher, commandBuildContext, commandSelection) -> deletedChunk.register(commandDispatcher)));
 	}
 }

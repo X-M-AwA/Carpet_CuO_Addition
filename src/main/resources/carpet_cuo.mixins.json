@@ -4,7 +4,6 @@
   "package": "carpet_cuo.mixins",
   "mixins": [
     "carpet.HUDControllerMixin",
-    "command.ChunkMapMixin",
     "command.MinecraftServerMixin",
     "logger.ChainRestrictedNeighborUpdaterMixin",
     "logger.ServerLevelMixin",
@@ -13,6 +12,7 @@
     "logger.FeatureMixin.GeodeFeatureMixin",
     "logger.FeatureMixin.MonsterRoomFeatureMixin",
     "rules.AbstractBlockStateMixin",
+    "rules.PopulationCanAffectLoadedChunksMixin.LevelWriterMixin",
     "rules.BambooBlockCrashFixMixin.BambooBlockMixin",
     "rules.BlockEntitySwapReintroducedMixin.BlockEntityMixin",
     "rules.BlockEntitySwapReintroducedMixin.WorldChunkMixin",

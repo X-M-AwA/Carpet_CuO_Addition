@@ -11,31 +11,25 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.level.ChunkPos;
-import net.minecraft.world.level.dimension.DimensionType;
-import net.minecraft.world.level.storage.LevelResource;
 //#if MC >= 12111
+//$$ import net.minecraft.core.SectionPos;
 //$$ import net.minecraft.server.permissions.Permission;
 //$$ import net.minecraft.server.permissions.PermissionLevel;
 //$$ import net.minecraft.server.permissions.Permissions;
 //#endif
-import java.io.IOException;
-import java.io.RandomAccessFile;
-import java.nio.file.Files;
-import java.nio.file.Path;
 import java.util.ArrayList;
 
-import static carpet_cuo.Carpet_CuOServer.LOGGER;
-
-public class RemoveChunk {
-    public static final ArrayList<ChunkPos> chunks = new ArrayList<>();
+public class deletedChunk {
+    public static final ArrayList<ChunkPos> chunks = new  ArrayList<>();
+    public static final ArrayList<ServerLevel> levels = new  ArrayList<>();
 
     public static void register(CommandDispatcher<CommandSourceStack> dispatcher) {
         dispatcher.register(
-                Commands.literal("remove")
+                Commands.literal("deleted")
                         .then(Commands.literal("chunk")
                                 .requires(source ->
-                                //#if MC < 12111
-                                source.hasPermission(Carpet_CuOSettings.removeCommandLevel))
+                                        //#if MC < 12111
+                                        source.hasPermission(Carpet_CuOSettings.removeCommandLevel))
                                 //#else
                                 //$$ source.permissions().hasPermission(getLevel(Carpet_CuOSettings.removeCommandLevel)))
                                 //#endif
@@ -67,38 +61,15 @@ public class RemoveChunk {
             //#if MC < 260102
             chunkPos = new ChunkPos(pos);
             //#else
-            //$$ chunkPos = new ChunkPos(pos.getX(), pos.getZ());
+            //$$ x = SectionPos.blockToSectionCoord(pos.getX());
+            //$$ z = SectionPos.blockToSectionCoord(pos.getZ());
+            //$$ chunkPos = new ChunkPos(x, z);
             //#endif
         }
         chunks.add(chunkPos);
-        removeChunk(source.getLevel(), chunkPos);
-        source.sendSuccess(() -> Messenger.s("Successfully deleted"), false);
+        levels.add(source.getLevel());
+        source.sendSuccess(() -> Messenger.s("Successfully deleted, ChunkPos " + chunkPos), false);
         return 1;
-    }
-
-    private static void removeChunk(ServerLevel level, ChunkPos chunkPos) {
-        int regionX = chunkPos.getRegionX();
-        int regionZ = chunkPos.getRegionZ();
-        int localX = chunkPos.getRegionLocalX();
-        int localZ = chunkPos.getRegionLocalZ();
-        int index = localX + localZ * 32;
-
-        Path worldRoot = level.getServer().getWorldPath(LevelResource.ROOT);
-        Path dimensionDir = DimensionType.getStorageFolder(level.dimension(), worldRoot);
-        Path regionDir = dimensionDir.resolve("region");
-        Path regionPath = regionDir.resolve(String.format("r.%d.%d.mca", regionX, regionZ));
-
-        if (Files.exists(regionPath)) {
-            try (RandomAccessFile raf = new RandomAccessFile(regionPath.toFile(), "rw")) {
-                raf.seek((long) index * 4);
-                raf.writeInt(0);
-
-                raf.seek(4096L + (long) index * 4);
-                raf.writeInt(0);
-            } catch (IOException e) {
-                LOGGER.error("Failed to remove chunk {}: ", chunkPos, e);
-            }
-        }
     }
 
     //#if MC >= 12111

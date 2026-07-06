@@ -258,7 +258,6 @@
 * 默认值：`false`
 * 选项：`false`，`true`
 * 分类：`CuO`，`CREATIVE`，`EXPERIMENTAL`
-
 ### (修复怪物ai问题)repairTheMonsterAI
 修复了目标站在固体方块内生物寻路错误的问题
 
@@ -266,3 +265,12 @@
 * 默认值：`false`
 * 选项：`false`，`true`
 * 分类：`CuO`，`SURVIVAL`，`EXPERIMENTAL`，`NOT_VANILLA`
+### (区块装饰会影响已加载区块)populationCanAffectLoadedChunks
+区块装饰会影响已经加载的区块，就像1.12.2一样
+
+**(可能会导致一些未知的问题)**
+
+* 类型：`boolean`
+* 默认值：`false`
+* 选项：`false`，`true`
+* 分类：`CuO`，`CREATIVE`，`EXPERIMENTAL`，`NOT_VANILLA`
