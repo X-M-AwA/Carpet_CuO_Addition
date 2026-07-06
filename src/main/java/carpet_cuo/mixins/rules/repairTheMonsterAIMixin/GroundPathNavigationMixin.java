@@ -6,6 +6,7 @@ import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.ai.navigation.GroundPathNavigation;
 import net.minecraft.world.entity.ai.navigation.PathNavigation;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.chunk.LevelChunk;
 import net.minecraft.world.level.pathfinder.Path;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -42,7 +43,7 @@ public abstract class GroundPathNavigationMixin extends PathNavigation {
     }
     //#else
     //$$ private void createPath(LevelChunk levelChunk, BlockPos blockPos, int i, CallbackInfoReturnable<BlockPos> cir) {
-    //$$     if (Carpet_CuOSettings.repairTheMonsterAI) cir.setReturnValue(blockPos);
-    //$$ }
+    //$$        if (Carpet_CuOSettings.repairTheMonsterAI) cir.setReturnValue(blockPos);
+    //$$    }
     //#endif
 }
