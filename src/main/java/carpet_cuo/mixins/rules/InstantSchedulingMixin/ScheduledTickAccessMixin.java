@@ -83,7 +83,8 @@ public interface ScheduledTickAccessMixin {
     //流体计划刻
     @Unique
     private void scheduledFluidTick(BlockPos blockPos, CallbackInfo ci){
-        if (Carpet_CuOSettings.instantScheduling && this instanceof ServerLevel level) {
+        if (Carpet_CuOSettings.instantScheduling) {
+            ServerLevel level = (ServerLevel) this;
             if (!level.isClientSide()){
                 //#if MC >= 12103
                 BlockState blockState = level.getBlockState(blockPos);

@@ -146,4 +146,7 @@ public class Carpet_CuOSettings {
 
     @Rule(categories = {CuO,CREATIVE,EXPERIMENTAL,NOT_VANILLA})
     public static boolean populationCanAffectLoadedChunks = false;
+
+    @Rule(categories = {CuO,SURVIVAL,EXPERIMENTAL,NOT_VANILLA})
+    public static boolean hangingEntitiesDropInstantly = false;
 }
