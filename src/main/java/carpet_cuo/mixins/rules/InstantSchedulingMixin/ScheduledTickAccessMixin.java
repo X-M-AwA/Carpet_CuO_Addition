@@ -8,6 +8,7 @@ import net.minecraft.world.level.ScheduledTickAccess;
 //#else
 //$$ import net.minecraft.world.level.LevelAccessor;
 //#endif
+import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -30,8 +31,11 @@ import org.spongepowered.asm.mixin.injection.invoke.arg.Args;
 //#else
 //$$ @Mixin(LevelAccessor.class)
 //#endif
-public interface ScheduledTickAccessMixin {
-
+//#if MC>= 12103
+public interface ScheduledTickAccessMixin extends ScheduledTickAccess {
+//#else
+//$$ public interface ScheduledTickAccessMixin extends LevelAccessor {
+//#endif
     //方块计划刻
     @Unique
     private void scheduledBlockTick(BlockPos blockPos, CallbackInfo ci){
@@ -83,8 +87,7 @@ public interface ScheduledTickAccessMixin {
     //流体计划刻
     @Unique
     private void scheduledFluidTick(BlockPos blockPos, CallbackInfo ci){
-        if (Carpet_CuOSettings.instantScheduling) {
-            ServerLevel level = (ServerLevel) this;
+        if (Carpet_CuOSettings.instantScheduling && this instanceof ServerLevel level) {
             if (!level.isClientSide()){
                 //#if MC >= 12103
                 BlockState blockState = level.getBlockState(blockPos);
@@ -97,12 +100,28 @@ public interface ScheduledTickAccessMixin {
                 //#endif
                 ci.cancel();
             }
+        } else if (Carpet_CuOSettings.instantScheduling && this instanceof WorldGenLevel level) {
+            if (!level.isClientSide()) {
+                level.getLevel().getServer().execute(() -> {
+                    //#if MC >= 12103
+                    BlockState blockState = level.getBlockState(blockPos);
+                    //#endif
+                    FluidState fluidState = level.getFluidState(blockPos);
+                    //#if MC >= 12103
+                    fluidState.tick(level.getLevel(), blockPos, blockState);
+                    //#else
+                    //$$ fluidState.tick(level.getLevel(), blockPos);
+                    //#endif
+                    ci.cancel();
+                });
+            }
         }
     }
 
     @Inject(
             method = "scheduleTick(Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/material/Fluid;ILnet/minecraft/world/ticks/TickPriority;)V",
-            at = @At("HEAD")
+            at = @At("HEAD"),
+            cancellable = true
     )
     private void scheduleFluidTickWithPriority(BlockPos blockPos, Fluid fluid, int delay, TickPriority priority, CallbackInfo ci){
         this.scheduledFluidTick(blockPos, ci);
