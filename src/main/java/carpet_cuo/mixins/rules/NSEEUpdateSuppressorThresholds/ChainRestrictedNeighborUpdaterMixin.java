@@ -23,7 +23,7 @@ public abstract class ChainRestrictedNeighborUpdaterMixin {
             )
     )
     private void setCount(CallbackInfo ci){
-        if (Carpet_CuOSettings.NSEEUpdateSuppressorThresholds != -1 && this.count - 1 == Carpet_CuOSettings.NSEEUpdateSuppressorThresholds) {
+        if (Carpet_CuOSettings.NSEEUpdateSuppressorThresholds != -1 && this.count >= Carpet_CuOSettings.NSEEUpdateSuppressorThresholds) {
             this.count = Integer.MAX_VALUE;
         }
     }

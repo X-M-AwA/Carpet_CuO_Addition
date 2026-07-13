@@ -136,7 +136,7 @@ public class Carpet_CuOSettings {
             strict = false,
             categories = {CuO,CREATIVE,FEATURE}
     )
-    public static int removeCommandLevel = 4;
+    public static int chunkCommandLevel = 4;
 
     @Rule(categories = {CuO,CREATIVE,EXPERIMENTAL,NOT_VANILLA})
     public static boolean unrestrictedPlacingBlock = false;

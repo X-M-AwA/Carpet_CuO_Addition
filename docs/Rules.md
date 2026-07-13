@@ -244,8 +244,8 @@
 * 默认值：`false`
 * 选项：`false`，`true`
 * 分类：`CuO`，`SURVIVAL`，`EXPERIMENTAL`
-### (remove指令权限)removeCommandLevel
-更改`remove`指令的权限
+### (chunk指令权限)chunkCommandLevel
+更改`chunk`指令的权限
 
 * 类型：`int`
 * 默认值：`0`
@@ -266,7 +266,7 @@
 * 选项：`false`，`true`
 * 分类：`CuO`，`SURVIVAL`，`EXPERIMENTAL`，`NOT_VANILLA`
 ### (区块装饰会影响已加载区块)populationCanAffectLoadedChunks
-区块装饰会影响已经加载的区块，就像1.12.2一样
+区块装饰会影响已经加载的区块
 
 **(可能会导致一些未知的问题)**
 
