@@ -55,7 +55,7 @@ public class ChunkCommand {
         chunks.add(chunkPos);
         levels.add(source.getLevel());
         removeChunk(source.getLevel(), chunkPos);
-        source.sendSuccess(() -> Messenger.s("Successfully deleted, ChunkPos " + chunkPos), false);
+        source.sendSuccess(() -> Messenger.c(Messenger.tr("carpet.command.chunk.remove"), Messenger.s(chunkPos)), false);
         return 1;
     }
 

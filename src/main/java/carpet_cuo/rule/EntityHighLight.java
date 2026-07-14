@@ -19,8 +19,7 @@ public class EntityHighLight {
 
     public static void init() {
         UseEntityCallback.EVENT.register((player, world, interactionHand, entity, entityHitResult) -> {
-            if (!Carpet_CuOSettings.entityHighLight || player.isShiftKeyDown() || (entity instanceof Player))
-                return InteractionResult.PASS;
+            if (!Carpet_CuOSettings.entityHighLight || player.isShiftKeyDown() || entity instanceof Player) return InteractionResult.PASS;
 
             ItemStack stack = player.getMainHandItem();
             if (stack.getItem() instanceof DyeItem dyeItem) {

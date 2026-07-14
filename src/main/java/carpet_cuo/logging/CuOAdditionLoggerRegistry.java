@@ -1,9 +1,9 @@
-package carpet_cuo.Logging;
+package carpet_cuo.logging;
 
 import carpet.logging.HUDLogger;
 import carpet.logging.Logger;
 import carpet.logging.LoggerRegistry;
-import carpet_cuo.Logging.Logger.*;
+import carpet_cuo.logging.Logger.*;
 
 
 import java.lang.reflect.Field;

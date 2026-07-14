@@ -1,6 +1,6 @@
-package carpet_cuo.Logging.Logger;
+package carpet_cuo.logging.Logger;
 
-import carpet_cuo.Logging.AbstractHUDLogger;
+import carpet_cuo.logging.AbstractHUDLogger;
 import carpet_cuo.utils.Messenger;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.MutableComponent;

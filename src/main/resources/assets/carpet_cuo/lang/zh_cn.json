@@ -36,6 +36,8 @@
   "carpet.rule.repairTheMonsterAI.name": "修复怪物ai问题",
   "carpet.rule.populationCanAffectLoadedChunks.name": "区块装饰会影响已加载区块",
   "carpet.rule.hangingEntitiesDropInstantly.name": "悬挂实体瞬时掉落",
+  "carpet.rule.customizeTheArrowOwner.name": "自定义箭矢主人",
+
 
   "carpet.rule.maxChainDepth.desc": "最大连锁更新深度",
   "carpet.rule.infinitelyVault.desc": "玩家可以无限开宝库",
@@ -72,6 +74,7 @@
   "carpet.rule.repairTheMonsterAI.desc": "修复了目标站在固体方块内生物寻路错误的问题",
   "carpet.rule.populationCanAffectLoadedChunks.desc": "区块装饰会影响已加载区块",
   "carpet.rule.hangingEntitiesDropInstantly.desc": "悬挂实体瞬时掉落",
+  "carpet.rule.customizeTheArrowOwner.desc": "自定义箭矢主人",
 
   "carpet.rule.bedrockCanBeMined.extra.0": "注意：这项功能与carpet org addition的setBedrockHardness冲突",
   "carpet.rule.bedrockCanBeMined.extra.1": "如果仅开启这一项你将无法挖掘基岩",
@@ -85,5 +88,6 @@
 
   "carpet.logger.update.depth": "造成了更新跳略，深度为：",
   "carpet.logger.update.pos": "在坐标：",
-  "carpet.logger.update.chainDepth": "当前更新链深度为："
+  "carpet.logger.update.chainDepth": "当前更新链深度为：",
+  "carpet.command.chunk.remove": "成功删除区块"
 }

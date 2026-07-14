@@ -1,6 +1,6 @@
 package carpet_cuo.mixins.logger;
 
-import carpet_cuo.Logging.Logger.UpdateDepthVisualizeLogger;
+import carpet_cuo.logging.Logger.UpdateDepthVisualizeLogger;
 import net.minecraft.server.level.ServerLevel;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;

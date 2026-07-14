@@ -1,7 +1,7 @@
 package carpet_cuo.mixins.rules.UpdateDepthVisualizeLoggerMixin;
 
-import carpet_cuo.Logging.CuOAdditionLoggerRegistry;
-import carpet_cuo.Logging.Logger.UpdateDepthVisualizeLogger;
+import carpet_cuo.logging.CuOAdditionLoggerRegistry;
+import carpet_cuo.logging.Logger.UpdateDepthVisualizeLogger;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.level.Level;

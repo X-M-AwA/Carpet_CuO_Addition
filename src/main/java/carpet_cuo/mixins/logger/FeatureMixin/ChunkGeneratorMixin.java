@@ -1,8 +1,7 @@
 package carpet_cuo.mixins.logger.FeatureMixin;
 
-import carpet_cuo.Logging.CuOAdditionLoggerRegistry;
-import carpet_cuo.Logging.Logger.FeatureLogger;
-import net.minecraft.core.BlockPos;
+import carpet_cuo.logging.CuOAdditionLoggerRegistry;
+import carpet_cuo.logging.Logger.FeatureLogger;
 import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.StructureManager;
 import net.minecraft.world.level.WorldGenLevel;

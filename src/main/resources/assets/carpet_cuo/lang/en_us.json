@@ -36,6 +36,7 @@
   "carpet.rule.repairTheMonsterAI.name": "repairTheMonsterAI",
   "carpet.rule.populationCanAffectLoadedChunks.name": "populationCanAffectLoadedChunks",
   "carpet.rule.hangingEntitiesDropInstantly.name": "hangingEntitiesDropInstantly",
+  "carpet.rule.customizeTheArrowOwner.name": "customizeTheArrowOwner",
 
   "carpet.rule.maxChainDepth.desc": "max chain depth",
   "carpet.rule.infinitelyVault.desc": "Players can open vaults an unlimited number of times",
@@ -72,6 +73,7 @@
   "carpet.rule.repairTheMonsterAI.desc": "Fixed an issue where the target was standing inside solid blocks with incorrect pathfinding errors",
   "carpet.rule.populationCanAffectLoadedChunks.desc": "Population can affect loaded chunks",
   "carpet.rule.hangingEntitiesDropInstantly.desc": "Hanging entities drop instantly",
+  "carpet.rule.customizeTheArrowOwner.desc": "Custom the arrow owner",
 
   "carpet.rule.bedrockCanBeMined.extra.0": "Note: This rule conflicts with the setBedrockHardness rule from the vanilla Carpet mod",
   "carpet.rule.bedrockCanBeMined.extra.1": "If you only enable this rule, bedrock will be unbreakable",
@@ -85,5 +87,6 @@
 
   "carpet.logger.update.depth": "Caused update skipping, depth: ",
   "carpet.logger.update.pos": " at ",
-  "carpet.logger.update.chainDepth": "Update chain depth: "
+  "carpet.logger.update.chainDepth": "Update chain depth: ",
+  "carpet.command.chunk.remove": "Successfully remove, ChunkPos"
 }

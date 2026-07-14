@@ -1,4 +1,4 @@
-package carpet_cuo.Logging;
+package carpet_cuo.logging;
 
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.network.chat.MutableComponent;

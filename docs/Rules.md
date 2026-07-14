@@ -274,3 +274,12 @@
 * 默认值：`false`
 * 选项：`false`，`true`
 * 分类：`CuO`，`CREATIVE`，`EXPERIMENTAL`，`NOT_VANILLA`
+### (自定义箭矢主人)customizeTheArrowOwner
+开启此功能后，手持弓按住shift+右键一个实体就会将弓重命名为`<生物名称> + UUID`
+
+此后该弓射出的箭的主人会自动变为该UUID的生物
+
+* 类型：`boolean`
+* 默认值：`false`
+* 选项：`false`，`true`
+* 分类：`CuO`，`CREATIVE`，`EXPERIMENTAL`

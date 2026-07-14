@@ -1,10 +1,7 @@
 package carpet_cuo;
 
 import carpet_cuo.command.ChunkCommand;
-import carpet_cuo.rule.BlockDyeing;
-import carpet_cuo.rule.EntityHighLight;
-import carpet_cuo.rule.OreBreeding;
-import carpet_cuo.rule.Update;
+import carpet_cuo.rule.*;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
 import net.fabricmc.loader.api.FabricLoader;
@@ -20,6 +17,7 @@ public class Carpet_CuOMod implements ModInitializer {
 		Update.init();
 		EntityHighLight.init();
 		OreBreeding.init();
+		CustomizeTheArrowOwner.init();
 		CommandRegistrationCallback.EVENT.register((commandDispatcher, commandBuildContext, commandSelection) -> ChunkCommand.getInstance().register(commandDispatcher));
 	}
 }

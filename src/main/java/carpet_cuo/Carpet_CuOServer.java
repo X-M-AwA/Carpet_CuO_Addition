@@ -3,7 +3,7 @@ package carpet_cuo;
 import carpet.CarpetExtension;
 import carpet.CarpetServer;
 import carpet.utils.Translations;
-import carpet_cuo.Logging.CuOAdditionLoggerRegistry;
+import carpet_cuo.logging.CuOAdditionLoggerRegistry;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

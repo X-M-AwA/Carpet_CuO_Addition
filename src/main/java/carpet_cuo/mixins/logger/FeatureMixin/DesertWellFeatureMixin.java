@@ -1,6 +1,6 @@
 package carpet_cuo.mixins.logger.FeatureMixin;
 
-import carpet_cuo.Logging.Logger.FeatureLogger;
+import carpet_cuo.logging.Logger.FeatureLogger;
 import net.minecraft.world.level.levelgen.feature.DesertWellFeature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;

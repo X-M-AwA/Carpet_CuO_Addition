@@ -149,4 +149,7 @@ public class Carpet_CuOSettings {
 
     @Rule(categories = {CuO,SURVIVAL,EXPERIMENTAL,NOT_VANILLA})
     public static boolean hangingEntitiesDropInstantly = false;
+
+    @Rule(categories = {CuO,SURVIVAL,EXPERIMENTAL})
+    public static boolean customizeTheArrowOwner = false;
 }

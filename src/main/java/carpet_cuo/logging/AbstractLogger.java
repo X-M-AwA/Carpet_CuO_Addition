@@ -1,4 +1,4 @@
-package carpet_cuo.Logging;
+package carpet_cuo.logging;
 
 import carpet.logging.Logger;
 import carpet.logging.LoggerRegistry;

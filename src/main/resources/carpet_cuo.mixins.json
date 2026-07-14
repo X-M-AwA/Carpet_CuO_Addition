@@ -12,6 +12,7 @@
     "logger.FeatureMixin.GeodeFeatureMixin",
     "logger.FeatureMixin.MonsterRoomFeatureMixin",
     "rules.AbstractBlockStateMixin",
+    "rules.CustomizeTheArrowOwnerMixin.ProjectileWeaponItemMixin",
     "rules.BambooBlockCrashFixMixin.BambooBlockMixin",
     "rules.BlockEntitySwapReintroducedMixin.BlockEntityMixin",
     "rules.BlockEntitySwapReintroducedMixin.WorldChunkMixin",

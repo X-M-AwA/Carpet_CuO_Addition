@@ -1,8 +1,8 @@
 package carpet_cuo.mixins.rules.ChainUpdateLoggerThresholds;
 
 import carpet_cuo.Carpet_CuOSettings;
-import carpet_cuo.Logging.CuOAdditionLoggerRegistry;
-import carpet_cuo.Logging.Logger.UpdateLogger;
+import carpet_cuo.logging.CuOAdditionLoggerRegistry;
+import carpet_cuo.logging.Logger.UpdateLogger;
 import net.minecraft.world.level.redstone.CollectingNeighborUpdater;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;

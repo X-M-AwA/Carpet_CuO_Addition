@@ -1,8 +1,8 @@
-package carpet_cuo.Logging.Logger;
+package carpet_cuo.logging.Logger;
 
 import carpet.logging.Logger;
 import carpet.logging.LoggerRegistry;
-import carpet_cuo.Logging.AbstractLogger;
+import carpet_cuo.logging.AbstractLogger;
 import carpet_cuo.utils.Messenger;
 import carpet_cuo.utils.NbtManager;
 import net.minecraft.ChatFormatting;

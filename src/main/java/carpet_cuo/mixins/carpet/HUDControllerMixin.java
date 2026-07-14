@@ -1,7 +1,7 @@
 package carpet_cuo.mixins.carpet;
 
 import carpet.logging.HUDController;
-import carpet_cuo.Logging.CuOAdditionHUDController;
+import carpet_cuo.logging.CuOAdditionHUDController;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
