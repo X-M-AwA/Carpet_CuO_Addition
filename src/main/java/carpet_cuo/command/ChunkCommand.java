@@ -11,6 +11,11 @@ import net.minecraft.server.level.*;
 import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.dimension.DimensionType;
 import net.minecraft.world.level.storage.LevelResource;
+//#if MC >= 12111
+//$$ import net.minecraft.server.permissions.Permission;
+//$$ import net.minecraft.server.permissions.PermissionLevel;
+//$$ import net.minecraft.server.permissions.Permissions;
+//#endif
 
 import java.io.IOException;
 import java.io.RandomAccessFile;
@@ -37,7 +42,7 @@ public class ChunkCommand {
                                         //#if MC < 12111
                                         source.hasPermission(Carpet_CuOSettings.chunkCommandLevel))
                                 //#else
-                                //$$ source.permissions().hasPermission(getLevel(Carpet_CuOSettings.removeCommandLevel)))
+                                //$$ source.permissions().hasPermission(getLevel(Carpet_CuOSettings.chunkCommandLevel)))
                                 //#endif
                                 .executes(ctx -> remove(ctx, false))
                                 .then(Commands.argument("x", IntegerArgumentType.integer())
