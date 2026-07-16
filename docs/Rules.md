@@ -274,6 +274,15 @@
 * 默认值：`false`
 * 选项：`false`，`true`
 * 分类：`CuO`，`CREATIVE`，`EXPERIMENTAL`，`NOT_VANILLA`
+### (悬挂实体瞬时掉落)hangingEntitiesDropInstantly
+开启后当悬挂实体受到更新后会检查是否可以继续存在，否则就会掉落
+
+注意：开启后原来的每100tick的遍历就没有了
+
+* 类型：`boolean`
+* 默认值：`false`
+* 选项：`false`，`true`
+* 分类：`CuO`，`CREATIVE`，`OPTIMIZATION`，`NOT_VANILLA`
 ### (自定义箭矢主人)customizeTheArrowOwner
 开启此功能后，手持弓按住shift+右键一个实体就会将弓重命名为`<生物名称> + UUID`
 
