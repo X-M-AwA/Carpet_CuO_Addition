@@ -16,6 +16,7 @@ import net.minecraft.world.phys.AABB;
 import org.jetbrains.annotations.Nullable;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
+import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
@@ -45,26 +46,34 @@ public abstract class LevelMixin {
             Level level = (Level) (Object) this;
             if (level.isClientSide()) return;
 
+            update(level, null, blockPos);
             for (Direction direction : NeighborUpdater.UPDATE_ORDER) {
-                BlockPos pos = blockPos.mutable().move(direction);
-                AABB aabb = new AABB(pos);
-                //#if MC <= 260102
-                List<Entity> entities = this.getEntities(null, aabb, entity -> (entity instanceof HangingEntity));
+                update(level, direction, blockPos);
+            }
+        }
+    }
+
+    @Unique
+    private void update(Level level, Direction direction, BlockPos blockPos) {
+        BlockPos pos;
+        if (direction != null) pos = blockPos.mutable().move(direction);
+        else pos = blockPos;
+        AABB aabb = new AABB(pos);
+        //#if MC <= 260102
+        List<Entity> entities = this.getEntities(null, aabb, entity -> (entity instanceof HangingEntity));
+        //#else
+        //$$ List<Entity> entities = this.getEntities(null, aabb, entity -> (entity instanceof HangingEntity));
+        //#endif
+        for (Entity entity : entities) {
+            HangingEntity hangingEntity = (HangingEntity) entity;
+            if (!hangingEntity.survives()) {
+                //#if MC >= 12103
+                hangingEntity.kill((ServerLevel) level);
+                hangingEntity.dropItem((ServerLevel) level, entity);
                 //#else
-                //$$ List<Entity> entities = this.getEntities(null, aabb, entity -> (entity instanceof HangingEntity));
+                //$$ hangingEntity.kill();
+                //$$ hangingEntity.dropItem(entity);
                 //#endif
-                for (Entity entity : entities) {
-                    HangingEntity hangingEntity = (HangingEntity) entity;
-                    if (!hangingEntity.survives()) {
-                        //#if MC >= 12103
-                        hangingEntity.kill((ServerLevel) level);
-                        hangingEntity.dropItem((ServerLevel) level, entity);
-                        //#else
-                        //$$ hangingEntity.kill();
-                        //$$ hangingEntity.dropItem(entity);
-                        //#endif
-                    }
-                }
             }
         }
     }
