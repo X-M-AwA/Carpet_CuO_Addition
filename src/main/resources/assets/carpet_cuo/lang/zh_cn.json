@@ -89,5 +89,8 @@
   "carpet.logger.update.depth": "造成了更新跳略，深度为：",
   "carpet.logger.update.pos": "在坐标：",
   "carpet.logger.update.chainDepth": "当前更新链深度为：",
-  "carpet.command.chunk.remove": "成功删除区块"
+  "carpet.command.chunk.remove": "成功删除区块",
+  "carpet.command.rules.fail": "失败",
+  "carpet.command.rules.def": "成功将所有规则设为默认值",
+  "carpet.command.rules.value": "成功设置所有规则"
 }

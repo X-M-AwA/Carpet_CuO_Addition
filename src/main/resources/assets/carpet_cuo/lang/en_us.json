@@ -88,5 +88,8 @@
   "carpet.logger.update.depth": "Caused update skipping, depth: ",
   "carpet.logger.update.pos": " at ",
   "carpet.logger.update.chainDepth": "Update chain depth: ",
-  "carpet.command.chunk.remove": "Successfully remove, ChunkPos"
+  "carpet.command.chunk.remove": "Successfully remove, ChunkPos",
+  "carpet.command.rules.fail": "Fail",
+  "carpet.command.rules.def": "Successfully set all rules to default values",
+  "carpet.command.rules.value": "All rules were successfully set"
 }
