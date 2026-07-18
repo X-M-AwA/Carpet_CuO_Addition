@@ -292,3 +292,21 @@
 * 默认值：`false`
 * 选项：`false`，`true`
 * 分类：`CuO`，`CREATIVE`，`EXPERIMENTAL`
+### (光照抑制也可以加载区块)lightSuppressionCanAlsoLoadClocks
+开启后当区块内光照更新的时间超过了指定阈值就会暂时跳过(会生成一个无光区块)
+
+在计算完成后只需重载区块就可以恢复正常，已经完成光照计算的区块也不受影响
+
+* 类型：`boolean`
+* 默认值：`false`
+* 选项：`false`，`true`
+* 分类：`CuO`，`CREATIVE`，`EXPERIMENTAL`，`NOT_VANILLA`
+### (区块光照更新跳过阈值)lightingUpdateSkipsThresholds
+区块内光照加载世界阈值，如果开启了`lightSuppressionCanAlsoLoadClocks`当计算时间超过该阈值就会暂时跳过
+
+单位(ms),现实时间
+
+* 类型：`int`
+* 默认值：`250`
+* 选项：`50`，`250`，`500`，`750`，`1000`
+* 分类：`CuO`，`CREATIVE`，`EXPERIMENTAL`，`NOT_VANILLA`
