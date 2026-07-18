@@ -37,6 +37,8 @@
   "carpet.rule.populationCanAffectLoadedChunks.name": "区块装饰会影响已加载区块",
   "carpet.rule.hangingEntitiesDropInstantly.name": "悬挂实体瞬时掉落",
   "carpet.rule.customizeTheArrowOwner.name": "自定义箭矢主人",
+  "carpet.rule.lightSuppressionCanAlsoLoadClocks.name": "光照抑制可以加载区块",
+  "carpet.rule.lightingUpdateSkipsThresholds.name": "跳过区块光照更新阈值",
 
 
   "carpet.rule.maxChainDepth.desc": "最大连锁更新深度",
@@ -75,6 +77,8 @@
   "carpet.rule.populationCanAffectLoadedChunks.desc": "区块装饰会影响已加载区块",
   "carpet.rule.hangingEntitiesDropInstantly.desc": "悬挂实体瞬时掉落",
   "carpet.rule.customizeTheArrowOwner.desc": "自定义箭矢主人",
+  "carpet.rule.lightSuppressionCanAlsoLoadClocks.desc": "即使开启光照抑制也可以加载区块",
+  "carpet.rule.lightingUpdateSkipsThresholds.desc": "跳过区块生成的光照计算步骤所需要的阈值",
 
   "carpet.rule.bedrockCanBeMined.extra.0": "注意：这项功能与carpet org addition的setBedrockHardness冲突",
   "carpet.rule.bedrockCanBeMined.extra.1": "如果仅开启这一项你将无法挖掘基岩",
