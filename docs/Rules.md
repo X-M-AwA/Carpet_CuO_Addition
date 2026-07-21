@@ -310,3 +310,19 @@
 * 默认值：`250`
 * 选项：`50`，`250`，`500`，`750`，`1000`
 * 分类：`CuO`，`CREATIVE`，`EXPERIMENTAL`，`NOT_VANILLA`
+### (游戏刻优化)gameTickOptimization
+你可以自定义游戏在一个游戏刻内运行哪些阶段，输入对应的阶段，那么之后的游戏刻将不会再运算该阶段
+
+* 格式为"游戏阶段,游戏阶段"
+  * weather → 天气更新
+  * scheduleTick，TT或NTE → 计划刻
+  * raids → 袭击
+  * chunk或CT → 区块刻
+  * blockEvent或BE → 方块事件
+  * entityUpdate或EU → 实体
+  * blockEntity或TE → 方块实体
+
+
+* 类型：`String`
+* 默认值：`false`
+* 分类：`CuO`，`FEATURE`，`OPTIMIZATION`，`EXPERIMENTAL`
