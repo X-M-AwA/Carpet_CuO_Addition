@@ -25,11 +25,11 @@ public abstract class ThreadedLevelLightEngineMixin {
             method = "initializeLight",
             at = @At("RETURN")
     )
-    private CompletableFuture<ChunkAccess> skipInitializeLight(CompletableFuture<ChunkAccess> original, @Local(argsOnly = true) ChunkAccess chunkAccess, @Local ChunkPos chunkPos, @Local(argsOnly = true) boolean bl) {
+    private CompletableFuture<ChunkAccess> skipInitializeLight(CompletableFuture<ChunkAccess> original, @Local(argsOnly = true) ChunkAccess chunkAccess, @Local(argsOnly = true) boolean bl) {
         if (Carpet_CuOSettings.lightSuppressionCanAlsoLoadClocks) {
             return original.orTimeout(Carpet_CuOSettings.lightingUpdateSkipsThresholds, TimeUnit.MILLISECONDS).exceptionally(throwable -> {
-                this.setLightEnabled(chunkPos, bl);
-                this.retainData(chunkPos, false);
+                this.setLightEnabled(chunkAccess.getPos(), bl);
+                this.retainData(chunkAccess.getPos(), false);
                 return chunkAccess;
             });
         }

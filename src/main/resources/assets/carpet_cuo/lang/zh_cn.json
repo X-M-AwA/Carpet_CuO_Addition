@@ -39,6 +39,7 @@
   "carpet.rule.customizeTheArrowOwner.name": "自定义箭矢主人",
   "carpet.rule.lightSuppressionCanAlsoLoadClocks.name": "光照抑制可以加载区块",
   "carpet.rule.lightingUpdateSkipsThresholds.name": "跳过区块光照更新阈值",
+  "carpet.rule.gameTickOptimization.name": "游戏刻优化",
 
 
   "carpet.rule.maxChainDepth.desc": "最大连锁更新深度",
@@ -79,6 +80,7 @@
   "carpet.rule.customizeTheArrowOwner.desc": "自定义箭矢主人",
   "carpet.rule.lightSuppressionCanAlsoLoadClocks.desc": "即使开启光照抑制也可以加载区块",
   "carpet.rule.lightingUpdateSkipsThresholds.desc": "跳过区块生成的光照计算步骤所需要的阈值",
+  "carpet.rule.gameTickOptimization.desc": "游戏刻优化",
 
   "carpet.rule.bedrockCanBeMined.extra.0": "注意：这项功能与carpet org addition的setBedrockHardness冲突",
   "carpet.rule.bedrockCanBeMined.extra.1": "如果仅开启这一项你将无法挖掘基岩",
@@ -89,6 +91,9 @@
   "carpet.rule.blockDyeing.extra.0": "包括以下方块：羊毛\n地毯\n蜡烛\n混凝土&混凝土粉末\n陶瓦&带釉陶瓦\n染色玻璃&染色玻璃板\n潜影盒",
   "carpet.rule.placeableNetherPortal.extra.0": "玩家放置的紫色带釉陶瓦会变为地狱门",
   "carpet.rule.simpleChunkDupe.extra.0": "在区块内放置命名为\"ChunkDupe\"的潜影盒\n该区块在保存时将会抛出异常",
+  "carpet.rule.gameTickOptimization.extra.0": "你可以自定义游戏在一个游戏刻内运行哪些阶段，输入对应的阶段，那么之后的游戏刻将不会再运算该阶段",
+  "carpet.rule.gameTickOptimization.extra.1": "格式为\"游戏阶段,游戏阶段\"",
+  "carpet.rule.gameTickOptimization.extra.2": "weather -> 天气更新\nscheduleTick，TT或NTE -> 计划刻\nraids -> 袭击\nchunk或CT -> 区块刻\nblockEvent或BE -> 方块事件\nentityUpdate或EU -> 实体\nblockEntity或TE -> 方块实体",
 
   "carpet.logger.update.depth": "造成了更新跳略，深度为：",
   "carpet.logger.update.pos": "在坐标：",

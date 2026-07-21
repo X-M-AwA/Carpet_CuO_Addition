@@ -163,4 +163,7 @@ public class Carpet_CuOSettings {
             categories = {CuO,CREATIVE,EXPERIMENTAL,NOT_VANILLA}
     )
     public static int lightingUpdateSkipsThresholds = 250;
+
+    @Rule(categories = {CuO,CREATIVE,OPTIMIZATION,EXPERIMENTAL})
+    public static String gameTickOptimization = "false";
 }
