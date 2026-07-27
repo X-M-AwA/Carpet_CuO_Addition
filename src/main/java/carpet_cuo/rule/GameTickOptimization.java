@@ -5,8 +5,13 @@ public class GameTickOptimization {
     public static boolean scheduleTick;
     public static boolean raids;
     public static boolean chunkTick;
+    public static boolean chunk;
+    public static boolean chunkUnlade;
+    public static boolean purgeLoadingTickets;
     public static boolean blockEvent;
+    public static boolean dragonFight;
     public static boolean entityUpdate;
+    public static boolean entityDespawn;
     public static boolean blockEntity;
 
     public static void setSkipPhases(String config) {
@@ -14,8 +19,13 @@ public class GameTickOptimization {
         scheduleTick = false;
         raids = false;
         chunkTick = false;
+        chunk = false;
+        chunkUnlade = false;
+        purgeLoadingTickets = false;
         blockEvent = false;
+        dragonFight = false;
         entityUpdate = false;
+        entityDespawn = false;
         blockEntity = false;
         if (config == null || config.trim().isEmpty()) return;
 
@@ -23,13 +33,19 @@ public class GameTickOptimization {
         for (String phase : phases) {
             String p = phase.trim();
             switch (p) {
-                case "weather": weather = true; break;
-                case "scheduleTick", "TT", "NTE": scheduleTick = true; break;
-                case "raids": raids = true; break;
-                case "chunk", "CT": chunkTick = true; break;
-                case "blockEvent", "BE": blockEvent = true; break;
-                case "entityUpdate", "EU": entityUpdate = true; break;
-                case "blockEntity", "TE": blockEntity = true; break;
+                case "weather" -> weather = true;
+                case "scheduleTick", "TT", "NTE" -> scheduleTick = true;
+                case "raids" -> raids = true;
+                case "chunkTick", "CT" -> chunkTick = true;
+                case "chunk" -> chunk = true;
+                case "chunkUnlade" -> chunkUnlade = true;
+                case "purgeLoadingTickets", "loadingTickets" -> purgeLoadingTickets = true;
+                case "blockEvent", "BE" -> blockEvent = true;
+                case "dragonFight" -> dragonFight = true;
+                case "entityUpdate", "EU" -> entityUpdate = true;
+                case "entityDespawn" -> entityDespawn = true;
+                case "blockEntity", "TE" -> blockEntity = true;
+                default -> throw new IllegalStateException("Unexpected value: " + p);
             }
         }
     }

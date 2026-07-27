@@ -166,4 +166,10 @@ public class Carpet_CuOSettings {
 
     @Rule(categories = {CuO,CREATIVE,OPTIMIZATION,EXPERIMENTAL})
     public static String gameTickOptimization = "false";
+
+    @Rule(categories = {CuO,CREATIVE,EXPERIMENTAL,NOT_VANILLA})
+    public static boolean moreReasonableRails = false;
+
+    @Rule(categories = {CuO,CREATIVE,EXPERIMENTAL,NOT_VANILLA})
+    public static boolean unloadedEntitiesDoNotAffectLoadedChunk = false;
 }
