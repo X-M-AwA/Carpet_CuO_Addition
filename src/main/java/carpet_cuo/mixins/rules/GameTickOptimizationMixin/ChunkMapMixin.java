@@ -9,7 +9,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(ChunkMap.class)
 public class ChunkMapMixin {
-    //区块内tick
+    //区块
     @Inject(
             method = "tick()V",
             at = @At("HEAD"),

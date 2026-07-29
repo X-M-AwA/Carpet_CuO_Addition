@@ -5,7 +5,11 @@ import net.minecraft.core.Direction;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
+//#if MC >= 12103
 import net.minecraft.world.level.ScheduledTickAccess;
+//#else
+//$$ import net.minecraft.world.level.LevelAccessor;
+//#endif
 import net.minecraft.world.level.block.BaseRailBlock;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
@@ -49,6 +53,7 @@ public abstract class BaseRailBlockMixin extends Block {
             method = "updateShape",
             at = @At("HEAD")
     )
+    //#if MC >= 12103
     private void updateShape(BlockState blockState, LevelReader levelReader, ScheduledTickAccess scheduledTickAccess, BlockPos blockPos, Direction direction, BlockPos blockPos2, BlockState blockState2, RandomSource randomSource, CallbackInfoReturnable<BlockState> cir) {
         if (!levelReader.isClientSide() && levelReader.getBlockState(blockPos).is(this)) {
             RailShape shape = blockState.getValue(this.getShapeProperty());
@@ -58,4 +63,15 @@ public abstract class BaseRailBlockMixin extends Block {
             }
         }
     }
+    //#else
+    //$$ private void updateShape(BlockState blockState, Direction direction, BlockState blockState2, LevelAccessor levelAccessor, BlockPos blockPos, BlockPos blockPos2, CallbackInfoReturnable<BlockState> cir) {
+    //$$        if (!levelAccessor.isClientSide() && levelAccessor.getBlockState(blockPos).is(this)) {
+    //$$            RailShape shape = blockState.getValue(this.getShapeProperty());
+    //$$            if (shouldBeRemoved(blockPos, (Level) levelAccessor, shape)) {
+    //$$                dropResources(blockState, (Level) levelAccessor, blockPos);
+    //$$                levelAccessor.removeBlock(blockPos, false);
+    //$$            }
+    //$$        }
+    //$$    }
+    //#endif
 }

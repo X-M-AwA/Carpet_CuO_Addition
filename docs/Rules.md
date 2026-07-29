@@ -317,12 +317,31 @@
   * weather → 天气更新
   * scheduleTick，TT或NTE → 计划刻
   * raids → 袭击
-  * chunk或CT → 区块刻
+  * chunkTick或CT → 区块刻(开启后随机刻等也不会运行)
+  * chunk → 区块(区块内玩家与实体的追踪)
+  * chunkUnload → 区块维护与卸载
+  * purgeLoadingTickets → 加载票过期删除
   * blockEvent或BE → 方块事件
+  * dragonFight → 龙战
   * entityUpdate或EU → 实体
+  * entityDespawn → 实体超出128距离删除
   * blockEntity或TE → 方块实体
 
 
 * 类型：`String`
 * 默认值：`false`
 * 分类：`CuO`，`FEATURE`，`OPTIMIZATION`，`EXPERIMENTAL`
+### (更合理的铁轨)moreReasonableRails
+开启后铁轨若接受pp更新且处于浮空状态，将会掉落
+
+* 类型：`boolean`
+* 默认值：`false`
+* 选项：`false`，`true`
+* 分类：`CuO`，`CREATIVE`，`EXPERIMENTAL`，`NOT_VANILLA`
+### (实体未加载不会影响已加载区块运行)unloadedEntitiesDoNotAffectLoadedChunk
+实体未加载不会影响已加载区块运行
+
+* 类型：`boolean`
+* 默认值：`false`
+* 选项：`false`，`true`
+* 分类：`CuO`，`CREATIVE`，`EXPERIMENTAL`，`NOT_VANILLA`
