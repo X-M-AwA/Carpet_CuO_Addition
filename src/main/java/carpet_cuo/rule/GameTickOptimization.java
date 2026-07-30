@@ -45,7 +45,6 @@ public class GameTickOptimization {
                 case "entityUpdate", "EU" -> entityUpdate = true;
                 case "entityDespawn" -> entityDespawn = true;
                 case "blockEntity", "TE" -> blockEntity = true;
-                default -> throw new IllegalStateException("Unexpected value: " + p);
             }
         }
     }
