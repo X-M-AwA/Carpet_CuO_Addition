@@ -345,3 +345,12 @@
 * 默认值：`false`
 * 选项：`false`，`true`
 * 分类：`CuO`，`CREATIVE`，`EXPERIMENTAL`，`NOT_VANILLA`
+### (绊线计划刻修复)tripwireScheduleTickFix
+开启后绊线熄灭不会再添加0gt的计划刻了
+
+详见MC-310372
+
+* 类型：`boolean`
+* 默认值：`false`
+* 选项：`false`，`true`
+* 分类：`CuO`，`CREATIVE`，`BUGFIX`

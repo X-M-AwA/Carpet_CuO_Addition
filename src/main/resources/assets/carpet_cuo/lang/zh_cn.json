@@ -42,6 +42,7 @@
   "carpet.rule.gameTickOptimization.name": "游戏刻优化",
   "carpet.rule.moreReasonableRails.name": "更合理的铁轨",
   "carpet.rule.unloadedEntitiesDoNotAffectLoadedChunk.name": "未加载的实体不会影响已加载的区块",
+  "carpet.rule.tripwireScheduleTickFix.name": "绊线计划刻修复",
 
   "carpet.rule.maxChainDepth.desc": "最大连锁更新深度",
   "carpet.rule.infinitelyVault.desc": "玩家可以无限开宝库",
@@ -84,6 +85,7 @@
   "carpet.rule.gameTickOptimization.desc": "游戏刻优化",
   "carpet.rule.moreReasonableRails.desc": "更合理的铁轨",
   "carpet.rule.unloadedEntitiesDoNotAffectLoadedChunk.desc": "未加载的实体不会影响已加载的区块",
+  "carpet.rule.tripwireScheduleTickFix.desc": "修复了绊线会在断电后添加一个0gt计划刻的bug",
 
   "carpet.rule.bedrockCanBeMined.extra.0": "注意：这项功能与carpet org addition的setBedrockHardness冲突",
   "carpet.rule.bedrockCanBeMined.extra.1": "如果仅开启这一项你将无法挖掘基岩",

@@ -42,6 +42,7 @@
   "carpet.rule.gameTickOptimization.name": "gameTickOptimization",
   "carpet.rule.moreReasonableRails.name": "moreReasonableRails",
   "carpet.rule.unloadedEntitiesDoNotAffectLoadedChunk.name": "unloadedEntitiesDoNotAffectLoadedChunk",
+  "carpet.rule.tripwireScheduleTickFix.name": "tripwireScheduleTickFix",
 
   "carpet.rule.maxChainDepth.desc": "max chain depth",
   "carpet.rule.infinitelyVault.desc": "Players can open vaults an unlimited number of times",
@@ -84,6 +85,7 @@
   "carpet.rule.gameTickOptimization.desc": "Game tick optimization",
   "carpet.rule.moreReasonableRails.desc": "More reasonable rails",
   "carpet.rule.unloadedEntitiesDoNotAffectLoadedChunk.desc": "Unloaded entities will not affect loaded chunk",
+  "carpet.rule.tripwireScheduleTickFix.desc": "Fixed a bug where tripwires would add a 0GT schedule tick after power outage",
 
   "carpet.rule.bedrockCanBeMined.extra.0": "Note: This rule conflicts with the setBedrockHardness rule from the vanilla Carpet mod",
   "carpet.rule.bedrockCanBeMined.extra.1": "If you only enable this rule, bedrock will be unbreakable",

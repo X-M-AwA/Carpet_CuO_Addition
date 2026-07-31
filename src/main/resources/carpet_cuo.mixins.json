@@ -12,7 +12,6 @@
     "logger.FeatureMixin.GeodeFeatureMixin",
     "logger.FeatureMixin.MonsterRoomFeatureMixin",
     "rules.AbstractBlockStateMixin",
-    "rules.UnloadedEntitiesDoNotAffectLoadedChunkMixin.LevelChunkMixin",
     "rules.BambooBlockCrashFixMixin.BambooBlockMixin",
     "rules.BlockEntitySwapReintroducedMixin.BlockEntityMixin",
     "rules.BlockEntitySwapReintroducedMixin.WorldChunkMixin",
@@ -61,6 +60,8 @@
     "rules.ScaffoldingBlockCanBeRipeningMixin.ScaffoldingBlockMixin",
     "rules.SimpleChunkDupe.SerializableChunkDataMixin",
     "rules.SpongeCanBeDriedNaturallyMixin.WetSpongeBlockMixin",
+    "rules.TripwireScheduleTickFixMixin.TripWireBlockMixin",
+    "rules.UnloadedEntitiesDoNotAffectLoadedChunkMixin.LevelChunkMixin",
     "rules.UnrestrictedPlacingBlockMixin.BlockItemMixin",
     "rules.UpdateDepthVisualizeLoggerMixin.LevelMixin"
   ],
