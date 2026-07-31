@@ -173,6 +173,8 @@ public class Carpet_CuOSettings {
     @Rule(categories = {CuO,CREATIVE,EXPERIMENTAL,NOT_VANILLA})
     public static boolean unloadedEntitiesDoNotAffectLoadedChunk = false;
 
-    @Rule(categories = {CuO,CREATIVE,BUGFIX})
-    public static boolean tripwireScheduleTickFix = false;
+    //#if MC >= 260200
+    //$$ @Rule(categories = {CuO,CREATIVE,BUGFIX})
+    //$$ public static boolean tripwireScheduleTickFix = false;
+    //#endif
 }
