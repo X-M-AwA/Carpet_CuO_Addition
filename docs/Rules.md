@@ -286,6 +286,8 @@
 ### (自定义箭矢主人)customizeTheArrowOwner
 开启此功能后，手持弓按住shift+右键一个实体就会将弓重命名为`<生物名称> + UUID`
 
+你也可以手动修改UUID切换绑定的实体
+
 此后该弓射出的箭的主人会自动变为该UUID的生物
 
 * 类型：`boolean`
@@ -354,3 +356,10 @@
 * 默认值：`false`
 * 选项：`false`，`true`
 * 分类：`CuO`，`CREATIVE`，`BUGFIX`
+### (团簇装饰可以产生更新)oreFeatureCanSendBlockUpdate
+在区块装饰放置团簇时(如矿物等等)会产生PP更新
+
+* 类型：`boolean`
+* 默认值：`false`
+* 选项：`false`，`true`
+* 分类：`CuO`，`CREATIVE`，`EXPERIMENTAL`，`NOT_VANILLA`
