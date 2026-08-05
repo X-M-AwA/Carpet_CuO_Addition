@@ -1,7 +1,9 @@
 package carpet_cuo.mixins.rules.MoreReasonableRailsMixin;
 
+import carpet_cuo.Carpet_CuOSettings;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
@@ -55,21 +57,25 @@ public abstract class BaseRailBlockMixin extends Block {
     )
     //#if MC >= 12103
     private void updateShape(BlockState blockState, LevelReader levelReader, ScheduledTickAccess scheduledTickAccess, BlockPos blockPos, Direction direction, BlockPos blockPos2, BlockState blockState2, RandomSource randomSource, CallbackInfoReturnable<BlockState> cir) {
-        if (!levelReader.isClientSide() && levelReader.getBlockState(blockPos).is(this)) {
-            RailShape shape = blockState.getValue(this.getShapeProperty());
-            if (shouldBeRemoved(blockPos, (Level) levelReader, shape)) {
-                dropResources(blockState, (Level) levelReader, blockPos);
-                ((Level) levelReader).removeBlock(blockPos, false);
+        if (Carpet_CuOSettings.moreReasonableRails && levelReader instanceof ServerLevel serverLevel) {
+            if (!serverLevel.isClientSide() && serverLevel.getBlockState(blockPos).is(this)) {
+                RailShape shape = blockState.getValue(this.getShapeProperty());
+                if (shouldBeRemoved(blockPos, serverLevel, shape)) {
+                    dropResources(blockState, serverLevel, blockPos);
+                    serverLevel.removeBlock(blockPos, false);
+                }
             }
         }
     }
     //#else
     //$$ private void updateShape(BlockState blockState, Direction direction, BlockState blockState2, LevelAccessor levelAccessor, BlockPos blockPos, BlockPos blockPos2, CallbackInfoReturnable<BlockState> cir) {
-    //$$        if (!levelAccessor.isClientSide() && levelAccessor.getBlockState(blockPos).is(this)) {
-    //$$            RailShape shape = blockState.getValue(this.getShapeProperty());
-    //$$            if (shouldBeRemoved(blockPos, (Level) levelAccessor, shape)) {
-    //$$                dropResources(blockState, (Level) levelAccessor, blockPos);
-    //$$                levelAccessor.removeBlock(blockPos, false);
+    //$$        if (Carpet_CuOSettings.moreReasonableRails && levelAccessor instanceof ServerLevel serverLevel) {
+    //$$            if (serverLevel.getBlockState(blockPos).is(this)) {
+    //$$                RailShape shape = blockState.getValue(this.getShapeProperty());
+    //$$                if (shouldBeRemoved(blockPos, serverLevel, shape)) {
+    //$$                    dropResources(blockState, serverLevel, blockPos);
+    //$$                    serverLevel.removeBlock(blockPos, false);
+    //$$                }
     //$$            }
     //$$        }
     //$$    }

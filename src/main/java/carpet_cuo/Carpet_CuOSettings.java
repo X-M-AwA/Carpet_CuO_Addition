@@ -145,7 +145,7 @@ public class Carpet_CuOSettings {
     public static boolean repairTheMonsterAI = false;
 
     @Rule(categories = {CuO,CREATIVE,EXPERIMENTAL,NOT_VANILLA})
-    public static boolean populationCanAffectLoadedChunks = false;
+    public static boolean chunkPopulationCanAffectLoadedChunks = false;
 
     @Rule(categories = {CuO,SURVIVAL,OPTIMIZATION,NOT_VANILLA})
     public static boolean hangingEntitiesDropInstantly = false;
@@ -177,4 +177,7 @@ public class Carpet_CuOSettings {
     //$$ @Rule(categories = {CuO,CREATIVE,BUGFIX})
     //$$ public static boolean tripwireScheduleTickFix = false;
     //#endif
+
+    @Rule(categories = {CuO,CREATIVE,EXPERIMENTAL,NOT_VANILLA})
+    public static boolean oreFeatureCanSendBlockUpdate = false;
 }

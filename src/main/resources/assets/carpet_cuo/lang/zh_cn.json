@@ -34,7 +34,7 @@
   "carpet.rule.chunkCommandLevel.name": "chunk指令权限等级",
   "carpet.rule.unrestrictedPlacingBlock.name": "无方块放置限制",
   "carpet.rule.repairTheMonsterAI.name": "修复怪物ai问题",
-  "carpet.rule.populationCanAffectLoadedChunks.name": "区块装饰会影响已加载区块",
+  "carpet.rule.chunkPopulationCanAffectLoadedChunks.name": "区块装饰会影响已加载区块",
   "carpet.rule.hangingEntitiesDropInstantly.name": "悬挂实体瞬时掉落",
   "carpet.rule.customizeTheArrowOwner.name": "自定义箭矢主人",
   "carpet.rule.lightSuppressionCanAlsoLoadClocks.name": "光照抑制可以加载区块",
@@ -43,6 +43,7 @@
   "carpet.rule.moreReasonableRails.name": "更合理的铁轨",
   "carpet.rule.unloadedEntitiesDoNotAffectLoadedChunk.name": "未加载的实体不会影响已加载的区块",
   "carpet.rule.tripwireScheduleTickFix.name": "绊线计划刻修复",
+  "carpet.rule.oreFeatureCanSendBlockUpdate.name": "团簇装饰可以发出更新",
 
   "carpet.rule.maxChainDepth.desc": "最大连锁更新深度",
   "carpet.rule.infinitelyVault.desc": "玩家可以无限开宝库",
@@ -77,7 +78,7 @@
   "carpet.rule.chunkCommandLevel.desc": "chunk指令权限等级",
   "carpet.rule.unrestrictedPlacingBlock.desc": "无方块放置限制",
   "carpet.rule.repairTheMonsterAI.desc": "修复了目标站在固体方块内生物寻路错误的问题",
-  "carpet.rule.populationCanAffectLoadedChunks.desc": "区块装饰会影响已加载区块",
+  "carpet.rule.chunkPopulationCanAffectLoadedChunks.desc": "区块装饰会影响已加载区块",
   "carpet.rule.hangingEntitiesDropInstantly.desc": "悬挂实体瞬时掉落",
   "carpet.rule.customizeTheArrowOwner.desc": "自定义箭矢主人",
   "carpet.rule.lightSuppressionCanAlsoLoadClocks.desc": "即使开启光照抑制也可以加载区块",
@@ -86,6 +87,7 @@
   "carpet.rule.moreReasonableRails.desc": "更合理的铁轨",
   "carpet.rule.unloadedEntitiesDoNotAffectLoadedChunk.desc": "未加载的实体不会影响已加载的区块",
   "carpet.rule.tripwireScheduleTickFix.desc": "修复了绊线会在断电后添加一个0gt计划刻的bug",
+  "carpet.rule.oreFeatureCanSendBlockUpdate.desc": "团簇装饰可以发出更新",
 
   "carpet.rule.bedrockCanBeMined.extra.0": "注意：这项功能与carpet org addition的setBedrockHardness冲突",
   "carpet.rule.bedrockCanBeMined.extra.1": "如果仅开启这一项你将无法挖掘基岩",

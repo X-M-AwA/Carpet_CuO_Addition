@@ -34,7 +34,7 @@
   "carpet.rule.chunkCommandLevel.name": "chunkCommandLevel",
   "carpet.rule.unrestrictedPlacingBlock.name": "unrestrictedPlacingBlock",
   "carpet.rule.repairTheMonsterAI.name": "repairTheMonsterAI",
-  "carpet.rule.populationCanAffectLoadedChunks.name": "populationCanAffectLoadedChunks",
+  "carpet.rule.chunkPopulationCanAffectLoadedChunks.name": "populationCanAffectLoadedChunks",
   "carpet.rule.hangingEntitiesDropInstantly.name": "hangingEntitiesDropInstantly",
   "carpet.rule.customizeTheArrowOwner.name": "customizeTheArrowOwner",
   "carpet.rule.lightSuppressionCanAlsoLoadClocks.name": "lightSuppressionCanAlsoLoadClocks",
@@ -43,6 +43,7 @@
   "carpet.rule.moreReasonableRails.name": "moreReasonableRails",
   "carpet.rule.unloadedEntitiesDoNotAffectLoadedChunk.name": "unloadedEntitiesDoNotAffectLoadedChunk",
   "carpet.rule.tripwireScheduleTickFix.name": "tripwireScheduleTickFix",
+  "carpet.rule.oreFeatureCanSendBlockUpdate.name": "oreFeatureCanSendBlockUpdate",
 
   "carpet.rule.maxChainDepth.desc": "max chain depth",
   "carpet.rule.infinitelyVault.desc": "Players can open vaults an unlimited number of times",
@@ -77,7 +78,7 @@
   "carpet.rule.chunkCommandLevel.desc": "Chunk command Level",
   "carpet.rule.unrestrictedPlacingBlock.desc": "Placing blocks is unrestricted",
   "carpet.rule.repairTheMonsterAI.desc": "Fixed an issue where the target was standing inside solid blocks with incorrect pathfinding errors",
-  "carpet.rule.populationCanAffectLoadedChunks.desc": "Population can affect loaded chunks",
+  "carpet.rule.chunkPopulationCanAffectLoadedChunks.desc": "Population can affect loaded chunks",
   "carpet.rule.hangingEntitiesDropInstantly.desc": "Hanging entities drop instantly",
   "carpet.rule.customizeTheArrowOwner.desc": "Custom the arrow owner",
   "carpet.rule.lightSuppressionCanAlsoLoadClocks.desc": "Chunks can still be loaded even with light suppression enabled",
@@ -86,6 +87,7 @@
   "carpet.rule.moreReasonableRails.desc": "More reasonable rails",
   "carpet.rule.unloadedEntitiesDoNotAffectLoadedChunk.desc": "Unloaded entities will not affect loaded chunk",
   "carpet.rule.tripwireScheduleTickFix.desc": "Fixed a bug where tripwires would add a 0GT schedule tick after power outage",
+  "carpet.rule.oreFeatureCanSendBlockUpdate.desc": "Ore feature can send block update",
 
   "carpet.rule.bedrockCanBeMined.extra.0": "Note: This rule conflicts with the setBedrockHardness rule from the vanilla Carpet mod",
   "carpet.rule.bedrockCanBeMined.extra.1": "If you only enable this rule, bedrock will be unbreakable",
