@@ -35,7 +35,7 @@
 * 默认值：`false`
 * 选项：`false`，`true`
 * 分类：`CuO`，`SURVIVAL`，`FEATURE`，`NOT_VANILLA`
-### (没有附魔等级上限)noEnchantmentLevelLimit
+### (没有附魔等级上限)removeTooExpensiveLimit
 没有附魔等级上限
 
 这意味着你可以在铁砧上敲出的附魔等级最高为255
@@ -100,11 +100,9 @@
 * 选项：`false`，`true`
 * 分类：`CuO`，`SURVIVAL`，`EXPERIMENTAL`，`FEATURE`
 ### (方块染色)blockDyeing
-主手拿燃料右键染色方块可以将方块颜色改变为染料颜色
+主手拿染料右键染色方块可以将方块颜色改变为染料颜色
 
-~~因技术原因不支持床~~
-
-支持的方块种类有:潜影盒 羊毛 地毯 蜡烛 混凝土&混凝土粉末 陶瓦&带釉陶瓦 染色玻璃&染色玻璃板
+甚至支持将沙子染色为红沙
 
 * 类型：`boolean`
 * 默认值：`false`
@@ -363,3 +361,10 @@
 * 默认值：`false`
 * 选项：`false`，`true`
 * 分类：`CuO`，`CREATIVE`，`EXPERIMENTAL`，`NOT_VANILLA`
+### (手动氧化铜)rustingCopperManually
+主手拿水瓶按住shift并右键可以强制未涂蜡的铜制方块进入下一氧化阶段
+
+* 类型：`boolean`
+* 默认值：`false`
+* 选项：`false`，`true`
+* 分类：`CuO`，`FEATURE`，`CREATIVE`，`EXPERIMENTAL`

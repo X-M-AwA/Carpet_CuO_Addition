@@ -180,4 +180,7 @@ public class Carpet_CuOSettings {
 
     @Rule(categories = {CuO,CREATIVE,EXPERIMENTAL,NOT_VANILLA})
     public static boolean oreFeatureCanSendBlockUpdate = false;
+
+    @Rule(categories = {CuO,FEATURE,CREATIVE,EXPERIMENTAL})
+    public static boolean rustingCopperManually = false;
 }

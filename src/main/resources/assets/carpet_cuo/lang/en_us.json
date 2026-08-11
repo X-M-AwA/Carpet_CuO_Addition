@@ -44,6 +44,7 @@
   "carpet.rule.unloadedEntitiesDoNotAffectLoadedChunk.name": "unloadedEntitiesDoNotAffectLoadedChunk",
   "carpet.rule.tripwireScheduleTickFix.name": "tripwireScheduleTickFix",
   "carpet.rule.oreFeatureCanSendBlockUpdate.name": "oreFeatureCanSendBlockUpdate",
+  "carpet.rule.rustingCopperManually.name": "rustingCopperManually",
 
   "carpet.rule.maxChainDepth.desc": "max chain depth",
   "carpet.rule.infinitelyVault.desc": "Players can open vaults an unlimited number of times",
@@ -88,6 +89,7 @@
   "carpet.rule.unloadedEntitiesDoNotAffectLoadedChunk.desc": "Unloaded entities will not affect loaded chunk",
   "carpet.rule.tripwireScheduleTickFix.desc": "Fixed a bug where tripwires would add a 0GT schedule tick after power outage",
   "carpet.rule.oreFeatureCanSendBlockUpdate.desc": "Ore feature can send block update",
+  "carpet.rule.rustingCopperManually.desc": "Holding a water bottle in your main hand, holding down shift and right-clicking on copper-type blocks can manually allow them to enter the next oxidation stage",
 
   "carpet.rule.bedrockCanBeMined.extra.0": "Note: This rule conflicts with the setBedrockHardness rule from the vanilla Carpet mod",
   "carpet.rule.bedrockCanBeMined.extra.1": "If you only enable this rule, bedrock will be unbreakable",
@@ -95,7 +97,6 @@
   "carpet.rule.infinitelyTotem.extra.0": "When a totem is used,it is not consumed",
   "carpet.rule.comparatorDupeFix.extra.0": "Fix the comparator item duplication glitch",
   "carpet.rule.noEnchantmentLevelLimit.extra.0": "Enchantment level can reach 225 and it is recommended to use the noTooExpensive function",
-  "carpet.rule.blockDyeing.extra.0": "Includes the following blocks: wool\nwool carpet\ncandle\nterracotta & glazed terracotta\nconcrete powder & concrete\nstained glass & stained glass pane\nshulker box",
   "carpet.rule.placeableNetherPortal.extra.0": "The purple glazed terracotta placed by the player transforms into the nether portal",
   "carpet.rule.simpleChunkDupe.extra.0": "Place a shulker box named \"ChunkDupe\" inside a chunk\nthis chunk will throw an exception when saved",
   "carpet.rule.gameTickOptimization.extra.0": "You can customize which phases are executed during a game tick. Enter the corresponding phase names, and subsequent game ticks will skip those phases.",
@@ -112,7 +113,6 @@
   "carpet.rule.gameTickOptimization.extra.11": "entityUpdate or EU -> entity updates",
   "carpet.rule.gameTickOptimization.extra.12": "entityDespawn -> entity despawn",
   "carpet.rule.gameTickOptimization.extra.13": "blockEntity or TE -> block entities",
-
   "carpet.logger.update.depth": "Caused update skipping, depth: ",
   "carpet.logger.update.pos": " at ",
   "carpet.logger.update.chainDepth": "Update chain depth: ",

@@ -21,7 +21,7 @@ public abstract class BlockEntityMixin {
             cancellable = true
     )
     private void skipValidateSupports(CallbackInfo ci){
-        if (Carpet_CuOSettings.blockEntitySwapReintroduced)ci.cancel();
+        if (Carpet_CuOSettings.blockEntitySwapReintroduced) ci.cancel();
     }
 }
 //#endif

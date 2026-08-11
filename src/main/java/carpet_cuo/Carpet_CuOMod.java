@@ -13,6 +13,7 @@ public class Carpet_CuOMod implements ModInitializer {
 	@Override
 	public void onInitialize() {
 		version = FabricLoader.getInstance().getModContainer(MOD_ID).orElseThrow(RuntimeException::new).getMetadata().getVersion().getFriendlyString();
+		RustingCopperManually.init();
 		Carpet_CuOServer.init();
 		BlockDyeing.init();
 		Update.init();

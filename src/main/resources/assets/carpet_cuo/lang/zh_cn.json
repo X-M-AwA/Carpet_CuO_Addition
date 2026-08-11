@@ -44,6 +44,7 @@
   "carpet.rule.unloadedEntitiesDoNotAffectLoadedChunk.name": "未加载的实体不会影响已加载的区块",
   "carpet.rule.tripwireScheduleTickFix.name": "绊线计划刻修复",
   "carpet.rule.oreFeatureCanSendBlockUpdate.name": "团簇装饰可以发出更新",
+  "carpet.rule.rustingCopperManually.name": "手动使铜生锈",
 
   "carpet.rule.maxChainDepth.desc": "最大连锁更新深度",
   "carpet.rule.infinitelyVault.desc": "玩家可以无限开宝库",
@@ -88,6 +89,7 @@
   "carpet.rule.unloadedEntitiesDoNotAffectLoadedChunk.desc": "未加载的实体不会影响已加载的区块",
   "carpet.rule.tripwireScheduleTickFix.desc": "修复了绊线会在断电后添加一个0gt计划刻的bug",
   "carpet.rule.oreFeatureCanSendBlockUpdate.desc": "团簇装饰可以发出更新",
+  "carpet.rule.rustingCopperManually.desc": "主手拿着水瓶按住shift并右键铜类型的方块可以手动让它们进入下一氧化阶段",
 
   "carpet.rule.bedrockCanBeMined.extra.0": "注意：这项功能与carpet org addition的setBedrockHardness冲突",
   "carpet.rule.bedrockCanBeMined.extra.1": "如果仅开启这一项你将无法挖掘基岩",
@@ -95,7 +97,6 @@
   "carpet.rule.infinitelyTotem.extra.0": "不会消耗图腾",
   "carpet.rule.comparatorDupeFix.extra.0": "比较器复制还是太not vanilla了，直接修复",
   "carpet.rule.noEnchantmentLevelLimit.extra.0": "附魔等级可以一直堆叠到225,建议搭配noTooExpensive功能",
-  "carpet.rule.blockDyeing.extra.0": "包括以下方块：羊毛\n地毯\n蜡烛\n混凝土&混凝土粉末\n陶瓦&带釉陶瓦\n染色玻璃&染色玻璃板\n潜影盒",
   "carpet.rule.placeableNetherPortal.extra.0": "玩家放置的紫色带釉陶瓦会变为地狱门",
   "carpet.rule.simpleChunkDupe.extra.0": "在区块内放置命名为\"ChunkDupe\"的潜影盒\n该区块在保存时将会抛出异常",
   "carpet.rule.gameTickOptimization.extra.0": "你可以自定义游戏在一个游戏刻内运行哪些阶段，输入对应的阶段，那么之后的游戏刻将不会再运算该阶段",
@@ -112,7 +113,6 @@
   "carpet.rule.gameTickOptimization.extra.11": "entityUpdate或EU -> 实体更新",
   "carpet.rule.gameTickOptimization.extra.12": "entityDespawn -> 实体消失",
   "carpet.rule.gameTickOptimization.extra.13": "blockEntity或TE -> 方块实体",
-  
   "carpet.logger.update.depth": "造成了更新跳略，深度为：",
   "carpet.logger.update.pos": "在坐标：",
   "carpet.logger.update.chainDepth": "当前更新链深度为：",

@@ -4,7 +4,6 @@ import carpet_cuo.Carpet_CuOSettings;
 import com.llamalad7.mixinextras.sugar.Local;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.tags.BlockTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.levelgen.feature.OreFeature;
@@ -40,11 +39,10 @@ public abstract class OreFeatureMixin {
             BlockPos.MutableBlockPos pos = new BlockPos.MutableBlockPos();
             for (Direction direction : UPDATE_SHAPE_ORDER) {
                 pos.setWithOffset(mutableBlockPos, direction);
-                if (worldGenLevel.getBlockState(pos).is(BlockTags.RAILS)) return;
                 //#if MC >= 12103
                 worldGenLevel.neighborShapeChanged(direction.getOpposite(), pos, mutableBlockPos, targetBlockState.state, 2, 512);
                 //#else
-                //$$ worldGenLevel.neighborShapeChanged(direction.getOpposite(), targetBlockState.state, pos, mutableBlockPos, 2, 512);
+                //$$ worldGenLevel.neighborShapeChanged(direction.getOpposite(), targetBlockState.state, mutableBlockPos, pos, 2, 512);
                 //#endif
             }
         }
