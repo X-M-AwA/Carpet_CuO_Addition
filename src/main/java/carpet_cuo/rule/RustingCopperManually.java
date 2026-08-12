@@ -36,7 +36,7 @@ public class RustingCopperManually {
             //#if MC >= 12006
             if (contents != null && contents.is(Potions.WATER) && blockState.getBlock() instanceof WeatheringCopper copper) {
             //#else
-            //&& if (contents == Potions.WATER && blockState.getBlock() instanceof WeatheringCopper copper) {
+            //$$ if (contents == Potions.WATER && blockState.getBlock() instanceof WeatheringCopper copper) {
             //#endif
                 copper.getNext(blockState).ifPresent(state -> {
                     if (level.setBlock(blockPos, state, 3)) {
