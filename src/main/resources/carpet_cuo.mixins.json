@@ -6,6 +6,7 @@
     "carpet.HUDControllerMixin",
     "command.MinecraftServerMixin",
     "logger.ChainRestrictedNeighborUpdaterMixin",
+    "logger.DisplayInvoker",
     "logger.ServerLevelMixin",
     "logger.FeatureMixin.ChunkGeneratorMixin",
     "logger.FeatureMixin.DesertWellFeatureMixin",

@@ -3,6 +3,7 @@ package carpet_cuo.logging.Logger;
 import carpet.logging.Logger;
 import carpet.logging.LoggerRegistry;
 import carpet_cuo.logging.AbstractLogger;
+import carpet_cuo.mixins.logger.DisplayInvoker;
 import carpet_cuo.utils.Messenger;
 import carpet_cuo.utils.NbtManager;
 import net.minecraft.ChatFormatting;
@@ -54,7 +55,8 @@ public class UpdateDepthVisualizeLogger extends AbstractLogger {
         nbt.putByte("see_through", (byte) 1);
         NbtManager.writeToEntity(entity, nbt);
 
-        entity.setText(Messenger.f(Messenger.s("Limit " + UpdateLimit), ChatFormatting.DARK_AQUA));
+        //神秘bug导致访问加宽用不了，无奈使用这种方法((((((((
+        ((DisplayInvoker) entity).carpet_cuo$setText(Messenger.f(Messenger.s("Limit " + UpdateLimit), ChatFormatting.DARK_AQUA));
         entity.setInvisible(true);
         entity.setNoGravity(true);
         entity.setInvulnerable(true);
@@ -64,6 +66,7 @@ public class UpdateDepthVisualizeLogger extends AbstractLogger {
 
         long expireTick = level.getGameTime() + SURVIVE_TIME;
         VISUALIZERS.put(pos, Map.entry(entity, expireTick));
+        entity.tick();
     }
 
     public static void tick(ServerLevel level) {
