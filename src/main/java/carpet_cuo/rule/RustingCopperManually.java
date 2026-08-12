@@ -3,7 +3,12 @@ package carpet_cuo.rule;
 import carpet_cuo.Carpet_CuOSettings;
 import net.fabricmc.fabric.api.event.player.UseBlockCallback;
 import net.minecraft.core.BlockPos;
+//#if MC >= 12006
 import net.minecraft.core.component.DataComponents;
+//#else
+//$$ import net.minecraft.world.item.alchemy.Potion;
+//$$ import net.minecraft.world.item.alchemy.PotionUtils;
+//#endif
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
@@ -20,11 +25,19 @@ public class RustingCopperManually {
             if (!Carpet_CuOSettings.rustingCopperManually || !player.isShiftKeyDown()) return InteractionResult.PASS;
 
             ItemStack itemStack = player.getMainHandItem();
+            //#if MC >= 12006
             PotionContents contents = itemStack.get(DataComponents.POTION_CONTENTS);
+            //#else
+            //$$ Potion contents = PotionUtils.getPotion(itemStack);
+            //#endif
             BlockPos blockPos = blockHitResult.getBlockPos();
             BlockState blockState = level.getBlockState(blockPos);
 
+            //#if MC >= 12006
             if (contents != null && contents.is(Potions.WATER) && blockState.getBlock() instanceof WeatheringCopper copper) {
+            //#else
+            //&& if (contents == Potions.WATER && blockState.getBlock() instanceof WeatheringCopper copper) {
+            //#endif
                 copper.getNext(blockState).ifPresent(state -> {
                     if (level.setBlock(blockPos, state, 3)) {
                         ItemStack emptyBottle = useItem(itemStack, player);
