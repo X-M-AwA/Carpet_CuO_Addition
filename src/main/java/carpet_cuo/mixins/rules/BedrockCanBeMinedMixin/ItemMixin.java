@@ -1,4 +1,4 @@
-package carpet_cuo.mixins.rules.DedrockCanBeMinedMixin;
+package carpet_cuo.mixins.rules.BedrockCanBeMinedMixin;
 
 //#if MC <= 12004
 //$$import net.minecraft.world.level.block.state.BlockState;

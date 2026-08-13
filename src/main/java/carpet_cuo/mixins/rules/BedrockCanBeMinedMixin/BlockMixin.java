@@ -1,4 +1,4 @@
-package carpet_cuo.mixins.rules.EndPortalFrameCanBeMinedMixin;
+package carpet_cuo.mixins.rules.BedrockCanBeMinedMixin;
 
 import carpet_cuo.Carpet_CuOSettings;
 import net.minecraft.world.level.block.Block;
@@ -34,10 +34,10 @@ public abstract class BlockMixin {
         //#else
         //$$ private void onBreak(Level level, BlockPos pos, BlockState state, Player player, CallbackInfo ci) {
         //#endif
-        if (Carpet_CuOSettings.endPortalFrameCanBeMined && state.is(Blocks.END_PORTAL_FRAME) && !player.isCreative()) {
+        if (Carpet_CuOSettings.bedrockCanBeMined && state.is(Blocks.BEDROCK) && !player.isCreative()) {
             ItemStack tool = player.getMainHandItem();
             if (tool.isCorrectToolForDrops(Blocks.OBSIDIAN.defaultBlockState())) {
-                ItemStack drop = new ItemStack(Items.END_PORTAL_FRAME);
+                ItemStack drop = new ItemStack(Items.BEDROCK);
                 popResource(level, pos, drop);
             }
         }

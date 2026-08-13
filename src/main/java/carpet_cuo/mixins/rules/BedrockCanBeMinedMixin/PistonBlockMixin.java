@@ -1,4 +1,4 @@
-package carpet_cuo.mixins.rules.DedrockCanBeMinedMixin;
+package carpet_cuo.mixins.rules.BedrockCanBeMinedMixin;
 
 import net.minecraft.world.level.block.piston.PistonBaseBlock;
 import net.minecraft.world.level.block.state.BlockState;
