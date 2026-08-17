@@ -1,4 +1,4 @@
-package carpet_cuo.rule;
+package carpet_cuo.rule.EntityHighLight;
 
 public interface IEntityColor {
     int getHighlightColor();

@@ -1,4 +1,4 @@
-package carpet_cuo.rule;
+package carpet_cuo.rule.BlockDyeing;
 
 import carpet_cuo.Carpet_CuOSettings;
 import carpet_cuo.utils.NbtManager;

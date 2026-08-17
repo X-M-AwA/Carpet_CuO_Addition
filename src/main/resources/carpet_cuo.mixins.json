@@ -38,6 +38,7 @@
     "rules.GameTickOptimizationMixin.ServerLevelMixin",
     "rules.HangingEntityDropInstantlyMixin.BlockAttachedEntityMixin",
     "rules.HangingEntityDropInstantlyMixin.LevelMixin",
+    "rules.InfiniteBuffMixin.ServerLevelMixin",
     "rules.InfinitelyTotemMixin.LivingEntityMixin",
     "rules.InfinitelyVaultMixin.VaultServerDateMixin",
     "rules.InstantDispenserAndDropperMixin.DispenserBlockMixin",

@@ -2,7 +2,12 @@ package carpet_cuo;
 
 import carpet_cuo.command.ChunkCommand;
 import carpet_cuo.command.RulesCommand;
-import carpet_cuo.rule.*;
+import carpet_cuo.rule.BlockDyeing.BlockDyeing;
+import carpet_cuo.rule.CustomizeTheArrowOwner.CustomizeTheArrowOwner;
+import carpet_cuo.rule.EntityHighLight.EntityHighLight;
+import carpet_cuo.rule.OreBreeding.OreBreeding;
+import carpet_cuo.rule.RightClickBlockUpdate.RightClickBlockUpdate;
+import carpet_cuo.rule.RustingCopperManually.RustingCopperManually;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
 import net.fabricmc.loader.api.FabricLoader;
@@ -16,7 +21,7 @@ public class Carpet_CuOMod implements ModInitializer {
 		RustingCopperManually.init();
 		Carpet_CuOServer.init();
 		BlockDyeing.init();
-		Update.init();
+		RightClickBlockUpdate.init();
 		EntityHighLight.init();
 		OreBreeding.init();
 		CustomizeTheArrowOwner.init();

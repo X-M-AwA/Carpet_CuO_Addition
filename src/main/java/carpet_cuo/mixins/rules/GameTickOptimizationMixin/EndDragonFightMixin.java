@@ -1,6 +1,6 @@
 package carpet_cuo.mixins.rules.GameTickOptimizationMixin;
 
-import carpet_cuo.rule.GameTickOptimization;
+import carpet_cuo.rule.GameTickOptimization.GameTickOptimization;
 import org.spongepowered.asm.mixin.Mixin;
 //#if MC < 260102
 import net.minecraft.world.level.dimension.end.EndDragonFight;

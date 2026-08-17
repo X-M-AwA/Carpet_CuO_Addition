@@ -1,4 +1,4 @@
-package carpet_cuo.rule;
+package carpet_cuo.rule.RustingCopperManually;
 
 import carpet_cuo.Carpet_CuOSettings;
 import net.fabricmc.fabric.api.event.player.UseBlockCallback;

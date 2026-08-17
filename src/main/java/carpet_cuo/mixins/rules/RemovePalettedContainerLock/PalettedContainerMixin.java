@@ -8,7 +8,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(PalettedContainer.class)
-public class PalettedContainerMixin {
+public abstract class PalettedContainerMixin {
     @Inject(
             method = "acquire",
             at = @At("HEAD"),

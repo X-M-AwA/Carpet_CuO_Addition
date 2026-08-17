@@ -1,4 +1,4 @@
-package carpet_cuo.rule;
+package carpet_cuo.rule.GameTickOptimization;
 
 public class GameTickOptimization {
     public static boolean weather;

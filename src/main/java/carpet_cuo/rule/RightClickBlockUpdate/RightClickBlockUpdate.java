@@ -1,4 +1,4 @@
-package carpet_cuo.rule;
+package carpet_cuo.rule.RightClickBlockUpdate;
 
 import carpet_cuo.Carpet_CuOSettings;
 import net.fabricmc.fabric.api.event.player.UseBlockCallback;
@@ -8,7 +8,7 @@ import net.minecraft.world.InteractionResult;
 
 import java.util.concurrent.Executors;
 
-public class Update {
+public class RightClickBlockUpdate {
     public static void init(){
         UseBlockCallback.EVENT.register((player, world, interactionHand, hitResult) -> {
             if (!Carpet_CuOSettings.rightClickBlockUpdate.equals("false") && !player.isShiftKeyDown()) {
@@ -20,7 +20,7 @@ public class Update {
                     return InteractionResult.SUCCESS;
                 }else if (Carpet_CuOSettings.rightClickBlockUpdate.equals("async") && state != null) {
                     Executors.newFixedThreadPool(2).submit(()-> {
-                        if (state != null) world.setBlock(hitResult.getBlockPos(), state, 3);
+                        world.setBlock(hitResult.getBlockPos(), state, 3);
                     });
                     return InteractionResult.SUCCESS;
                 }

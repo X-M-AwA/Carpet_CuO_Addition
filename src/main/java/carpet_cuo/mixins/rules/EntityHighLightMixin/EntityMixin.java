@@ -1,7 +1,7 @@
 package carpet_cuo.mixins.rules.EntityHighLightMixin;
 
 import carpet_cuo.Carpet_CuOSettings;
-import carpet_cuo.rule.IEntityColor;
+import carpet_cuo.rule.EntityHighLight.IEntityColor;
 import com.llamalad7.mixinextras.injector.ModifyReturnValue;
 import net.minecraft.world.entity.Entity;
 import org.spongepowered.asm.mixin.Implements;

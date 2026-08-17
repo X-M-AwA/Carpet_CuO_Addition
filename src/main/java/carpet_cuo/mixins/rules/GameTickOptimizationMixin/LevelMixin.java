@@ -1,6 +1,6 @@
 package carpet_cuo.mixins.rules.GameTickOptimizationMixin;
 
-import carpet_cuo.rule.GameTickOptimization;
+import carpet_cuo.rule.GameTickOptimization.GameTickOptimization;
 import net.minecraft.world.level.Level;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;

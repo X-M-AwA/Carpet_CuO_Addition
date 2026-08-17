@@ -7,7 +7,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 
 @Mixin(LevelChunk.BoundTickingBlockEntity.class)
-public class LevelChunkMixin {
+public abstract class LevelChunkMixin {
     @ModifyExpressionValue(
             method = "tick",
             at = @At(

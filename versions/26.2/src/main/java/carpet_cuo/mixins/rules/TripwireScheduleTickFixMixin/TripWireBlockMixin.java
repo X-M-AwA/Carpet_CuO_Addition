@@ -13,7 +13,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import java.util.List;
 
 @Mixin(TripWireBlock.class)
-public class TripWireBlockMixin {
+public abstract class TripWireBlockMixin {
     @Inject(
             method = "checkPressed(Lnet/minecraft/world/level/Level;Lnet/minecraft/core/BlockPos;Ljava/util/List;)V",
             at = @At(

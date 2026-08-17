@@ -45,6 +45,7 @@
   "carpet.rule.tripwireScheduleTickFix.name": "绊线计划刻修复",
   "carpet.rule.oreFeatureCanSendBlockUpdate.name": "团簇装饰可以发出更新",
   "carpet.rule.rustingCopperManually.name": "手动使铜生锈",
+  "carpet.rule.infiniteBuff.name": "无限增益",
 
   "carpet.rule.maxChainDepth.desc": "最大连锁更新深度",
   "carpet.rule.infinitelyVault.desc": "玩家可以无限开宝库",
@@ -90,6 +91,7 @@
   "carpet.rule.tripwireScheduleTickFix.desc": "修复了绊线会在断电后添加一个0gt计划刻的bug",
   "carpet.rule.oreFeatureCanSendBlockUpdate.desc": "团簇装饰可以发出更新",
   "carpet.rule.rustingCopperManually.desc": "主手拿着水瓶按住shift并右键铜类型的方块可以手动让它们进入下一氧化阶段",
+  "carpet.rule.infiniteBuff.desc": "永久获得食物的增益效果",
 
   "carpet.rule.bedrockCanBeMined.extra.0": "注意：这项功能与carpet org addition的setBedrockHardness冲突",
   "carpet.rule.bedrockCanBeMined.extra.1": "如果仅开启这一项你将无法挖掘基岩",
@@ -113,6 +115,7 @@
   "carpet.rule.gameTickOptimization.extra.11": "entityUpdate或EU -> 实体更新",
   "carpet.rule.gameTickOptimization.extra.12": "entityDespawn -> 实体消失",
   "carpet.rule.gameTickOptimization.extra.13": "blockEntity或TE -> 方块实体",
+  "carpet.rule.infiniteBuff.extra.0": "若背包中有名字含有[InfiniteBuff]的食物/药水，将永久获得它的Buff",
   "carpet.logger.update.depth": "造成了更新跳略，深度为：",
   "carpet.logger.update.pos": "在坐标：",
   "carpet.logger.update.chainDepth": "当前更新链深度为：",

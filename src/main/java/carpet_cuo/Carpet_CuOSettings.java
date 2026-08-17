@@ -183,4 +183,7 @@ public class Carpet_CuOSettings {
 
     @Rule(categories = {CuO,FEATURE,CREATIVE,EXPERIMENTAL})
     public static boolean rustingCopperManually = false;
+
+    @Rule(categories = {CuO,SURVIVAL,FEATURE,NOT_VANILLA})
+    public static boolean infiniteBuff = false;
 }
