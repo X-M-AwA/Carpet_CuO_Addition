@@ -8,6 +8,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 //#if MC > 12104
 //$$ import net.minecraft.server.level.ChunkMap;
+//$$ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 //#endif
 
 @Mixin(DistanceManager.class)
