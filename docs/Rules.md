@@ -369,7 +369,7 @@
 * 选项：`false`，`true`
 * 分类：`CuO`，`FEATURE`，`CREATIVE`，`EXPERIMENTAL`
 ### (无限增益)infiniteBuff
-若背包中有名字含有[InfiniteBuff]的食物/药水，将永久获得它的Buff
+若背包中有名字带有[InfiniteBuff]的食物/药水，将永久获得它的效果
 
 * 类型：`boolean`
 * 默认值：`false`
