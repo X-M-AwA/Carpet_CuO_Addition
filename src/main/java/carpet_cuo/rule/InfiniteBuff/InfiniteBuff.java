@@ -36,7 +36,12 @@ public class InfiniteBuff {
     private void collectEffects(ServerPlayer player) {
         this.pendingEffects.clear();
 
+        //#if MC < 12105
         for (ItemStack itemStack : player.getInventory().items) {
+            //#else
+            //$$ for (int i = 0; i < 36; i++) {
+            //$$     ItemStack itemStack = player.getInventory().getItem(i);
+            //#endif
             if (itemStack.isEmpty()) continue;
 
             String name = "";
