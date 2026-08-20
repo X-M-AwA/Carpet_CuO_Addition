@@ -17,6 +17,7 @@
 	"mixins": [
 		"carpet_cuo.mixins.json"
 	],
+	"accessWidener": "carpet_cuo_addition.accesswidener",
 	"depends": {
 		"fabricloader": "*",
 		"minecraft": "${minecraft_dependency}",

@@ -4,6 +4,7 @@
   "package": "carpet_cuo.mixins",
   "mixins": [
     "carpet.HUDControllerMixin",
+    "carpet.SettingsManagerMixin",
     "command.MinecraftServerMixin",
     "logger.ChainRestrictedNeighborUpdaterMixin",
     "logger.DisplayInvoker",
@@ -45,7 +46,8 @@
     "rules.InstantFireBlockMixin.FireBlockMixin",
     "rules.InstantSchedulingMixin.ScheduledTickAccessMixin",
     "rules.LightSuppressionCanAlsoLoadClocksMixin.ThreadedLevelLightEngineMixin",
-    "rules.MaxChainDepthMixin.ChainRestrictedNeighborUpdaterMixin",
+    "rules.MaxChainDepthMixin.ChainRestrictedNeighborUpdaterAccessor",
+    "rules.MaxChainDepthMixin.LevelAccessor",
     "rules.MaxUpdateDepthMixin.WorldMixin",
     "rules.MoreReasonableRailsMixin.BaseRailBlockMixin",
     "rules.NoEnchantmentLevelLimitMixin.AnvilScreenHandlerMixin",

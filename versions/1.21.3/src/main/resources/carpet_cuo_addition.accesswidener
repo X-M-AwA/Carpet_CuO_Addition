@@ -1,4 +1,3 @@
 accessWidener v2 named
 accessible class net/minecraft/world/level/redstone/CollectingNeighborUpdater$NeighborUpdates
-accessible field net/minecraft/world/item/Item components Lnet/minecraft/core/component/DataComponentMap;
 accessible class net/minecraft/world/level/chunk/LevelChunk$BoundTickingBlockEntity
