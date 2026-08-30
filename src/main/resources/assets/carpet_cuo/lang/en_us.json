@@ -43,7 +43,6 @@
   "carpet.rule.moreReasonableRails.name": "moreReasonableRails",
   "carpet.rule.unloadedEntitiesDoNotAffectLoadedChunk.name": "unloadedEntitiesDoNotAffectLoadedChunk",
   "carpet.rule.tripwireScheduleTickFix.name": "tripwireScheduleTickFix",
-  "carpet.rule.oreFeatureCanSendBlockUpdate.name": "oreFeatureCanSendBlockUpdate",
   "carpet.rule.rustingCopperManually.name": "rustingCopperManually",
   "carpet.rule.infiniteBuff.name": "infiniteBuff",
 
@@ -89,7 +88,6 @@
   "carpet.rule.moreReasonableRails.desc": "More reasonable rails",
   "carpet.rule.unloadedEntitiesDoNotAffectLoadedChunk.desc": "Unloaded entities will not affect loaded chunk",
   "carpet.rule.tripwireScheduleTickFix.desc": "Fixed a bug where tripwires would add a 0GT schedule tick after power outage",
-  "carpet.rule.oreFeatureCanSendBlockUpdate.desc": "Ore feature can send block update",
   "carpet.rule.rustingCopperManually.desc": "Holding a water bottle in your main hand, holding down shift and right-clicking on copper-type blocks can manually allow them to enter the next oxidation stage",
   "carpet.rule.infiniteBuff.desc": "Permanently gain the buff effect of food",
 

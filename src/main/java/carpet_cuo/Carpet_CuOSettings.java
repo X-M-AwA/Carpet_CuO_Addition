@@ -178,9 +178,6 @@ public class Carpet_CuOSettings {
     //$$ public static boolean tripwireScheduleTickFix = false;
     //#endif
 
-    @Rule(categories = {CuO,CREATIVE,EXPERIMENTAL,NOT_VANILLA})
-    public static boolean oreFeatureCanSendBlockUpdate = false;
-
     @Rule(categories = {CuO,FEATURE,CREATIVE,EXPERIMENTAL})
     public static boolean rustingCopperManually = false;
 

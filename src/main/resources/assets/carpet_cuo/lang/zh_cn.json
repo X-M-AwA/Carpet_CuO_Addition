@@ -43,7 +43,6 @@
   "carpet.rule.moreReasonableRails.name": "更合理的铁轨",
   "carpet.rule.unloadedEntitiesDoNotAffectLoadedChunk.name": "未加载的实体不会影响已加载的区块",
   "carpet.rule.tripwireScheduleTickFix.name": "绊线计划刻修复",
-  "carpet.rule.oreFeatureCanSendBlockUpdate.name": "团簇装饰可以发出更新",
   "carpet.rule.rustingCopperManually.name": "手动使铜生锈",
   "carpet.rule.infiniteBuff.name": "无限增益",
 
@@ -89,7 +88,6 @@
   "carpet.rule.moreReasonableRails.desc": "更合理的铁轨",
   "carpet.rule.unloadedEntitiesDoNotAffectLoadedChunk.desc": "未加载的实体不会影响已加载的区块",
   "carpet.rule.tripwireScheduleTickFix.desc": "修复了绊线会在断电后添加一个0gt计划刻的bug",
-  "carpet.rule.oreFeatureCanSendBlockUpdate.desc": "团簇装饰可以发出更新",
   "carpet.rule.rustingCopperManually.desc": "主手拿着水瓶按住shift并右键铜类型的方块可以手动让它们进入下一氧化阶段",
   "carpet.rule.infiniteBuff.desc": "永久获得食物的增益效果",
 

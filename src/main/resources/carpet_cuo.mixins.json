@@ -52,7 +52,6 @@
     "rules.MoreReasonableRailsMixin.BaseRailBlockMixin",
     "rules.NoEnchantmentLevelLimitMixin.AnvilScreenHandlerMixin",
     "rules.NSEEUpdateSuppressorThresholds.ChainRestrictedNeighborUpdaterMixin",
-    "rules.OreFeatureCanSendBlockUpdate.OreFeatureMixin",
     "rules.PiglinTradeInstantlyMixin.PiglinBrainMixin",
     "rules.PistonBreakingBlockProducesUpdateMixin.PistonBlockMixin",
     "rules.PlaceableNetherPortalMixin.BlockItemMixin",
