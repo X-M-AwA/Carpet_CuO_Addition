@@ -45,6 +45,7 @@
   "carpet.rule.tripwireScheduleTickFix.name": "tripwireScheduleTickFix",
   "carpet.rule.rustingCopperManually.name": "rustingCopperManually",
   "carpet.rule.infiniteBuff.name": "infiniteBuff",
+  "carpet.rule.mainThreadChunkLoading.name": "mainThreadChunkLoading",
 
   "carpet.rule.maxChainDepth.desc": "max chain depth",
   "carpet.rule.infinitelyVault.desc": "Players can open vaults an unlimited number of times",
@@ -90,6 +91,7 @@
   "carpet.rule.tripwireScheduleTickFix.desc": "Fixed a bug where tripwires would add a 0GT schedule tick after power outage",
   "carpet.rule.rustingCopperManually.desc": "Holding a water bottle in your main hand, holding down shift and right-clicking on copper-type blocks can manually allow them to enter the next oxidation stage",
   "carpet.rule.infiniteBuff.desc": "Permanently gain the buff effect of food",
+  "carpet.rule.mainThreadChunkLoading.desc": "Let chunk loading run on the main thread",
 
   "carpet.rule.bedrockCanBeMined.extra.0": "Note: This rule conflicts with the setBedrockHardness rule from the vanilla Carpet mod",
   "carpet.rule.bedrockCanBeMined.extra.1": "If you only enable this rule, bedrock will be unbreakable",

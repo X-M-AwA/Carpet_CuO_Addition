@@ -183,4 +183,7 @@ public class Carpet_CuOSettings {
 
     @Rule(categories = {CuO,SURVIVAL,FEATURE,NOT_VANILLA})
     public static boolean infiniteBuff = false;
+
+    @Rule(categories = {CuO,CREATIVE,EXPERIMENTAL,NOT_VANILLA})
+    public static boolean mainThreadChunkLoading = false;
 }

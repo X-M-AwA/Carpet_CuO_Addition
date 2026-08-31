@@ -354,13 +354,6 @@
 * 默认值：`false`
 * 选项：`false`，`true`
 * 分类：`CuO`，`CREATIVE`，`BUGFIX`
-### (团簇装饰可以产生更新)oreFeatureCanSendBlockUpdate
-在区块装饰放置团簇时(如矿物等等)会产生PP更新
-
-* 类型：`boolean`
-* 默认值：`false`
-* 选项：`false`，`true`
-* 分类：`CuO`，`CREATIVE`，`EXPERIMENTAL`，`NOT_VANILLA`
 ### (手动氧化铜)rustingCopperManually
 主手拿水瓶按住shift并右键可以强制未涂蜡的铜制方块进入下一氧化阶段
 

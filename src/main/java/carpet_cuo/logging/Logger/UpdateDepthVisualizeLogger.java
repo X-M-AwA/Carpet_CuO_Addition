@@ -55,7 +55,6 @@ public class UpdateDepthVisualizeLogger extends AbstractLogger {
         nbt.putByte("see_through", (byte) 1);
         NbtManager.writeToEntity(entity, nbt);
 
-        //神秘bug导致访问加宽用不了，无奈使用这种方法((((((((
         ((DisplayInvoker) entity).carpet_cuo$setText(Messenger.f(Messenger.s("Limit " + UpdateLimit), ChatFormatting.DARK_AQUA));
         entity.setInvisible(true);
         entity.setNoGravity(true);
