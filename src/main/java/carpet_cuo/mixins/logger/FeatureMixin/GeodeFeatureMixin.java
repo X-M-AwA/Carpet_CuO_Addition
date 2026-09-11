@@ -11,7 +11,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(GeodeFeature.class)
-public class GeodeFeatureMixin {
+public abstract class GeodeFeatureMixin {
     @Inject(
             method = "place",
             at = @At("RETURN")

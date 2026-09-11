@@ -55,7 +55,7 @@ public class FeatureLogger extends AbstractLogger {
             ChatFormatting color = bl ? ChatFormatting.GREEN : ChatFormatting.GRAY;
             bl = false;
             ArrayList<MutableComponent> hoverLines = new ArrayList<>(matched.size() + 1);
-            hoverLines.add(Messenger.f(Messenger.s("ChunkPos: " + chunkPos), ChatFormatting.DARK_AQUA));
+            hoverLines.add(Messenger.f(Messenger.s("Chunk pos: " + chunkPos), ChatFormatting.DARK_AQUA));
             for (Features f : matched) {
                 String pos = "\n[" + f.blockPos.getX() + ", " + f.blockPos.getY() + ", " + f.blockPos.getZ() + "]";
                 hoverLines.add(
@@ -74,7 +74,7 @@ public class FeatureLogger extends AbstractLogger {
 
             return new Component[]{
                     Messenger.c(
-                            Messenger.f(Messenger.s("#"), ChatFormatting.DARK_GREEN),
+                            Messenger.f(Messenger.s("#"), ChatFormatting.WHITE),
                             Messenger.hover(
                                     Messenger.f(component, color),
                                     //#if MC < 12105
