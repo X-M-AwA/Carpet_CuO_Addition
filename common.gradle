@@ -42,12 +42,16 @@ dependencies {
 		}
 	}
 	// Mixin Extras
-	include(implementation(annotationProcessor("io.github.llamalad7:mixinextras-fabric:0.2.2")))
+	include(implementation(annotationProcessor("io.github.llamalad7:mixinextras-fabric:0.5.5")))
 	autoImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
 	autoImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}"
 
 	// Carpet
-	autoImplementation "carpet:fabric-carpet:${project.carpet_version}"
+	if (mcVersion < 26_03_00) {
+		autoImplementation "carpet:fabric-carpet:${project.carpet_version}"
+	}else {
+		autoImplementation "com.github.gnembon:fabric-carpet:${project.carpet_version}"
+	}
 }
 
 JavaVersion JAVA_COMPATIBILITY

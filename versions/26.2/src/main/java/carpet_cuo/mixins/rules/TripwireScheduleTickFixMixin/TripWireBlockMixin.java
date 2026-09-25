@@ -1,5 +1,6 @@
 package carpet_cuo.mixins.rules.TripwireScheduleTickFixMixin;
 
+//#if MC == 260200
 import carpet_cuo.Carpet_CuOSettings;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.Entity;
@@ -27,3 +28,11 @@ public abstract class TripWireBlockMixin {
         if (Carpet_CuOSettings.tripwireScheduleTickFix) ci.cancel();
     }
 }
+//#else
+//$$ import carpet_cuo.utils.compat.DummyClass;
+//$$ import org.spongepowered.asm.mixin.Mixin;
+//$$
+//$$ @Mixin(DummyClass.class)
+//$$ public abstract class TripWireBlockMixin {
+//$$ }
+//#endif

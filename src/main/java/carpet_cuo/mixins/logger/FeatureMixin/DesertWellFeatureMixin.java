@@ -1,5 +1,6 @@
 package carpet_cuo.mixins.logger.FeatureMixin;
 
+//#if MC < 260300
 import carpet_cuo.logging.Logger.FeatureLogger;
 import net.minecraft.world.level.levelgen.feature.DesertWellFeature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
@@ -19,3 +20,10 @@ public abstract class DesertWellFeatureMixin {
         FeatureLogger.getInstance().cache(featurePlaceContext.origin(), cir.getReturnValue(), FeatureLogger.FeatureType.DESERT_WELL);
     }
 }
+//#else
+//$$ import carpet_cuo.utils.compat.DummyClass;
+//$$ import org.spongepowered.asm.mixin.Mixin;
+//$$
+//$$ @Mixin(DummyClass.class)
+//$$ public abstract class DesertWellFeatureMixin {}
+//#endif

@@ -11,17 +11,17 @@ import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 
 @Mixin(Entity.class)
-@Implements(@Interface(iface = IEntityColor.class, prefix = "color$"))
+@Implements(@Interface(iface = IEntityColor.class, prefix = "carpet_cuo$"))
 public abstract class EntityMixin implements IEntityColor {
 
     @Unique
     private int highlightColor = 0x000000;
 
-    public int color$getHighlightColor() {
-        return highlightColor;
+    public int carpet_cuo$getHighlightColor() {
+        return this.highlightColor;
     }
 
-    public void color$setHighlightColor(int color) {
+    public void carpet_cuo$setHighlightColor(int color) {
         this.highlightColor = color;
     }
 
@@ -31,8 +31,7 @@ public abstract class EntityMixin implements IEntityColor {
     )
     private int setColor(int original) {
         if (Carpet_CuOSettings.entityHighLight) {
-            Entity entity = (Entity) (Object) this;
-            return ((IEntityColor) entity).getHighlightColor();
+            return this.getHighlightColor();
         }
         return original;
     }

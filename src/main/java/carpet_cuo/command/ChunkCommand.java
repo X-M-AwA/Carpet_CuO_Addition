@@ -37,13 +37,13 @@ public class ChunkCommand {
     public void register(CommandDispatcher<CommandSourceStack> dispatcher) {
         dispatcher.register(
                 Commands.literal("chunk")
+                        .requires(source ->
+                                //#if MC < 12111
+                                source.hasPermission(Carpet_CuOSettings.chunkCommandLevel))
+                        //#else
+                        //$$ source.permissions().hasPermission(getLevel(Carpet_CuOSettings.chunkCommandLevel)))
+                        //#endif
                         .then(Commands.literal("remove")
-                                .requires(source ->
-                                        //#if MC < 12111
-                                        source.hasPermission(Carpet_CuOSettings.chunkCommandLevel))
-                                //#else
-                                //$$ source.permissions().hasPermission(getLevel(Carpet_CuOSettings.chunkCommandLevel)))
-                                //#endif
                                 .executes(ctx -> remove(ctx, false))
                                 .then(Commands.argument("x", IntegerArgumentType.integer())
                                         .then(Commands.argument("z", IntegerArgumentType.integer())

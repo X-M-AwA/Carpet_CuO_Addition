@@ -173,7 +173,7 @@ public class Carpet_CuOSettings {
     @Rule(categories = {CuO,CREATIVE,EXPERIMENTAL,NOT_VANILLA})
     public static boolean unloadedEntitiesDoNotAffectLoadedChunk = false;
 
-    //#if MC >= 260200
+    //#if MC == 260200
     //$$ @Rule(categories = {CuO,CREATIVE,BUGFIX})
     //$$ public static boolean tripwireScheduleTickFix = false;
     //#endif
@@ -186,4 +186,9 @@ public class Carpet_CuOSettings {
 
     @Rule(categories = {CuO,CREATIVE,EXPERIMENTAL,NOT_VANILLA})
     public static boolean mainThreadChunkLoading = false;
+
+    //#if MC >= 260300
+    //$$ @Rule(categories = {CuO,CREATIVE,BUGFIX,NOT_VANILLA})
+    //$$ public static boolean endRingsFixReverted = false;
+    //#endif
 }

@@ -17,7 +17,11 @@ public abstract class CopperGolemEntityMixin {
             method = "turnToStatue",
             at = @At(
                     value = "INVOKE",
+                    //#if MC < 260300
                     target = "Lnet/minecraft/server/level/ServerLevel;setBlock(Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/state/BlockState;I)Z"
+                    //#else
+                    //$$ target = "Lnet/minecraft/server/level/ServerLevel;setBlockAndUpdate(Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/state/BlockState;)Z"
+                    //#endif
             ),
             cancellable = true
     )

@@ -55,10 +55,14 @@ public class UpdateDepthVisualizeLogger extends AbstractLogger {
         nbt.putByte("see_through", (byte) 1);
         NbtManager.writeToEntity(entity, nbt);
 
-        ((DisplayInvoker) entity).carpet_cuo$setText(Messenger.f(Messenger.s("Limit " + UpdateLimit), ChatFormatting.DARK_AQUA));
+        ((DisplayInvoker) entity).carpet_cuo$setText(Messenger.f(Messenger.s("Limit " + UpdateLimit), ChatFormatting.AQUA));
         entity.setInvisible(true);
         entity.setNoGravity(true);
+        //#if MC < 260300
         entity.setInvulnerable(true);
+        //#else
+        //$$ entity.setPermanentlyInvulnerable(true);
+        //#endif
         entity.setPosRaw(pos.getX() + 0.5, pos.getY() + 0.3, pos.getZ() + 0.5);
         entity.addTag("DoNotTick");
         level.addFreshEntity(entity);

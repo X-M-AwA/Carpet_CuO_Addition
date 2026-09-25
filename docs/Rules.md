@@ -368,3 +368,17 @@
 * 默认值：`false`
 * 选项：`false`，`true`
 * 分类：`CuO`，`SURVIVAL`，`FEATURE`，`NOT_VANILLA`
+### (主线程区块加载)mainThreadChunkLoading
+让区块在主线程上加载
+
+* 类型：`boolean`
+* 默认值：`false`
+* 选项：`false`，`true`
+* 分类：`CuO`，`CREATIVE`，`EXPERIMENTAL`，`NOT_VANILLA`
+### (末地环修复回退)endRingsFixReverted
+回退在26.3版本被修复的末地环
+
+* 类型：`boolean`
+* 默认值：`false`
+* 选项：`false`，`true`
+* 分类：`CuO`，`CREATIVE`，`BUGFIX`，`NOT_VANILLA`
