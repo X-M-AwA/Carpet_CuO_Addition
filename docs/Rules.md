@@ -345,15 +345,26 @@
 * 默认值：`false`
 * 选项：`false`，`true`
 * 分类：`CuO`，`CREATIVE`，`EXPERIMENTAL`，`NOT_VANILLA`
-### (绊线计划刻修复)tripwireScheduleTickFix
-开启后绊线熄灭不会再添加0gt的计划刻了
+### (重新引入低版本绊线)lowVersionTripwireReintroduced
+重新引入了26.2以下的绊线特性
+
+具体说26.2之后的版本在绊线熄灭后还会添加一个计划刻，这会导致熄灭后的1gt内无法再次触发绊线
+
+* 类型：`boolean`
+* 默认值：`false`
+* 选项：`false`，`true`
+* 分类：`CuO`，`CREATIVE`，`FEATURE`
+### (绊线计划刻修复)tripwireScheduleTickFix(绊线计划刻修复)tripwireScheduleTickFix
+开启后绊线熄灭不会再添加0gt的计划刻了，修复了绊线会乱时序的bug
+
+与26.3版本修复方法一致
 
 详见MC-310372
 
 * 类型：`boolean`
 * 默认值：`false`
 * 选项：`false`，`true`
-* 分类：`CuO`，`CREATIVE`，`BUGFIX`
+* 分类：`CuO`，`CREATIVE`，`FEATURE`
 ### (手动氧化铜)rustingCopperManually
 主手拿水瓶按住shift并右键可以强制未涂蜡的铜制方块进入下一氧化阶段
 

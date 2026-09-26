@@ -48,6 +48,7 @@
     "rules.InstantFireBlockMixin.FireBlockMixin",
     "rules.InstantSchedulingMixin.ScheduledTickAccessMixin",
     "rules.LightSuppressionCanAlsoLoadClocksMixin.ThreadedLevelLightEngineMixin",
+    "rules.LowVersionTripwireReintroducedMixin.TripWireBlockMixin",
     "rules.MainThreadChunkLoadingMixin.ChunkMapMixin",
     "rules.MaxChainDepthMixin.ChainRestrictedNeighborUpdaterAccessor",
     "rules.MaxChainDepthMixin.LevelAccessor",
