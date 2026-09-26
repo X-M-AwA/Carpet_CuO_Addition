@@ -2,7 +2,7 @@ package carpet_cuo.mixins.rules.MainThreadChunkLoadingMixin;
 
 import carpet_cuo.Carpet_CuOSettings;
 import net.minecraft.server.level.ChunkMap;
-//#if MC > 12004
+//#if MC > 12101
 import net.minecraft.server.level.ChunkTaskDispatcher;
 import org.spongepowered.asm.mixin.injection.Redirect;
 import java.util.function.IntSupplier;
@@ -22,14 +22,14 @@ public abstract class ChunkMapMixin {
     @Final
     private BlockableEventLoop<Runnable> mainThreadExecutor;
 
-    //#if MC > 12004
+    //#if MC > 12101
     @Redirect(
             method = "runGenerationTask",
             at = @At(
                     value = "INVOKE",
                     //#if MC >= 12103
                     target = "Lnet/minecraft/server/level/ChunkTaskDispatcher;submit(Ljava/lang/Runnable;JLjava/util/function/IntSupplier;)V"
-                    //#elseif MC > 12004
+                    //#elseif MC > 12101
                     //$$ target = "Lnet/minecraft/server/level/ChunkTaskPriorityQueueSorter;message(Lnet/minecraft/server/level/GenerationChunkHolder;Ljava/lang/Runnable;)Lnet/minecraft/server/level/ChunkTaskPriorityQueueSorter$Message;"
                     //#endif
             )
