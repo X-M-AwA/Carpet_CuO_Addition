@@ -3,12 +3,12 @@ package carpet_cuo.mixins.rules.InstantSchedulingMixin;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
+import net.minecraft.world.level.Level;
 //#if MC >= 12103
 import net.minecraft.world.level.ScheduledTickAccess;
 //#else
 //$$ import net.minecraft.world.level.LevelAccessor;
 //#endif
-import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -39,11 +39,11 @@ public interface ScheduledTickAccessMixin extends ScheduledTickAccess {
     //方块计划刻
     @Unique
     private void scheduledBlockTick(BlockPos blockPos, CallbackInfo ci){
-        if (this instanceof ServerLevel level) {
+        if (this instanceof Level level) {
             BlockBehaviour.BlockStateBase stateBase = level.getBlockState(blockPos);
             if (Carpet_CuOSettings.instantScheduling && !Carpet_CuOSettings.instantFireBlock && stateBase.is(Blocks.FIRE)) return;
             if (!level.isClientSide() && Carpet_CuOSettings.instantScheduling || Carpet_CuOSettings.instantFireBlock) {
-                stateBase.tick(level, blockPos, RandomSource.create());
+                stateBase.tick((ServerLevel) level, blockPos, RandomSource.create());
                 ci.cancel();
             }
         }
@@ -87,33 +87,18 @@ public interface ScheduledTickAccessMixin extends ScheduledTickAccess {
     //流体计划刻
     @Unique
     private void scheduledFluidTick(BlockPos blockPos, CallbackInfo ci){
-        if (Carpet_CuOSettings.instantScheduling && this instanceof ServerLevel level) {
+        if (Carpet_CuOSettings.instantScheduling && this instanceof Level level) {
             if (!level.isClientSide()){
                 //#if MC >= 12103
                 BlockState blockState = level.getBlockState(blockPos);
                 //#endif
                 FluidState fluidState = level.getFluidState(blockPos);
                 //#if MC >= 12103
-                fluidState.tick(level, blockPos, blockState);
+                fluidState.tick((ServerLevel) level, blockPos, blockState);
                 //#else
                 //$$ fluidState.tick(level, blockPos);
                 //#endif
                 ci.cancel();
-            }
-        } else if (Carpet_CuOSettings.instantScheduling && this instanceof WorldGenLevel level) {
-            if (!level.isClientSide()) {
-                level.getLevel().getServer().execute(() -> {
-                    //#if MC >= 12103
-                    BlockState blockState = level.getBlockState(blockPos);
-                    //#endif
-                    FluidState fluidState = level.getFluidState(blockPos);
-                    //#if MC >= 12103
-                    fluidState.tick(level.getLevel(), blockPos, blockState);
-                    //#else
-                    //$$ fluidState.tick(level.getLevel(), blockPos);
-                    //#endif
-                    ci.cancel();
-                });
             }
         }
     }
