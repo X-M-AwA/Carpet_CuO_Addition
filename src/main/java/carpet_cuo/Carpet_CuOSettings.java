@@ -44,8 +44,10 @@ public class Carpet_CuOSettings {
     public static boolean removeTooExpensiveLimit = false;
 
     //#if MC >= 12109
-    //$$ @Rule(categories = {CuO,CREATIVE,FEATURE,BUGFIX})
-    //$$ public static boolean copperGolemFix = false;
+    /*$$
+    @Rule(categories = {CuO,CREATIVE,FEATURE,BUGFIX})
+    public static boolean copperGolemFix = false;
+    $$*/
     //#endif
 
     //#if MC >= 12101
@@ -174,13 +176,17 @@ public class Carpet_CuOSettings {
     public static boolean unloadedEntitiesDoNotAffectLoadedChunk = false;
 
     //#if MC >= 260200
-    //$$ @Rule(categories = {CuO,CREATIVE,FEATURE})
-    //$$ public static boolean lowVersionTripwireReintroduced = false;
+    /*$$
+    @Rule(categories = {CuO,CREATIVE,FEATURE})
+    public static boolean lowVersionTripwireReintroduced = false;
+    $$*/
     //#endif
 
     //#if MC == 260200
-    //$$ @Rule(categories = {CuO,CREATIVE,BUGFIX})
-    //$$ public static boolean tripwireScheduleTickFix = false;
+    /*$$
+    @Rule(categories = {CuO,CREATIVE,BUGFIX})
+    public static boolean tripwireScheduleTickFix = false;
+    $$*/
     //#endif
 
     @Rule(categories = {CuO,FEATURE,CREATIVE,EXPERIMENTAL})
@@ -193,7 +199,9 @@ public class Carpet_CuOSettings {
     public static boolean mainThreadChunkLoading = false;
 
     //#if MC >= 260300
-    //$$ @Rule(categories = {CuO,CREATIVE,BUGFIX,NOT_VANILLA})
-    //$$ public static boolean endRingsFixReverted = false;
+    /*$$
+    @Rule(categories = {CuO,CREATIVE,BUGFIX,NOT_VANILLA})
+    public static boolean endRingsFixReverted = false;
+    $$*/
     //#endif
 }

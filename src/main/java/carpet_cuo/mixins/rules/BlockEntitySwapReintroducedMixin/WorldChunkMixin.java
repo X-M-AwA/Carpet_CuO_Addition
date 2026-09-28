@@ -1,10 +1,12 @@
 package carpet_cuo.mixins.rules.BlockEntitySwapReintroducedMixin;
 //#if MC < 12101
-//$$import carpet_cuo.utils.compat.DummyClass;
-//$$import org.spongepowered.asm.mixin.Mixin;
-//$$
-//$$@Mixin(DummyClass.class)
-//$$public abstract class WorldChunkMixin {}
+/*$$
+import carpet_cuo.utils.compat.DummyClass;
+import org.spongepowered.asm.mixin.Mixin;
+
+@Mixin(DummyClass.class)
+public abstract class WorldChunkMixin {}
+$$*/
 //#elseif MC >= 12101
 import carpet_cuo.Carpet_CuOSettings;
 import com.llamalad7.mixinextras.injector.ModifyExpressionValue;

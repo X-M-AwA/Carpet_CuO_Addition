@@ -68,16 +68,18 @@ public abstract class BaseRailBlockMixin extends Block {
         }
     }
     //#else
-    //$$ private void updateShape(BlockState blockState, Direction direction, BlockState blockState2, LevelAccessor levelAccessor, BlockPos blockPos, BlockPos blockPos2, CallbackInfoReturnable<BlockState> cir) {
-    //$$        if (Carpet_CuOSettings.moreReasonableRails && levelAccessor instanceof ServerLevel serverLevel) {
-    //$$            if (serverLevel.getBlockState(blockPos).is(this)) {
-    //$$                RailShape shape = blockState.getValue(this.getShapeProperty());
-    //$$                if (shouldBeRemoved(blockPos, serverLevel, shape)) {
-    //$$                    dropResources(blockState, serverLevel, blockPos);
-    //$$                    serverLevel.removeBlock(blockPos, false);
-    //$$                }
-    //$$            }
-    //$$        }
-    //$$    }
+    /*$$
+    private void updateShape(BlockState blockState, Direction direction, BlockState blockState2, LevelAccessor levelAccessor, BlockPos blockPos, BlockPos blockPos2, CallbackInfoReturnable<BlockState> cir) {
+           if (Carpet_CuOSettings.moreReasonableRails && levelAccessor instanceof ServerLevel serverLevel) {
+               if (serverLevel.getBlockState(blockPos).is(this)) {
+                   RailShape shape = blockState.getValue(this.getShapeProperty());
+                   if (shouldBeRemoved(blockPos, serverLevel, shape)) {
+                       dropResources(blockState, serverLevel, blockPos);
+                       serverLevel.removeBlock(blockPos, false);
+                   }
+               }
+           }
+       }
+    $$*/
     //#endif
 }

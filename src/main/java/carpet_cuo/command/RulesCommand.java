@@ -14,12 +14,6 @@ import net.minecraft.commands.Commands;
 import static carpet_cuo.Carpet_CuOServer.LOGGER;
 
 public class RulesCommand {
-    private static final RulesCommand INSTANCE = new RulesCommand();
-
-    public static RulesCommand getInstance() {
-        return INSTANCE;
-    }
-
     public void register(CommandDispatcher<CommandSourceStack> dispatcher) {
         dispatcher.register(
                 Commands.literal("rules")

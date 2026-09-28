@@ -42,16 +42,18 @@ public abstract class ChunkMapMixin {
         }
     }
     //#else
-    //$$ @ModifyVariable(
-    //$$         method = "scheduleChunkGeneration",
-    //$$         at = @At("STORE"),
-    //$$         ordinal = 0
-    //$$ )
-    //$$ private Executor scheduleChunkGeneration(Executor original) {
-    //$$     if (Carpet_CuOSettings.mainThreadChunkLoading) {
-    //$$         return this.mainThreadExecutor;
-    //$$     }
-    //$$     return original;
-    //$$ }
+    /*$$
+    @ModifyVariable(
+            method = "scheduleChunkGeneration",
+            at = @At("STORE"),
+            ordinal = 0
+    )
+    private Executor scheduleChunkGeneration(Executor original) {
+        if (Carpet_CuOSettings.mainThreadChunkLoading) {
+            return this.mainThreadExecutor;
+        }
+        return original;
+    }
+    $$*/
     //#endif
 }

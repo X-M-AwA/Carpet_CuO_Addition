@@ -36,11 +36,13 @@ public abstract class ProjectileWeaponItemMixin {
                     target = "Lnet/minecraft/world/item/ProjectileWeaponItem;createProjectile(Lnet/minecraft/world/level/Level;Lnet/minecraft/world/entity/LivingEntity;Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/item/ItemStack;Z)Lnet/minecraft/world/entity/projectile/Projectile;")
     )
     //#else
-    //$$ @WrapOperation(
-    //$$         method = "releaseUsing",
-    //$$         at = @At(value = "INVOKE",
-    //$$                 target = "Lnet/minecraft/world/level/Level;addFreshEntity(Lnet/minecraft/world/entity/Entity;)Z")
-    //$$ )
+    /*$$
+    @WrapOperation(
+            method = "releaseUsing",
+            at = @At(value = "INVOKE",
+                    target = "Lnet/minecraft/world/level/Level;addFreshEntity(Lnet/minecraft/world/entity/Entity;)Z")
+    )
+    $$*/
     //#endif
     //#if MC > 12004
     private Projectile shoot(

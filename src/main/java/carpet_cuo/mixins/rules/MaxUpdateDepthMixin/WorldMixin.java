@@ -19,25 +19,27 @@ public abstract class WorldMixin {
     }
 }
 //#else
-//$$ import carpet_cuo.Carpet_CuOSettings;
-//$$ import net.minecraft.world.level.LevelWriter;
-//$$ import org.spongepowered.asm.mixin.Mixin;
-//$$ import org.spongepowered.asm.mixin.injection.At;
-//$$ import org.spongepowered.asm.mixin.injection.ModifyArg;
-//$$
-//$$ @Mixin(LevelWriter.class)
-//$$ public interface WorldMixin {
-//$$     @ModifyArg(
-//$$             method = "setBlock(Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/state/BlockState;I)Z",
-//$$             at = @At(
-//$$                     value = "INVOKE",
-//$$                     target = "Lnet/minecraft/world/level/LevelWriter;setBlock(Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/state/BlockState;II)Z"
-//$$             ),
-//$$             index = 3
-//$$     )
-//$$     private int modifyMaxUpdateDepth(int i){
-//$$         if (Carpet_CuOSettings.maxUpdateDepth != 512) return Carpet_CuOSettings.maxUpdateDepth;
-//$$         return i;
-//$$     }
-//$$ }
+/*$$
+import carpet_cuo.Carpet_CuOSettings;
+import net.minecraft.world.level.LevelWriter;
+import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.ModifyArg;
+
+@Mixin(LevelWriter.class)
+public interface WorldMixin {
+    @ModifyArg(
+            method = "setBlock(Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/state/BlockState;I)Z",
+            at = @At(
+                    value = "INVOKE",
+                    target = "Lnet/minecraft/world/level/LevelWriter;setBlock(Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/state/BlockState;II)Z"
+            ),
+            index = 3
+    )
+    private int modifyMaxUpdateDepth(int i){
+        if (Carpet_CuOSettings.maxUpdateDepth != 512) return Carpet_CuOSettings.maxUpdateDepth;
+        return i;
+    }
+}
+$$*/
 //#endif

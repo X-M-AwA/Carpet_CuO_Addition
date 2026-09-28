@@ -76,19 +76,21 @@ public class InfiniteBuff {
             }
         }
         //#elseif MC >= 12006
-        //$$ FoodProperties foodProperties = itemStack.get(DataComponents.FOOD);
-        //$$ if (foodProperties != null) {
-        //$$     for (FoodProperties.PossibleEffect possibleEffect : foodProperties.effects()) {
-        //$$         this.addInfiniteEffect(possibleEffect.effect());
-        //$$     }
-        //$$ }
+        /*$$
+        FoodProperties foodProperties = itemStack.get(DataComponents.FOOD);
+        if (foodProperties != null) {
+            for (FoodProperties.PossibleEffect possibleEffect : foodProperties.effects()) {
+                this.addInfiniteEffect(possibleEffect.effect());
+            }
+        }
         //#else
-        //$$ FoodProperties foodProperties = itemStack.getItem().getFoodProperties();
-        //$$ if (foodProperties != null) {
-        //$$     for (Pair<MobEffectInstance, Float> instance : foodProperties.getEffects()) {
-        //$$         this.addInfiniteEffect(instance.getFirst());
-        //$$     }
-        //$$ }
+        FoodProperties foodProperties = itemStack.getItem().getFoodProperties();
+        if (foodProperties != null) {
+            for (Pair<MobEffectInstance, Float> instance : foodProperties.getEffects()) {
+                this.addInfiniteEffect(instance.getFirst());
+            }
+        }
+        $$*/
         //#endif
     }
 
@@ -118,27 +120,29 @@ public class InfiniteBuff {
             }
         }
         //#elseif MC >= 12002
-        //$$ CompoundTag compoundTag = itemStack.getTag();
-        //$$ if (compoundTag != null && compoundTag.contains("effects", 9)) {
-        //$$     var list = SuspiciousEffectHolder.EffectEntry.LIST_CODEC
-        //$$             .parse(NbtOps.INSTANCE, compoundTag.getList("effects", 10))
-        //$$             .result().orElse(java.util.Collections.emptyList());
-        //$$     for (SuspiciousEffectHolder.EffectEntry entry : list) {
-        //$$         this.addInfiniteEffect(entry.effect());
-        //$$     }
-        //$$ }
+        /*$$
+        CompoundTag compoundTag = itemStack.getTag();
+        if (compoundTag != null && compoundTag.contains("effects", 9)) {
+            var list = SuspiciousEffectHolder.EffectEntry.LIST_CODEC
+                    .parse(NbtOps.INSTANCE, compoundTag.getList("effects", 10))
+                    .result().orElse(java.util.Collections.emptyList());
+            for (SuspiciousEffectHolder.EffectEntry entry : list) {
+                this.addInfiniteEffect(entry.effect());
+            }
+        }
         //#else
-        //$$ CompoundTag compoundTag = itemStack.getTag();
-        //$$ if (compoundTag != null && compoundTag.contains("Effects", 9)) {
-        //$$     ListTag listTag = compoundTag.getList("Effects", 10);
-        //$$     for (int i = 0; i < listTag.size(); ++i) {
-        //$$         CompoundTag compoundTag2 = listTag.getCompound(i);
-        //$$         MobEffect mobEffect = MobEffect.byId(compoundTag2.getInt("EffectId"));
-        //$$         if (mobEffect != null) {
-        //$$             this.addInfiniteEffect(mobEffect);
-        //$$         }
-        //$$     }
-        //$$ }
+        CompoundTag compoundTag = itemStack.getTag();
+        if (compoundTag != null && compoundTag.contains("Effects", 9)) {
+            ListTag listTag = compoundTag.getList("Effects", 10);
+            for (int i = 0; i < listTag.size(); ++i) {
+                CompoundTag compoundTag2 = listTag.getCompound(i);
+                MobEffect mobEffect = MobEffect.byId(compoundTag2.getInt("EffectId"));
+                if (mobEffect != null) {
+                    this.addInfiniteEffect(mobEffect);
+                }
+            }
+        }
+        $$*/
         //#endif
     }
 

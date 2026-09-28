@@ -1,10 +1,12 @@
 package carpet_cuo.mixins.rules.BlockEntitySwapReintroducedMixin;
 //#if MC < 12101
-//$$import carpet_cuo.utils.compat.DummyClass;
-//$$import org.spongepowered.asm.mixin.Mixin;
-//$$
-//$$@Mixin(DummyClass.class)
-//$$public abstract class BlockEntityMixin {}
+/*$$
+import carpet_cuo.utils.compat.DummyClass;
+import org.spongepowered.asm.mixin.Mixin;
+
+@Mixin(DummyClass.class)
+public abstract class BlockEntityMixin {}
+$$*/
 //#elseif MC >= 12101
 import carpet_cuo.Carpet_CuOSettings;
 import net.minecraft.world.level.block.entity.BlockEntity;

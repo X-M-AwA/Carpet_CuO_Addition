@@ -28,11 +28,6 @@ import static carpet_cuo.Carpet_CuOServer.LOGGER;
 public class ChunkCommand {
     public static final ArrayList<ChunkPos> chunks = new  ArrayList<>();
     public static final ArrayList<ServerLevel> levels = new  ArrayList<>();
-    private static final ChunkCommand INSTANCE = new ChunkCommand();
-
-    public static ChunkCommand getInstance() {
-        return INSTANCE;
-    }
 
     public void register(CommandDispatcher<CommandSourceStack> dispatcher) {
         dispatcher.register(

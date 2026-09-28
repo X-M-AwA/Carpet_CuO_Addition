@@ -5,7 +5,8 @@ plugins {
 
 	// https://github.com/ReplayMod/preprocessor
 	// https://github.com/Fallen-Breath/preprocessor
-	id 'com.replaymod.preprocess' version 'c5abb4fb12'
+	// https://github.com/liuyuexiaoyu1/preprocessor
+	id 'com.replaymod.preprocess' version 'bc74432'
 }
 
 preprocess {
