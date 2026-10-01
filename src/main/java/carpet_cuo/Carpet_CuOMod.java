@@ -26,8 +26,8 @@ public class Carpet_CuOMod implements ModInitializer {
 		OreBreeding.init();
 		CustomizeTheArrowOwner.init();
 		CommandRegistrationCallback.EVENT.register((commandDispatcher, commandBuildContext, commandSelection) -> {
-				new ChunkCommand().register(commandDispatcher);
-				new RulesCommand().register(commandDispatcher);
+				ChunkCommand.register(commandDispatcher);
+				RulesCommand.register(commandDispatcher);
 		});
 	}
 }

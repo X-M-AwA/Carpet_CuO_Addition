@@ -29,7 +29,7 @@ public class ChunkCommand {
     public static final ArrayList<ChunkPos> chunks = new  ArrayList<>();
     public static final ArrayList<ServerLevel> levels = new  ArrayList<>();
 
-    public void register(CommandDispatcher<CommandSourceStack> dispatcher) {
+    public static void register(CommandDispatcher<CommandSourceStack> dispatcher) {
         dispatcher.register(
                 Commands.literal("chunk")
                         .requires(source ->
@@ -49,14 +49,17 @@ public class ChunkCommand {
         );
     }
 
-    private int remove(CommandContext<CommandSourceStack> ctx, boolean hasArgs) {
+    private static int remove(CommandContext<CommandSourceStack> ctx, boolean hasArgs) {
         CommandSourceStack source = ctx.getSource();
-        ChunkPos chunkPos = this.getChunkPos(ctx, hasArgs);
-        chunks.add(chunkPos);
-        levels.add(source.getLevel());
-        removeChunk(source.getLevel(), chunkPos);
-        source.sendSuccess(() -> Messenger.c(Messenger.tr("carpet.command.chunk.remove"), Messenger.s(chunkPos)), false);
-        return 1;
+        ChunkPos chunkPos = getChunkPos(ctx, hasArgs);
+        if (chunkPos != null) {
+            removeChunk(source.getLevel(), chunkPos);
+            chunks.add(chunkPos);
+            levels.add(source.getLevel());
+            source.sendSuccess(() -> Messenger.c(Messenger.tr("carpet.command.chunk.remove"), Messenger.s(chunkPos)), false);
+            return 1;
+        }
+        return 0;
     }
 
     public static void removeChunk(ServerLevel level, ChunkPos chunkPos) {
@@ -84,7 +87,7 @@ public class ChunkCommand {
         }
     }
 
-    public ChunkPos getChunkPos(CommandContext<CommandSourceStack> ctx, boolean hasArgs) {
+    public static ChunkPos getChunkPos(CommandContext<CommandSourceStack> ctx, boolean hasArgs) {
         CommandSourceStack source = ctx.getSource();
         ServerPlayer player = source.getPlayer();
         ChunkPos chunkPos;
@@ -102,21 +105,23 @@ public class ChunkCommand {
     }
 
     //#if MC >= 12111
-    //$$private Permission getLevel(int i) {
-    //$$    switch (i) {
-    //$$        case 0 ->{
-    //$$            return new Permission.HasCommandLevel(PermissionLevel.ALL);
-    //$$        }case 1 -> {
-    //$$            return Permissions.COMMANDS_MODERATOR;
-    //$$        }case 2 -> {
-    //$$            return Permissions.COMMANDS_GAMEMASTER;
-    //$$        }case 3 -> {
-    //$$            return Permissions.COMMANDS_ADMIN;
-    //$$        }case 4 -> {
-    //$$            return Permissions.COMMANDS_OWNER;
-    //$$        }
-    //$$    }
-    //$$    return null;
-    //$$}
+    /*$$
+    private static Permission getLevel(int i) {
+        switch (i) {
+            case 0 ->{
+                return new Permission.HasCommandLevel(PermissionLevel.ALL);
+            }case 1 -> {
+                return Permissions.COMMANDS_MODERATOR;
+            }case 2 -> {
+                return Permissions.COMMANDS_GAMEMASTER;
+            }case 3 -> {
+                return Permissions.COMMANDS_ADMIN;
+            }case 4 -> {
+                return Permissions.COMMANDS_OWNER;
+            }
+        }
+        return null;
+    }
+    $$*/
     //#endif
 }

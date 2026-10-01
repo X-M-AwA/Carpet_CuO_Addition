@@ -14,7 +14,7 @@ import net.minecraft.commands.Commands;
 import static carpet_cuo.Carpet_CuOServer.LOGGER;
 
 public class RulesCommand {
-    public void register(CommandDispatcher<CommandSourceStack> dispatcher) {
+    public static void register(CommandDispatcher<CommandSourceStack> dispatcher) {
         dispatcher.register(
                 Commands.literal("rules")
                         .then(Commands.literal("close")
@@ -29,7 +29,7 @@ public class RulesCommand {
         );
     }
 
-    private int execute(CommandContext<CommandSourceStack> ctx, boolean hasArgs, boolean def) {
+    private static int execute(CommandContext<CommandSourceStack> ctx, boolean hasArgs, boolean def) {
         CommandSourceStack source = ctx.getSource();
         SettingsManager settingsManager = CarpetServer.settingsManager;
         boolean bl = false;
