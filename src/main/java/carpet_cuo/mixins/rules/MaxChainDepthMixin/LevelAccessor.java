@@ -9,7 +9,7 @@ import org.spongepowered.asm.mixin.gen.Accessor;
 @Mixin(Level.class)
 public interface LevelAccessor {
     @Accessor("neighborUpdater")
-    //#if MC < 12108
+    //#if MC < 12110
     NeighborUpdater carpet_cuo$getNeighborUpdater();
     //#else
     //$$ CollectingNeighborUpdater carpet_cuo$getNeighborUpdater();
