@@ -12,6 +12,7 @@
     "logger.FeatureMixin.ChunkGeneratorMixin",
     "logger.FeatureMixin.DesertWellFeatureMixin",
     "logger.FeatureMixin.GeodeFeatureMixin",
+    "logger.FeatureMixin.LoggerAccessor",
     "logger.FeatureMixin.MonsterRoomFeatureMixin",
     "logger.FeatureMixin.OverlayFeatureMixin",
     "rules.AbstractBlockStateMixin",

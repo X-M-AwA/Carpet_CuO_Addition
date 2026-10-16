@@ -3,6 +3,7 @@ package carpet_cuo.logging.Logger;
 import carpet.logging.Logger;
 import carpet.logging.LoggerRegistry;
 import carpet_cuo.logging.AbstractLogger;
+import carpet_cuo.mixins.logger.FeatureMixin.LoggerAccessor;
 import carpet_cuo.utils.Messenger;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
@@ -11,17 +12,16 @@ import net.minecraft.network.chat.HoverEvent;
 import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.world.level.ChunkPos;
 
-import java.lang.reflect.Field;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 public class FeatureLogger extends AbstractLogger {
     public static final String NAME = "feature";
     private static final FeatureLogger INSTANCE = new FeatureLogger();
     private final ArrayList<Features> features = new ArrayList<>();
-    private boolean bl = false;
 
-    public FeatureLogger() {
+    private FeatureLogger() {
         super(NAME);
     }
 
@@ -30,30 +30,33 @@ public class FeatureLogger extends AbstractLogger {
     }
 
     public void print(ChunkPos chunkPos) {
-        synchronized (features) {
-            if (features.isEmpty()) return;
-        }
         Logger logger = LoggerRegistry.getLogger(NAME);
         if (logger == null) {
-            synchronized (features) {
-                features.clear();
-            }
+            this.clear(chunkPos);
             return;
         }
 
+        List<Features> chunkFeatures;
+        synchronized (this.features) {
+            chunkFeatures = this.features.stream()
+                    .filter(f -> f.chunkPos.equals(chunkPos))
+                    .toList();
+        }
+
+        if (chunkFeatures.isEmpty()) {
+            return;
+        }
+
+        // 2. 构造日志；lambda 只读快照，不修改共享状态
         this.log((option) -> {
-            ArrayList<Features> matched = new ArrayList<>();
-            synchronized (features) {
-                for (Features f : features) {
-                    if (f.type.optionName.equals(option)) {
-                        matched.add(f);
-                    }
-                }
-            }
+            List<Features> matched = chunkFeatures.stream()
+                    .filter(f -> f.type.optionName.equals(option))
+                    .toList();
             if (matched.isEmpty()) return null;
 
-            ChatFormatting color = bl ? ChatFormatting.GREEN : ChatFormatting.GRAY;
-            bl = false;
+            boolean anySuccess = matched.stream().anyMatch(Features::success);
+            ChatFormatting color = anySuccess ? ChatFormatting.GREEN : ChatFormatting.GRAY;
+
             ArrayList<MutableComponent> hoverLines = new ArrayList<>(matched.size() + 1);
             hoverLines.add(Messenger.f(Messenger.s("Chunk pos: " + chunkPos), ChatFormatting.DARK_AQUA));
             for (Features f : matched) {
@@ -68,9 +71,6 @@ public class FeatureLogger extends AbstractLogger {
 
             FeatureType type = matched.get(0).type;
             MutableComponent component = Messenger.s(type.displayName);
-            synchronized (features) {
-                features.removeAll(matched);
-            }
 
             return new Component[]{
                     Messenger.c(
@@ -94,31 +94,37 @@ public class FeatureLogger extends AbstractLogger {
                     )
             };
         });
+        this.clear(chunkPos);
+    }
+
+    private void clear(ChunkPos chunkPos) {
+        synchronized (this.features) {
+            this.features.removeIf(f -> f.chunkPos.equals(chunkPos));
+        }
     }
 
     public void cache(BlockPos blockPos, boolean success, FeatureType featureType) {
         Logger logger = LoggerRegistry.getLogger(NAME);
         if (logger == null) return;
 
-        if (hasOnlineSubscriberForOption(logger, featureType.optionName)) {
-            if (!this.bl) this.bl = success;
-            this.features.add(new Features(blockPos, success, featureType));
+        if (this.hasOnlineSubscriberForOption(logger, featureType.optionName)) {
+            ChunkPos chunkPos = new ChunkPos(blockPos);
+            synchronized (this.features) {
+                this.features.add(new Features(blockPos, success, featureType, chunkPos));
+            }
         }
     }
 
     private boolean hasOnlineSubscriberForOption(Logger logger, String option) {
         try {
-            Field field = Logger.class.getDeclaredField("subscribedOnlinePlayers");
-            field.setAccessible(true);
-            @SuppressWarnings("unchecked")
-            Map<String, String> map = (Map<String, String>) field.get(logger);
+            Map<String, String> map = ((LoggerAccessor) logger).getSubscribedOnlinePlayers();
             return map.containsValue(option);
         } catch (Exception e) {
             return true;
         }
     }
 
-    private record Features(BlockPos blockPos, boolean success, FeatureType type) {
+    private record Features(BlockPos blockPos, boolean success, FeatureType type, ChunkPos chunkPos) {
     }
 
     public enum FeatureType {
