@@ -73,16 +73,28 @@ public class ChunkCommand {
     public static void removeChunk(ServerLevel level, ChunkPos chunkPos) {
         ServerChunkCache chunkSource = level.getChunkSource();
         ChunkMap chunkMap = chunkSource.chunkMap;
+        //#if MC >= 12103
         chunkMap.write(chunkPos, () -> null);
+        //#else
+        //$$ chunkMap.write(chunkPos, null);
+        //#endif
     }
 
     public static void regenChunk(ServerLevel level, ChunkPos chunkPos) {
         ServerChunkCache chunkSource = level.getChunkSource();
         ChunkMap chunkMap = chunkSource.chunkMap;
         ChunkMapAccessor accessor = (ChunkMapAccessor) chunkMap;
+        //#if MC >= 260102
+        //$$ long key = chunkPos.pack();
+        //#else
         long key = chunkPos.toLong();
+        //#endif
 
+        //#if MC <= 1.21.11
         LevelChunk chunk = chunkSource.getChunkNow(chunkPos.x, chunkPos.z);
+        //#else
+        //$$ LevelChunk chunk = chunkSource.getChunkNow(chunkPos.x(), chunkPos.z());
+        //#endif
         ChunkHolder holder = accessor.carpet_cuo$getUpdatingChunkMap().remove(key);
         accessor.carpet_cuo$getVisibleChunkMap().remove(key);
         accessor.carpet_cuo$getPendingUnloads().remove(key);
@@ -98,12 +110,16 @@ public class ChunkCommand {
 
         if (holder != null && ChunkLevel.isLoaded(holder.getTicketLevel())) {
             int ticketLevel = holder.getTicketLevel();
-
+            //#if MC >= 12105
+            //$$ int radius = ChunkLevel.byStatus(FullChunkStatus.FULL) - Math.max(0, ticketLevel - 1);
+            //$$ chunkSource.addTicketWithRadius(TicketType.UNKNOWN, chunkPos, radius);
+            //$$ chunkSource.removeTicketWithRadius(TicketType.UNKNOWN, chunkPos, radius);
+            //#else
             int regenLevel = Math.max(0, ticketLevel - 1);
             DistanceManager distanceManager = chunkMap.getDistanceManager();
             distanceManager.addTicket(TicketType.UNKNOWN, chunkPos, regenLevel, chunkPos);
             distanceManager.removeTicket(TicketType.UNKNOWN, chunkPos, regenLevel, chunkPos);
-
+            //#endif
         }
     }
 

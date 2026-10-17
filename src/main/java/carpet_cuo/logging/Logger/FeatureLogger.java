@@ -108,7 +108,7 @@ public class FeatureLogger extends AbstractLogger {
         if (logger == null) return;
 
         if (this.hasOnlineSubscriberForOption(logger, featureType.optionName)) {
-            ChunkPos chunkPos = new ChunkPos(blockPos);
+            ChunkPos chunkPos = new ChunkPos(blockPos.getX(), blockPos.getZ());
             synchronized (this.features) {
                 this.features.add(new Features(blockPos, success, featureType, chunkPos));
             }
