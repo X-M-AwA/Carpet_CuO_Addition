@@ -1,6 +1,8 @@
 package carpet_cuo.command;
 
 import carpet_cuo.Carpet_CuOSettings;
+import carpet_cuo.mixins.command.ChunkMapAccessor;
+import carpet_cuo.mixins.command.ThreadedLevelLightEngineInvoker;
 import carpet_cuo.utils.Messenger;
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.arguments.IntegerArgumentType;
@@ -9,26 +11,15 @@ import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;
 import net.minecraft.server.level.*;
 import net.minecraft.world.level.ChunkPos;
-import net.minecraft.world.level.dimension.DimensionType;
-import net.minecraft.world.level.storage.LevelResource;
+import net.minecraft.world.level.chunk.LevelChunk;
 //#if MC >= 12111
 //$$ import net.minecraft.server.permissions.Permission;
 //$$ import net.minecraft.server.permissions.PermissionLevel;
 //$$ import net.minecraft.server.permissions.Permissions;
 //#endif
 
-import java.io.IOException;
-import java.io.RandomAccessFile;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.util.ArrayList;
-
-import static carpet_cuo.Carpet_CuOServer.LOGGER;
 
 public class ChunkCommand {
-    public static final ArrayList<ChunkPos> chunks = new  ArrayList<>();
-    public static final ArrayList<ServerLevel> levels = new  ArrayList<>();
-
     public static void register(CommandDispatcher<CommandSourceStack> dispatcher) {
         dispatcher.register(
                 Commands.literal("chunk")
@@ -46,6 +37,14 @@ public class ChunkCommand {
                                         )
                                 )
                         )
+                        .then(Commands.literal("regen")
+                                .executes(ctx -> regen(ctx, false))
+                                .then(Commands.argument("x", IntegerArgumentType.integer())
+                                        .then(Commands.argument("z", IntegerArgumentType.integer())
+                                                .executes(ctx -> regen(ctx, true))
+                                        )
+                                )
+                        )
         );
     }
 
@@ -54,36 +53,57 @@ public class ChunkCommand {
         ChunkPos chunkPos = getChunkPos(ctx, hasArgs);
         if (chunkPos != null) {
             removeChunk(source.getLevel(), chunkPos);
-            chunks.add(chunkPos);
-            levels.add(source.getLevel());
             source.sendSuccess(() -> Messenger.c(Messenger.tr("carpet.command.chunk.remove"), Messenger.s(chunkPos)), false);
             return 1;
         }
         return 0;
     }
 
+    private static int regen(CommandContext<CommandSourceStack> ctx, boolean hasArgs) {
+        CommandSourceStack source = ctx.getSource();
+        ChunkPos chunkPos = getChunkPos(ctx, hasArgs);
+        if (chunkPos != null) {
+            regenChunk(source.getLevel(), chunkPos);
+            source.sendSuccess(() -> Messenger.c(Messenger.tr("carpet.command.chunk.regen"), Messenger.s(chunkPos)), false);
+            return 1;
+        }
+        return 0;
+    }
+
     public static void removeChunk(ServerLevel level, ChunkPos chunkPos) {
-        int regionX = chunkPos.getRegionX();
-        int regionZ = chunkPos.getRegionZ();
-        int localX = chunkPos.getRegionLocalX();
-        int localZ = chunkPos.getRegionLocalZ();
-        int index = localX + localZ * 32;
+        ServerChunkCache chunkSource = level.getChunkSource();
+        ChunkMap chunkMap = chunkSource.chunkMap;
+        chunkMap.write(chunkPos, () -> null);
+    }
 
-        Path worldRoot = level.getServer().getWorldPath(LevelResource.ROOT);
-        Path dimensionDir = DimensionType.getStorageFolder(level.dimension(), worldRoot);
-        Path regionDir = dimensionDir.resolve("region");
-        Path regionPath = regionDir.resolve(String.format("r.%d.%d.mca", regionX, regionZ));
+    public static void regenChunk(ServerLevel level, ChunkPos chunkPos) {
+        ServerChunkCache chunkSource = level.getChunkSource();
+        ChunkMap chunkMap = chunkSource.chunkMap;
+        ChunkMapAccessor accessor = (ChunkMapAccessor) chunkMap;
+        long key = chunkPos.toLong();
 
-        if (Files.exists(regionPath)) {
-            try (RandomAccessFile raf = new RandomAccessFile(regionPath.toFile(), "rw")) {
-                raf.seek((long) index * 4);
-                raf.writeInt(0);
+        LevelChunk chunk = chunkSource.getChunkNow(chunkPos.x, chunkPos.z);
+        ChunkHolder holder = accessor.carpet_cuo$getUpdatingChunkMap().remove(key);
+        accessor.carpet_cuo$getVisibleChunkMap().remove(key);
+        accessor.carpet_cuo$getPendingUnloads().remove(key);
+        removeChunk(level, chunkPos);
 
-                raf.seek(4096L + (long) index * 4);
-                raf.writeInt(0);
-            } catch (IOException e) {
-                LOGGER.error("Failed to remove chunk {}: ", chunkPos, e);
-            }
+        if (chunk != null) {
+            chunk.setLoaded(false);
+            level.unload(chunk);
+            ThreadedLevelLightEngine lightEngine = chunkSource.getLightEngine();
+            ((ThreadedLevelLightEngineInvoker) lightEngine).carpet_cuo$updateChunkStatus(chunkPos);
+            lightEngine.tryScheduleUpdate();
+        }
+
+        if (holder != null && ChunkLevel.isLoaded(holder.getTicketLevel())) {
+            int ticketLevel = holder.getTicketLevel();
+
+            int regenLevel = Math.max(0, ticketLevel - 1);
+            DistanceManager distanceManager = chunkMap.getDistanceManager();
+            distanceManager.addTicket(TicketType.UNKNOWN, chunkPos, regenLevel, chunkPos);
+            distanceManager.removeTicket(TicketType.UNKNOWN, chunkPos, regenLevel, chunkPos);
+
         }
     }
 
@@ -91,7 +111,7 @@ public class ChunkCommand {
         CommandSourceStack source = ctx.getSource();
         ServerPlayer player = source.getPlayer();
         ChunkPos chunkPos;
-        if (player == null) return null;
+        if (player == null && !hasArgs) return null;
 
         int x, z;
         if (hasArgs) {

@@ -74,7 +74,7 @@ public class FeatureLogger extends AbstractLogger {
 
             return new Component[]{
                     Messenger.c(
-                            Messenger.f(Messenger.s("#"), ChatFormatting.WHITE),
+                            Messenger.f(Messenger.s("#"), ChatFormatting.GRAY),
                             Messenger.hover(
                                     Messenger.f(component, color),
                                     //#if MC < 12105

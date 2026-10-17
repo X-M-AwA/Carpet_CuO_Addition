@@ -5,7 +5,8 @@
   "mixins": [
     "carpet.HUDControllerMixin",
     "carpet.SettingsManagerMixin",
-    "command.MinecraftServerMixin",
+    "command.ChunkMapAccessor",
+    "command.ThreadedLevelLightEngineInvoker",
     "logger.ChainRestrictedNeighborUpdaterMixin",
     "logger.DisplayInvoker",
     "logger.ServerLevelMixin",
@@ -23,7 +24,6 @@
     "rules.BlockEntitySwapReintroducedMixin.BlockEntityMixin",
     "rules.BlockEntitySwapReintroducedMixin.WorldChunkMixin",
     "rules.ChainUpdateLoggerThresholds.ChainRestrictedNeighborUpdaterMixin",
-    "rules.ChunkPopulationCanAffectLoadedChunksMixin.WorldGenRegionMixin",
     "rules.ComparatorDupeFixMixin.ComparatorBlockMixin",
     "rules.CopperGolemMixin.CopperGolemEntityMixin",
     "rules.CustomizeTheArrowOwnerMixin.ProjectileWeaponItemMixin",

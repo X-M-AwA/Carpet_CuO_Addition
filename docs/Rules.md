@@ -263,15 +263,6 @@
 * 默认值：`false`
 * 选项：`false`，`true`
 * 分类：`CuO`，`SURVIVAL`，`EXPERIMENTAL`，`NOT_VANILLA`
-### (区块装饰会影响已加载区块)populationCanAffectLoadedChunks
-区块装饰会影响已经加载的区块
-
-**(可能会导致一些未知的问题)**
-
-* 类型：`boolean`
-* 默认值：`false`
-* 选项：`false`，`true`
-* 分类：`CuO`，`CREATIVE`，`EXPERIMENTAL`，`NOT_VANILLA`
 ### (悬挂实体瞬时掉落)hangingEntitiesDropInstantly
 开启后当悬挂实体受到更新后会检查是否可以继续存在，否则就会掉落
 
