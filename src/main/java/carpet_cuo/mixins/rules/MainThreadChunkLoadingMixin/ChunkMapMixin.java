@@ -22,14 +22,14 @@ public abstract class ChunkMapMixin {
     @Final
     private BlockableEventLoop<Runnable> mainThreadExecutor;
 
-    //#if MC > 12101
+    //#if MC > 12100
     @Redirect(
             method = "runGenerationTask",
             at = @At(
                     value = "INVOKE",
                     //#if MC >= 12103
                     target = "Lnet/minecraft/server/level/ChunkTaskDispatcher;submit(Ljava/lang/Runnable;JLjava/util/function/IntSupplier;)V"
-                    //#elseif MC > 12101
+                    //#elseif MC > 12100
                     //$$ target = "Lnet/minecraft/server/level/ChunkTaskPriorityQueueSorter;message(Lnet/minecraft/server/level/GenerationChunkHolder;Ljava/lang/Runnable;)Lnet/minecraft/server/level/ChunkTaskPriorityQueueSorter$Message;"
                     //#endif
             )
