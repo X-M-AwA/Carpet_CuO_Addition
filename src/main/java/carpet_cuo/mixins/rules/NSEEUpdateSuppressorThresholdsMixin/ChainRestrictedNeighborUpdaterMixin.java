@@ -1,4 +1,4 @@
-package carpet_cuo.mixins.rules.NSEEUpdateSuppressorThresholds;
+package carpet_cuo.mixins.rules.NSEEUpdateSuppressorThresholdsMixin;
 
 import carpet_cuo.Carpet_CuOSettings;
 import net.minecraft.world.level.redstone.CollectingNeighborUpdater;

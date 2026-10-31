@@ -100,7 +100,7 @@
   "carpet.rule.bedrockCanBeMined.extra.2": "如果仅设置setBedrockHardness你将无法获得基岩物品",
   "carpet.rule.infinitelyTotem.extra.0": "不会消耗图腾",
   "carpet.rule.comparatorDupeFix.extra.0": "比较器复制还是太not vanilla了，直接修复",
-  "carpet.rule.noEnchantmentLevelLimit.extra.0": "附魔等级可以一直堆叠到225,建议搭配noTooExpensive功能",
+  "carpet.rule.noEnchantmentLevelLimit.extra.0": "附魔等级可以一直堆叠到225,建议搭配removeTooExpensiveLimit规则",
   "carpet.rule.placeableNetherPortal.extra.0": "玩家放置的紫色带釉陶瓦会变为地狱门",
   "carpet.rule.simpleChunkDupe.extra.0": "在区块内放置命名为\"ChunkDupe\"的潜影盒\n该区块在保存时将会抛出异常",
   "carpet.rule.gameTickOptimization.extra.0": "你可以自定义游戏在一个游戏刻内运行哪些阶段，输入对应的阶段，那么之后的游戏刻将不会再运算该阶段",

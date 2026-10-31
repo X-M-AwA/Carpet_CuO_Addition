@@ -17,7 +17,7 @@ public abstract class AnvilScreenHandlerMixin {
             )
     )
     private int MaxEnchantLevel(int original) {
-        if (Carpet_CuOSettings.noEnchantmentLevelLimit)return Integer.MAX_VALUE;
+        if (Carpet_CuOSettings.noEnchantmentLevelLimit) return Integer.MAX_VALUE;
         else return original;
     }
 }

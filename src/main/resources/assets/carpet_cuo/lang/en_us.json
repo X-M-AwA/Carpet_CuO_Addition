@@ -100,7 +100,7 @@
   "carpet.rule.bedrockCanBeMined.extra.2": "If you only set setBedrockHardness to true, bedrock will not drop as an item",
   "carpet.rule.infinitelyTotem.extra.0": "When a totem is used,it is not consumed",
   "carpet.rule.comparatorDupeFix.extra.0": "Fix the comparator item duplication glitch",
-  "carpet.rule.noEnchantmentLevelLimit.extra.0": "Enchantment level can reach 225 and it is recommended to use the noTooExpensive function",
+  "carpet.rule.noEnchantmentLevelLimit.extra.0": "Enchantment level can reach 225 and it is recommended to use the removeTooExpensiveLimit function",
   "carpet.rule.placeableNetherPortal.extra.0": "The purple glazed terracotta placed by the player transforms into the nether portal",
   "carpet.rule.simpleChunkDupe.extra.0": "Place a shulker box named \"ChunkDupe\" inside a chunk\nthis chunk will throw an exception when saved",
   "carpet.rule.gameTickOptimization.extra.0": "You can customize which phases are executed during a game tick. Enter the corresponding phase names, and subsequent game ticks will skip those phases.",

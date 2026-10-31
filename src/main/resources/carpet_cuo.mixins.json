@@ -56,18 +56,18 @@
     "rules.MaxUpdateDepthMixin.WorldMixin",
     "rules.MoreReasonableRailsMixin.BaseRailBlockMixin",
     "rules.NoEnchantmentLevelLimitMixin.AnvilScreenHandlerMixin",
-    "rules.NSEEUpdateSuppressorThresholds.ChainRestrictedNeighborUpdaterMixin",
+    "rules.NSEEUpdateSuppressorThresholdsMixin.ChainRestrictedNeighborUpdaterMixin",
     "rules.PiglinTradeInstantlyMixin.PiglinBrainMixin",
     "rules.PistonBreakingBlockProducesUpdateMixin.PistonBlockMixin",
     "rules.PlaceableNetherPortalMixin.BlockItemMixin",
     "rules.PointedDripstoneBlockCanBeRipeningMixin.PointedDripstoneBlockMixin",
     "rules.PointedDripstoneBlockCanBeRipeningMixin.SulfurSpikeBlockMixin",
-    "rules.RemovePalettedContainerLock.PalettedContainerMixin",
+    "rules.RemovePalettedContainerLockMixin.PalettedContainerMixin",
     "rules.RemoveThreadChecksMixin.LevelMixin",
-    "rules.RemoveTooExpensiveLimit.AnvilScreenHandlerMixin",
+    "rules.RemoveTooExpensiveLimitMixin.AnvilScreenHandlerMixin",
     "rules.RepairTheMonsterAIMixin.GroundPathNavigationMixin",
     "rules.ScaffoldingBlockCanBeRipeningMixin.ScaffoldingBlockMixin",
-    "rules.SimpleChunkDupe.SerializableChunkDataMixin",
+    "rules.SimpleChunkDupeMixin.SerializableChunkDataMixin",
     "rules.SpongeCanBeDriedNaturallyMixin.WetSpongeBlockMixin",
     "rules.TripwireScheduleTickFixMixin.TripWireBlockMixin",
     "rules.UnloadedEntitiesDoNotAffectLoadedChunkMixin.LevelChunkMixin",
@@ -81,7 +81,7 @@
     "requireAnnotations": true
   },
   "client": [
-    "rules.RemoveTooExpensiveLimit.AnvilScreenMixin"
+    "rules.RemoveTooExpensiveLimitMixin.AnvilScreenMixin"
   ],
   "server": [
   ]

@@ -35,19 +35,19 @@
 * 默认值：`false`
 * 选项：`false`，`true`
 * 分类：`CuO`，`SURVIVAL`，`FEATURE`，`NOT_VANILLA`
-### (没有附魔等级上限)removeTooExpensiveLimit
+### (没有附魔等级上限)noEnchantmentLevelLimit
 没有附魔等级上限
 
 这意味着你可以在铁砧上敲出的附魔等级最高为255
 
-建议搭配noTooExpensive食用
+建议搭配`noTooExpensive`食用
 
 * 类型：`boolean`
 * 默认值：`false`
 * 选项：`false`，`true`
 * 分类：`CuO`，`NOT_VANILLA`，`EXPERIMENTAL`
-### (没有过于昂贵)noTooExpensive
-开启后过于昂贵需要的等级不再是40，而是int上限
+### (没有过于昂贵)removeTooExpensiveLimit
+开启后过于昂贵需要的经验等级不再是40，而是int上限
 
 * 类型：`boolean`
 * 默认值：`false`
@@ -371,7 +371,8 @@
 * 选项：`false`，`true`
 * 分类：`CuO`，`SURVIVAL`，`FEATURE`，`NOT_VANILLA`
 ### (主线程区块加载)mainThreadChunkLoading
-让区块在主线程上加载
+让区块生成在主线程上运行（区块数据的读取与解析、光照计算仍在后台线程）
+支持游戏内实时开关；开启后单个 tick 可能要处理完一批生成任务，卡顿/看门狗风险自负
 
 * 类型：`boolean`
 * 默认值：`false`

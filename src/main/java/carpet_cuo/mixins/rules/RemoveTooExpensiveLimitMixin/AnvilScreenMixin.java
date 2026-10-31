@@ -1,4 +1,4 @@
-package carpet_cuo.mixins.rules.RemoveTooExpensiveLimit;
+package carpet_cuo.mixins.rules.RemoveTooExpensiveLimitMixin;
 
 import carpet_cuo.Carpet_CuOSettings;
 import net.minecraft.client.gui.screens.inventory.AnvilScreen;

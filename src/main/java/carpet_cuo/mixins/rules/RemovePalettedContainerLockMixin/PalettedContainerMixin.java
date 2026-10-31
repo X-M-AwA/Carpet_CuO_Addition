@@ -1,4 +1,4 @@
-package carpet_cuo.mixins.rules.RemovePalettedContainerLock;
+package carpet_cuo.mixins.rules.RemovePalettedContainerLockMixin;
 
 import carpet_cuo.Carpet_CuOSettings;
 import net.minecraft.world.level.chunk.PalettedContainer;

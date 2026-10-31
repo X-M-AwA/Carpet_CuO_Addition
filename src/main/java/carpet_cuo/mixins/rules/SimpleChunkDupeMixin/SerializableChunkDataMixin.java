@@ -1,4 +1,4 @@
-package carpet_cuo.mixins.rules.SimpleChunkDupe;
+package carpet_cuo.mixins.rules.SimpleChunkDupeMixin;
 
 import carpet_cuo.Carpet_CuOSettings;
 import com.llamalad7.mixinextras.sugar.Local;
