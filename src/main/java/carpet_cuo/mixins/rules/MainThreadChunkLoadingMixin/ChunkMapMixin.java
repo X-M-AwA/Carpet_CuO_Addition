@@ -1,9 +1,12 @@
 package carpet_cuo.mixins.rules.MainThreadChunkLoadingMixin;
 
+import carpet_cuo.Carpet_CuOSettings;
 import com.llamalad7.mixinextras.sugar.Local;
 import net.minecraft.server.level.ChunkMap;
 import net.minecraft.util.thread.BlockableEventLoop;
+import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 //#if MC >= 12103
 import carpet_cuo.rule.MainThreadChunkLoading.SwitchableExecutor;
@@ -18,13 +21,16 @@ $$*/
 //#else
 /*$$
 import org.spongepowered.asm.mixin.injection.ModifyVariable;
-
 import java.util.concurrent.Executor;
 $$*/
 //#endif
 
 @Mixin(ChunkMap.class)
 public abstract class ChunkMapMixin {
+    @Shadow
+    @Final
+    private BlockableEventLoop<Runnable> mainThreadExecutor;
+
     //#if MC >= 12103
     @ModifyArg(
             method = "<init>",
